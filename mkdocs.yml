@@ -1,5 +1,5 @@
 site_name: DashPad Documentation
-site_url: https://mrchrisneal.github.io/DashPad
+site_url: https://dashpad.neal.media
 
 nav:
   - Home: index.md
