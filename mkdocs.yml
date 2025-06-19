@@ -1,23 +1,52 @@
 site_name: DashPad Documentation
 site_url: https://dashpad.neal.media
+site_description: Modular system monitoring solution for repurposing tablets as dedicated monitoring displays
+
+repo_name: mrchrisneal/DashPad
+repo_url: https://github.com/mrchrisneal/DashPad
+edit_uri: edit/main/docs/
 
 nav:
   - Home: index.md
-  - Architecture:
-    - Overview: architecture/overview.md
-    - Microservices: architecture/microservices.md
-  - Services:
-    - DashPad API: services/dashpad-api/index.md
-    - DashPad Web: services/dashpad-web/index.md
-  - Getting Started: getting-started/index.md
+  - Architecture: architecture.md
+  - DashPad-API:
+    - Overview: api/index.md
+    - Configuration: api/configuration.md
+    - Endpoints: api/endpoints.md
+    - Modules: api/modules.md
+  - DashPad-Web:
+    - Overview: web/index.md
+    - Configuration: web/configuration.md
+  - Deployment:
+    - Docker: deployment/docker.md
+    - Cloud Run: deployment/cloud-run.md
 
 theme:
   name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
     - search.highlight
     - content.code.copy
+    - content.tabs.link
 
 plugins:
   - search
@@ -31,13 +60,21 @@ markdown_extensions:
       permalink: true
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - md_in_html
 
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/mrchrisneal/DashPad-API
-      name: DashPad API Repository
-    - icon: fontawesome/brands/github
-      link: https://github.com/mrchrisneal/DashPad-Web
-      name: DashPad Web Repository
+      link: https://github.com/mrchrisneal/DashPad
+
+copyright: Copyright &copy; 2025 Chris Neal

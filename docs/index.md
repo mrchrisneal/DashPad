@@ -1,17 +1,67 @@
-# Welcome to MkDocs
+# DashPad
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
-## Commands
+## IMPORTANT NOTES
+- DashPad is alpha software in active development, created and maintained by a single hobbyist developer. 
+- This documentation is a work-in-progress and may change significantly.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## What is DashPad?
 
-## Project layout
+DashPad transforms unused tablets into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+### Key Features
+
+- **Real-time Monitoring**: Updates every 2-60 seconds
+- **Tablet Optimized**: Responsive interface designed for iPad and other tablets
+- **Multi-Server Support**: Monitor multiple systems from one dashboard
+- **Modular Design**: Enable only the metrics you need
+- **Lightweight**: Minimal resource usage on both server and tablet
+
+## DashPad is for you if...
+
+- You have old tablets gathering dust
+- You want lightweight system monitoring without a database
+- You prefer simple, visual monitoring displays
+- You run home servers or small infrastructure
+- You value resource efficiency
+- You want at-a-glance system health visibility
+
+## DashPad is NOT for you if...
+
+- You need historical data storage or trending
+- You require complex alerting rules
+- You want a full monitoring stack (use Prometheus/Grafana instead)
+- You need Windows support
+- You require user management or multi-tenancy
+- You need to monitor many dozens of servers 
+
+## Architecture Overview
+
+DashPad consists of two primary microservices:
+
+| Component | Description | Deployment |
+|-----------|-------------|------------|
+| **[DashPad-API](api/index.md)** | Backend data collection service | Local server only |
+| **[DashPad-Web](web/index.md)** | Frontend monitoring interface | Local or cloud |
+
+**Important**: The API container must run directly on the Linux server being monitored, as it requires direct access to system files like `/proc`. Only the Web container can be deployed to the cloud.
+
+## Available Metrics
+
+- **System Metrics**: CPU usage, RAM usage, system uptime
+- **Log Monitoring**: Real-time system log viewing
+- **Scheduled Tasks**: Cron job monitoring
+- **Alerts**: Netdata integration for system alerts
+
+## Documentation
+
+- **[Architecture](architecture.md)** - Technical design overview
+- **[API Configuration](api/configuration.md)** - Backend setup
+- **[Web Configuration](web/configuration.md)** - Frontend setup
+- **[API Reference](api/endpoints.md)** - Endpoint documentation
+
+## Support
+
+- **Documentation**: You're here!
+- **Source Code**: [GitHub Repository](https://github.com/mrchrisneal/DashPad)
