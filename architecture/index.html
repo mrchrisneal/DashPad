@@ -10,26 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://dashpad.neal.media/">
+        <link rel="canonical" href="https://dashpad.neal.media/architecture/">
       
       
+        <link rel="prev" href="..">
       
-        <link rel="next" href="architecture/">
+      
+        <link rel="next" href="../api/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>DashPad Documentation</title>
+        <title>Architecture - DashPad Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dashpad" class="md-skip">
+        <a href="#architecture-overview" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="DashPad Documentation" class="md-header__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
+    <a href=".." title="DashPad Documentation" class="md-header__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Architecture
             
           </span>
         </div>
@@ -217,11 +219,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
         
   
   
@@ -238,9 +238,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -261,7 +263,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../api/" class="md-tabs__link">
           
   
   
@@ -283,7 +285,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="web/" class="md-tabs__link">
+        <a href="../web/" class="md-tabs__link">
           
   
   
@@ -305,7 +307,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="deployment/docker/" class="md-tabs__link">
+        <a href="../deployment/docker/" class="md-tabs__link">
           
   
   
@@ -341,7 +343,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="DashPad Documentation" class="md-nav__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
+    <a href=".." title="DashPad Documentation" class="md-nav__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -368,6 +370,28 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -385,7 +409,7 @@
   
   
   <span class="md-ellipsis">
-    Home
+    Architecture
     
   </span>
   
@@ -393,12 +417,12 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
-    Home
+    Architecture
     
   </span>
   
@@ -421,28 +445,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
+  <a href="#system-design" class="md-nav__link">
     <span class="md-ellipsis">
-      IMPORTANT NOTES
+      System Design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-dashpad" class="md-nav__link">
+  <a href="#dashpad-api-architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      What is DashPad?
+      DashPad-API Architecture
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is DashPad?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashpad-web-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      DashPad-Web Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#data-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      Data Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Server Architecture
     </span>
   </a>
   
@@ -454,56 +505,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dashpad-is-for-you-if" class="md-nav__link">
+  <a href="#design-principles" class="md-nav__link">
     <span class="md-ellipsis">
-      DashPad is for you if...
+      Design Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dashpad-is-not-for-you-if" class="md-nav__link">
-    <span class="md-ellipsis">
-      DashPad is NOT for you if...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available Metrics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -511,28 +532,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Architecture
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -575,7 +574,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="api/" class="md-nav__link ">
+            <a href="../api/" class="md-nav__link ">
               
   
   
@@ -610,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/configuration/" class="md-nav__link">
+      <a href="../api/configuration/" class="md-nav__link">
         
   
   
@@ -633,7 +632,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/endpoints/" class="md-nav__link">
+      <a href="../api/endpoints/" class="md-nav__link">
         
   
   
@@ -656,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/modules/" class="md-nav__link">
+      <a href="../api/modules/" class="md-nav__link">
         
   
   
@@ -713,7 +712,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="web/" class="md-nav__link ">
+            <a href="../web/" class="md-nav__link ">
               
   
   
@@ -748,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="web/configuration/" class="md-nav__link">
+      <a href="../web/configuration/" class="md-nav__link">
         
   
   
@@ -829,7 +828,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/docker/" class="md-nav__link">
+      <a href="../deployment/docker/" class="md-nav__link">
         
   
   
@@ -852,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/cloud-run/" class="md-nav__link">
+      <a href="../deployment/cloud-run/" class="md-nav__link">
         
   
   
@@ -902,28 +901,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
+  <a href="#system-design" class="md-nav__link">
     <span class="md-ellipsis">
-      IMPORTANT NOTES
+      System Design
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-dashpad" class="md-nav__link">
+  <a href="#dashpad-api-architecture" class="md-nav__link">
     <span class="md-ellipsis">
-      What is DashPad?
+      DashPad-API Architecture
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is DashPad?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dashpad-web-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      DashPad-Web Architecture
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Flow
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Flow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#data-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      Data Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-server-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Multi-Server Architecture
     </span>
   </a>
   
@@ -935,56 +961,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dashpad-is-for-you-if" class="md-nav__link">
+  <a href="#design-principles" class="md-nav__link">
     <span class="md-ellipsis">
-      DashPad is for you if...
+      Design Principles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design Principles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#separation-of-concerns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Separation of Concerns
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#dashpad-is-not-for-you-if" class="md-nav__link">
-    <span class="md-ellipsis">
-      DashPad is NOT for you if...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available Metrics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1007,84 +1003,79 @@
   
 
 
-<h1 id="dashpad">DashPad<a class="headerlink" href="#dashpad" title="Permanent link">&para;</a></h1>
-<p>A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.</p>
-<h2 id="important-notes">IMPORTANT NOTES<a class="headerlink" href="#important-notes" title="Permanent link">&para;</a></h2>
+<h1 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h1>
+<p>DashPad implements a clean microservices architecture with two distinct components designed for different deployment scenarios.</p>
+<h2 id="system-design">System Design<a class="headerlink" href="#system-design" title="Permanent link">&para;</a></h2>
+<p>DashPad uses a two-container architecture:</p>
 <ul>
-<li>DashPad is alpha software in active development, created and maintained by a single hobbyist developer. </li>
-<li>This documentation is a work-in-progress and may change significantly.</li>
+<li><strong>DashPad-API</strong>: Runs on the server being monitored, collects system metrics</li>
+<li><strong>DashPad-Web</strong>: Can run anywhere, displays the collected metrics</li>
 </ul>
-<h2 id="what-is-dashpad">What is DashPad?<a class="headerlink" href="#what-is-dashpad" title="Permanent link">&para;</a></h2>
-<p>DashPad transforms unused tablets into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.</p>
-<h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Real-time Monitoring</strong>: Updates every 2-60 seconds</li>
-<li><strong>Tablet Optimized</strong>: Responsive interface designed for iPad and other tablets</li>
-<li><strong>Multi-Server Support</strong>: Monitor multiple systems from one dashboard</li>
-<li><strong>Modular Design</strong>: Enable only the metrics you need</li>
-<li><strong>Lightweight</strong>: Minimal resource usage on both server and tablet</li>
-</ul>
-<h2 id="dashpad-is-for-you-if">DashPad is for you if...<a class="headerlink" href="#dashpad-is-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You have old tablets gathering dust</li>
-<li>You want lightweight system monitoring without a database</li>
-<li>You prefer simple, visual monitoring displays</li>
-<li>You run home servers or small infrastructure</li>
-<li>You value resource efficiency</li>
-<li>You want at-a-glance system health visibility</li>
-</ul>
-<h2 id="dashpad-is-not-for-you-if">DashPad is NOT for you if...<a class="headerlink" href="#dashpad-is-not-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You need historical data storage or trending</li>
-<li>You require complex alerting rules</li>
-<li>You want a full monitoring stack (use Prometheus/Grafana instead)</li>
-<li>You need Windows support</li>
-<li>You require user management or multi-tenancy</li>
-<li>You need to monitor many dozens of servers </li>
-</ul>
-<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
-<p>DashPad consists of two primary microservices:</p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Description</th>
-<th>Deployment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><a href="api/">DashPad-API</a></strong></td>
-<td>Backend data collection service</td>
-<td>Local server only</td>
-</tr>
-<tr>
-<td><strong><a href="web/">DashPad-Web</a></strong></td>
-<td>Frontend monitoring interface</td>
-<td>Local or cloud</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Important</strong>: The API container must run directly on the Linux server being monitored, as it requires direct access to system files like <code>/proc</code>. Only the Web container can be deployed to the cloud.</p>
-<h2 id="available-metrics">Available Metrics<a class="headerlink" href="#available-metrics" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>System Metrics</strong>: CPU usage, RAM usage, system uptime</li>
-<li><strong>Log Monitoring</strong>: Real-time system log viewing</li>
-<li><strong>Scheduled Tasks</strong>: Cron job monitoring</li>
-<li><strong>Alerts</strong>: Netdata integration for system alerts</li>
-</ul>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="architecture/">Architecture</a></strong> - Technical design overview</li>
-<li><strong><a href="api/configuration/">API Configuration</a></strong> - Backend setup</li>
-<li><strong><a href="web/configuration/">Web Configuration</a></strong> - Frontend setup</li>
-<li><strong><a href="api/endpoints/">API Reference</a></strong> - Endpoint documentation</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Documentation</strong>: You're here!</li>
-<li><strong>Source Code</strong>: <a href="https://github.com/mrchrisneal/DashPad">GitHub Repository</a></li>
-</ul>
+<p>The API container MUST run directly on the Linux server because it needs direct access to system files like <code>/proc</code>, <code>/sys</code>, and log files. The Web container connects to one or more API containers to display data.</p>
+<h2 id="dashpad-api-architecture">DashPad-API Architecture<a class="headerlink" href="#dashpad-api-architecture" title="Permanent link">&para;</a></h2>
+<p><strong>Technology Stack</strong>: FastAPI, Python 3.9+</p>
+<p><strong>Key Responsibilities</strong>:
+- System metrics collection from multiple sources
+- Data caching for efficiency
+- RESTful API endpoints
+- Modular metric collection system</p>
+<p><strong>Resource Usage</strong>: ~50MB RAM steady state</p>
+<p>The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a separate module with its own collection logic.</p>
+<h2 id="dashpad-web-architecture">DashPad-Web Architecture<a class="headerlink" href="#dashpad-web-architecture" title="Permanent link">&para;</a></h2>
+<p><strong>Technology Stack</strong>: Svelte 5, NGINX</p>
+<p><strong>Key Responsibilities</strong>:
+- Responsive tablet-optimized interface
+- Real-time data visualization
+- Local settings management via localStorage
+- Multi-server dashboard coordination</p>
+<p><strong>Resource Usage</strong>: ~19MB RAM</p>
+<p>The Web interface polls the API at regular intervals and displays the data using a unified module system.</p>
+<h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Metric Collection</strong>: API reads system data from sources (direct file reading or Netdata API)</li>
+<li><strong>Data Processing</strong>: Raw data is processed and status is evaluated against thresholds</li>
+<li><strong>Caching</strong>: Processed data is cached to reduce system load</li>
+<li><strong>API Response</strong>: Data is formatted and returned via RESTful endpoints</li>
+<li><strong>Frontend Polling</strong>: Web interface requests data at configured intervals</li>
+<li><strong>Display Update</strong>: UI updates with new data and visual status indicators</li>
+</ol>
+<h3 id="data-sources">Data Sources<a class="headerlink" href="#data-sources" title="Permanent link">&para;</a></h3>
+<p>The API supports multiple data sources with automatic fallback:
+- <strong>Direct</strong>: Reads directly from <code>/proc</code>, <code>/sys</code>, and log files
+- <strong>Netdata</strong>: Queries the Netdata API if available
+- <strong>Cache</strong>: Returns cached data if sources are temporarily unavailable</p>
+<h3 id="multi-server-architecture">Multi-Server Architecture<a class="headerlink" href="#multi-server-architecture" title="Permanent link">&para;</a></h3>
+<p>DashPad supports monitoring multiple servers from a single Web interface:</p>
+<div class="highlight"><pre><span></span><code>┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Server 1   │     │  Server 2   │     │  Server 3   │
+│ DashPad-API │     │ DashPad-API │     │ DashPad-API │
+└──────┬──────┘     └──────┬──────┘     └──────┬──────┘
+       │                   │                   │
+       └───────────────────┴───────────────────┘
+                           │
+                    ┌──────┴──────┐
+                    │ DashPad-Web │
+                    │  (Central)  │
+                    └─────────────┘
+                           │
+                    ┌──────┴──────┐
+                    │   Tablets   │
+                    └─────────────┘
+</code></pre></div>
+<p>Each server runs its own API container, and one central Web container connects to all of them.</p>
+<h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
+<h3 id="separation-of-concerns">Separation of Concerns<a class="headerlink" href="#separation-of-concerns" title="Permanent link">&para;</a></h3>
+<p><strong>Backend Controls</strong>:
+- WHAT data is collected
+- Collection intervals and sources
+- Alert thresholds and business logic
+- System configuration and access</p>
+<p><strong>Frontend Controls</strong>:
+- HOW data is displayed
+- Dashboard layout and positioning
+- UI preferences and behavior
+- Which servers to monitor</p>
+<p>This separation ensures the API remains authoritative for data while the frontend handles presentation, making the system flexible and maintainable.</p>
 
 
 
@@ -1181,10 +1172,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>

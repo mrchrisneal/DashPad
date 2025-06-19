@@ -5,23 +5,39 @@
          <lastmod>2025-06-19</lastmod>
     </url>
     <url>
-         <loc>https://dashpad.neal.media/architecture/microservices/</loc>
+         <loc>https://dashpad.neal.media/architecture/</loc>
          <lastmod>2025-06-19</lastmod>
     </url>
     <url>
-         <loc>https://dashpad.neal.media/architecture/overview/</loc>
+         <loc>https://dashpad.neal.media/api/</loc>
          <lastmod>2025-06-19</lastmod>
     </url>
     <url>
-         <loc>https://dashpad.neal.media/getting-started/</loc>
+         <loc>https://dashpad.neal.media/api/configuration/</loc>
          <lastmod>2025-06-19</lastmod>
     </url>
     <url>
-         <loc>https://dashpad.neal.media/services/dashpad-api/</loc>
+         <loc>https://dashpad.neal.media/api/endpoints/</loc>
          <lastmod>2025-06-19</lastmod>
     </url>
     <url>
-         <loc>https://dashpad.neal.media/services/dashpad-web/</loc>
+         <loc>https://dashpad.neal.media/api/modules/</loc>
+         <lastmod>2025-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://dashpad.neal.media/deployment/cloud-run/</loc>
+         <lastmod>2025-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://dashpad.neal.media/deployment/docker/</loc>
+         <lastmod>2025-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://dashpad.neal.media/web/</loc>
+         <lastmod>2025-06-19</lastmod>
+    </url>
+    <url>
+         <loc>https://dashpad.neal.media/web/configuration/</loc>
          <lastmod>2025-06-19</lastmod>
     </url>
 </urlset>

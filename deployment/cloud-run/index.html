@@ -10,26 +10,26 @@
       
       
       
-        <link rel="canonical" href="https://dashpad.neal.media/">
+        <link rel="canonical" href="https://dashpad.neal.media/deployment/cloud-run/">
+      
+      
+        <link rel="prev" href="../docker/">
       
       
       
-        <link rel="next" href="architecture/">
-      
-      
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>DashPad Documentation</title>
+        <title>Cloud Run - DashPad Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dashpad" class="md-skip">
+        <a href="#google-cloud-run-deployment" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="DashPad Documentation" class="md-header__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation" class="md-header__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Cloud Run
             
           </span>
         </div>
@@ -217,11 +217,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -240,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="architecture/" class="md-tabs__link">
+      <a href="../../architecture/" class="md-tabs__link">
         
   
   
@@ -261,7 +259,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="api/" class="md-tabs__link">
+        <a href="../../api/" class="md-tabs__link">
           
   
   
@@ -283,7 +281,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="web/" class="md-tabs__link">
+        <a href="../../web/" class="md-tabs__link">
           
   
   
@@ -301,11 +299,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="deployment/docker/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../docker/" class="md-tabs__link">
           
   
   
@@ -341,7 +341,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="DashPad Documentation" class="md-nav__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation" class="md-nav__button md-logo" aria-label="DashPad Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -368,32 +368,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -404,113 +382,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      IMPORTANT NOTES
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-dashpad" class="md-nav__link">
-    <span class="md-ellipsis">
-      What is DashPad?
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="What is DashPad?">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Features
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dashpad-is-for-you-if" class="md-nav__link">
-    <span class="md-ellipsis">
-      DashPad is for you if...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dashpad-is-not-for-you-if" class="md-nav__link">
-    <span class="md-ellipsis">
-      DashPad is NOT for you if...
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#available-metrics" class="md-nav__link">
-    <span class="md-ellipsis">
-      Available Metrics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -522,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -575,7 +446,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="api/" class="md-nav__link ">
+            <a href="../../api/" class="md-nav__link ">
               
   
   
@@ -610,7 +481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/configuration/" class="md-nav__link">
+      <a href="../../api/configuration/" class="md-nav__link">
         
   
   
@@ -633,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/endpoints/" class="md-nav__link">
+      <a href="../../api/endpoints/" class="md-nav__link">
         
   
   
@@ -656,7 +527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="api/modules/" class="md-nav__link">
+      <a href="../../api/modules/" class="md-nav__link">
         
   
   
@@ -713,7 +584,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="web/" class="md-nav__link ">
+            <a href="../../web/" class="md-nav__link ">
               
   
   
@@ -748,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="web/configuration/" class="md-nav__link">
+      <a href="../../web/configuration/" class="md-nav__link">
         
   
   
@@ -775,8 +646,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -788,21 +661,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -815,7 +689,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             Deployment
@@ -829,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         
   
   
@@ -849,10 +723,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="deployment/cloud-run/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Cloud Run
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -863,6 +759,155 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#important-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Important Note
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-up-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set Up Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-build-and-deploy-web-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Build and Deploy Web Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure Environment Variables
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-domain-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Domain (Optional)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -902,28 +947,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important-notes" class="md-nav__link">
+  <a href="#important-note" class="md-nav__link">
     <span class="md-ellipsis">
-      IMPORTANT NOTES
+      Important Note
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-dashpad" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      What is DashPad?
+      Prerequisites
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="What is DashPad?">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployment Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Steps">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#1-set-up-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      1. Set Up Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-build-and-deploy-web-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Build and Deploy Web Container
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Configure Environment Variables
     </span>
   </a>
   
@@ -935,54 +1007,69 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dashpad-is-for-you-if" class="md-nav__link">
+  <a href="#custom-domain-optional" class="md-nav__link">
     <span class="md-ellipsis">
-      DashPad is for you if...
+      Custom Domain (Optional)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dashpad-is-not-for-you-if" class="md-nav__link">
+  <a href="#security-considerations" class="md-nav__link">
     <span class="md-ellipsis">
-      DashPad is NOT for you if...
+      Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Access
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost Optimization
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture-overview" class="md-nav__link">
+  <a href="#updating" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture Overview
+      Updating
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-metrics" class="md-nav__link">
+  <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      Available Metrics
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Documentation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Support
+      Next Steps
     </span>
   </a>
   
@@ -1007,83 +1094,89 @@
   
 
 
-<h1 id="dashpad">DashPad<a class="headerlink" href="#dashpad" title="Permanent link">&para;</a></h1>
-<p>A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.</p>
-<h2 id="important-notes">IMPORTANT NOTES<a class="headerlink" href="#important-notes" title="Permanent link">&para;</a></h2>
+<h1 id="google-cloud-run-deployment">Google Cloud Run Deployment<a class="headerlink" href="#google-cloud-run-deployment" title="Permanent link">&para;</a></h1>
+<p>Deploy the DashPad Web container to Google Cloud Run for cloud-based dashboard access.</p>
+<h2 id="important-note">Important Note<a class="headerlink" href="#important-note" title="Permanent link">&para;</a></h2>
+<p>⚠️ <strong>Only the Web container can be deployed to Cloud Run.</strong> The API container must run on your actual servers because it needs direct filesystem access.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>DashPad is alpha software in active development, created and maintained by a single hobbyist developer. </li>
-<li>This documentation is a work-in-progress and may change significantly.</li>
+<li>Google Cloud account with billing enabled</li>
+<li><code>gcloud</code> CLI installed</li>
+<li>API containers running on your servers</li>
+<li>Domain name (optional)</li>
 </ul>
-<h2 id="what-is-dashpad">What is DashPad?<a class="headerlink" href="#what-is-dashpad" title="Permanent link">&para;</a></h2>
-<p>DashPad transforms unused tablets into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.</p>
-<h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
+<h2 id="deployment-steps">Deployment Steps<a class="headerlink" href="#deployment-steps" title="Permanent link">&para;</a></h2>
+<h3 id="1-set-up-project">1. Set Up Project<a class="headerlink" href="#1-set-up-project" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set project variables</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">&quot;your-project-id&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">REGION</span><span class="o">=</span><span class="s2">&quot;us-central1&quot;</span>
+
+<span class="c1"># Enable required APIs</span>
+gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>run.googleapis.com
+</code></pre></div>
+<h3 id="2-build-and-deploy-web-container">2. Build and Deploy Web Container<a class="headerlink" href="#2-build-and-deploy-web-container" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mrchrisneal/DashPad-Web
+<span class="nb">cd</span><span class="w"> </span>DashPad-Web
+
+<span class="c1"># Build and submit to Cloud Build</span>
+gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
+
+<span class="c1"># Deploy to Cloud Run</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--image<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--platform<span class="w"> </span>managed<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span><span class="nv">$REGION</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--allow-unauthenticated<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;DASHPAD_SERVERS=http://your-server:8000|Server Name&quot;</span>
+</code></pre></div>
+<h3 id="3-configure-environment-variables">3. Configure Environment Variables<a class="headerlink" href="#3-configure-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Set your server configurations when deploying:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Single server</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Home Server,SERVER1_URL=https://your-server:5555,SERVER1_KEY=your-api-key,SERVER1_SSLFINGERPRINT=your-ssl-fingerprint&quot;</span>
+
+<span class="c1"># Multiple servers</span>
+gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Server 1,SERVER1_URL=https://server1:5555,SERVER1_KEY=key1,SERVER1_SSLFINGERPRINT=fp1,SERVER2_NAME=Server 2,SERVER2_URL=https://server2:5555,SERVER2_KEY=key2,SERVER2_SSLFINGERPRINT=fp2&quot;</span>
+</code></pre></div>
+<h2 id="custom-domain-optional">Custom Domain (Optional)<a class="headerlink" href="#custom-domain-optional" title="Permanent link">&para;</a></h2>
+<p>Map a custom domain:</p>
+<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>domain-mappings<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--service<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--domain<span class="w"> </span>your-domain.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--region<span class="w"> </span><span class="nv">$REGION</span>
+</code></pre></div>
+<p>Update DNS records as instructed.</p>
+<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
+<p>Your API containers must be accessible from Cloud Run:
+- Use public IPs with strong API keys
+- Set up Cloud VPN for private access
+- Use a reverse proxy with authentication</p>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
+<p>The Web container includes basic authentication:</p>
+<div class="highlight"><pre><span></span><code>--set-env-vars<span class="w"> </span><span class="s2">&quot;AUTH_USERNAME=admin,AUTH_PASSWORD=secure-password&quot;</span>
+</code></pre></div>
+<p>API authentication is handled via individual API keys per server.</p>
+<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
+<p>Cloud Run bills per request and compute time:
+- Set minimum instances to 0
+- Use appropriate memory allocation (128MB usually sufficient)
+- Consider using Cloud CDN for static assets</p>
+<p>Typical cost: ~$0.35/month for light usage</p>
+<h2 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h2>
+<p>To update the deployed container:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Rebuild and deploy</span>
+gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
+gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span>--image<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
+</code></pre></div>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Real-time Monitoring</strong>: Updates every 2-60 seconds</li>
-<li><strong>Tablet Optimized</strong>: Responsive interface designed for iPad and other tablets</li>
-<li><strong>Multi-Server Support</strong>: Monitor multiple systems from one dashboard</li>
-<li><strong>Modular Design</strong>: Enable only the metrics you need</li>
-<li><strong>Lightweight</strong>: Minimal resource usage on both server and tablet</li>
-</ul>
-<h2 id="dashpad-is-for-you-if">DashPad is for you if...<a class="headerlink" href="#dashpad-is-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You have old tablets gathering dust</li>
-<li>You want lightweight system monitoring without a database</li>
-<li>You prefer simple, visual monitoring displays</li>
-<li>You run home servers or small infrastructure</li>
-<li>You value resource efficiency</li>
-<li>You want at-a-glance system health visibility</li>
-</ul>
-<h2 id="dashpad-is-not-for-you-if">DashPad is NOT for you if...<a class="headerlink" href="#dashpad-is-not-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You need historical data storage or trending</li>
-<li>You require complex alerting rules</li>
-<li>You want a full monitoring stack (use Prometheus/Grafana instead)</li>
-<li>You need Windows support</li>
-<li>You require user management or multi-tenancy</li>
-<li>You need to monitor many dozens of servers </li>
-</ul>
-<h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
-<p>DashPad consists of two primary microservices:</p>
-<table>
-<thead>
-<tr>
-<th>Component</th>
-<th>Description</th>
-<th>Deployment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong><a href="api/">DashPad-API</a></strong></td>
-<td>Backend data collection service</td>
-<td>Local server only</td>
-</tr>
-<tr>
-<td><strong><a href="web/">DashPad-Web</a></strong></td>
-<td>Frontend monitoring interface</td>
-<td>Local or cloud</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Important</strong>: The API container must run directly on the Linux server being monitored, as it requires direct access to system files like <code>/proc</code>. Only the Web container can be deployed to the cloud.</p>
-<h2 id="available-metrics">Available Metrics<a class="headerlink" href="#available-metrics" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>System Metrics</strong>: CPU usage, RAM usage, system uptime</li>
-<li><strong>Log Monitoring</strong>: Real-time system log viewing</li>
-<li><strong>Scheduled Tasks</strong>: Cron job monitoring</li>
-<li><strong>Alerts</strong>: Netdata integration for system alerts</li>
-</ul>
-<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><a href="architecture/">Architecture</a></strong> - Technical design overview</li>
-<li><strong><a href="api/configuration/">API Configuration</a></strong> - Backend setup</li>
-<li><strong><a href="web/configuration/">Web Configuration</a></strong> - Frontend setup</li>
-<li><strong><a href="api/endpoints/">API Reference</a></strong> - Endpoint documentation</li>
-</ul>
-<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Documentation</strong>: You're here!</li>
-<li><strong>Source Code</strong>: <a href="https://github.com/mrchrisneal/DashPad">GitHub Repository</a></li>
+<li>Ensure your API containers are accessible</li>
+<li>Configure authentication on both API and Web</li>
+<li>Set up monitoring for the Cloud Run service</li>
 </ul>
 
 
@@ -1181,10 +1274,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   </body>
