@@ -1,1 +1,43 @@
-site_name: DashPad Docs
+site_name: DashPad Documentation
+site_url: https://mrchrisneal.github.io/DashPad
+
+nav:
+  - Home: index.md
+  - Architecture:
+    - Overview: architecture/overview.md
+    - Microservices: architecture/microservices.md
+  - Services:
+    - DashPad API: services/dashpad-api/index.md
+    - DashPad Web: services/dashpad-web/index.md
+  - Getting Started: getting-started/index.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      fallback_to_build_date: true
+
+markdown_extensions:
+  - codehilite
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mrchrisneal/DashPad-API
+      name: DashPad API Repository
+    - icon: fontawesome/brands/github
+      link: https://github.com/mrchrisneal/DashPad-Web
+      name: DashPad Web Repository
