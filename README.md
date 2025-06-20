@@ -1,6 +1,16 @@
 # DashPad Documentation
 
-Documentation for the DashPad microservices architecture.
+Documentation for the DashPad microservices architecture. 
+
+## 🚧 Project Status
+
+**DashPad is currently in pre-release development.** This project is actively maintained by a single developer and is not yet ready for public use. Please expect:
+
+- Frequent changes to code and documentation
+- Potential bugs and incomplete features  
+- Documentation that may be outdated or incomplete
+
+Public release is planned following bug fixes and documentation completion.
 
 ## Architecture
 
