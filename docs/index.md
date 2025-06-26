@@ -2,13 +2,15 @@
 
 A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
-## IMPORTANT NOTES
-- DashPad is alpha software in active development, created and maintained by a single hobbyist developer. 
+## IMPORTANT NOTICE
+- DashPad is *alpha software* in active development, created and maintained by a single hobbyist developer. 
 - This documentation is a work-in-progress and may change significantly.
 
 ## What is DashPad?
 
-DashPad transforms unused tablets into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.
+DashPad transforms old, unused tablets (namely iPads) into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.
+
+DashPad traces its origins to 2024 as a basic, single-container solution to monitor unRAID server metrics in near-real-time. The project saw major development in mid-2025 where it was used as part of an educational project. 
 
 ### Key Features
 
@@ -31,10 +33,11 @@ DashPad transforms unused tablets into real-time system monitoring displays for 
 
 - You need historical data storage or trending
 - You require complex alerting rules
-- You want a full monitoring stack (use Prometheus/Grafana instead)
+- You want a full monitoring stack
 - You need Windows support
 - You require user management or multi-tenancy
 - You need to monitor many dozens of servers 
+- You're uncomfortable leaving electronics on and plugged in constantly
 
 ## Architecture Overview
 

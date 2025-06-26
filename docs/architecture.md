@@ -6,7 +6,7 @@ DashPad implements a clean microservices architecture with two distinct componen
 
 DashPad uses a two-container architecture:
 
-- **DashPad-API**: Runs on the server being monitored, collects system metrics
+- **DashPad-API**: Runs on the (Linux-based) server being monitored, collects system metrics
 - **DashPad-Web**: Can run anywhere, displays the collected metrics
 
 The API container MUST run directly on the Linux server because it needs direct access to system files like `/proc`, `/sys`, and log files. The Web container connects to one or more API containers to display data.
@@ -16,6 +16,7 @@ The API container MUST run directly on the Linux server because it needs direct 
 **Technology Stack**: FastAPI, Python 3.9+
 
 **Key Responsibilities**:
+
 - System metrics collection from multiple sources
 - Data caching for efficiency
 - RESTful API endpoints
@@ -30,6 +31,7 @@ The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a
 **Technology Stack**: Svelte 5, NGINX
 
 **Key Responsibilities**:
+
 - Responsive tablet-optimized interface
 - Real-time data visualization
 - Local settings management via localStorage
@@ -51,9 +53,9 @@ The Web interface polls the API at regular intervals and displays the data using
 ### Data Sources
 
 The API supports multiple data sources with automatic fallback:
+
 - **Direct**: Reads directly from `/proc`, `/sys`, and log files
 - **Netdata**: Queries the Netdata API if available
-- **Cache**: Returns cached data if sources are temporarily unavailable
 
 ### Multi-Server Architecture
 
@@ -84,12 +86,14 @@ Each server runs its own API container, and one central Web container connects t
 ### Separation of Concerns
 
 **Backend Controls**:
+
 - WHAT data is collected
 - Collection intervals and sources
 - Alert thresholds and business logic
 - System configuration and access
 
 **Frontend Controls**:
+
 - HOW data is displayed
 - Dashboard layout and positioning
 - UI preferences and behavior

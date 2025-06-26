@@ -5,9 +5,10 @@ The DashPad API is a FastAPI-based backend service that collects system metrics 
 ## Important Deployment Note
 
 ⚠️ **The API container MUST run directly on the server being monitored.** It cannot be deployed to cloud services like Google Cloud Run because it requires:
+
 - Direct access to `/proc` and `/sys` filesystems
 - Local file system access for logs
-- Host networking for system metric collection
+- Host networking to gather network information (planned feature)
 
 Only deploy the API container on the actual Linux server you want to monitor.
 
@@ -48,10 +49,10 @@ modules/
 
 ### Data Sources
 
-The API tries multiple sources in order:
-1. **Direct** - Read from system files
-2. **Netdata** - Query Netdata API if available
-3. **Cache** - Return cached data if sources fail
+The API tries to query one or more sources in the order they are specified within `settings.json`, including:
+
+- **Direct** - Read from system files
+- **Netdata** - Query Netdata API if available
 
 ## Quick Start
 
@@ -71,15 +72,17 @@ docker run -d \
 
 ### Basic Usage
 
+By default, a valid API key MUST be passed to the API in either an HTTP header or as a URL parameter (?apikey=your-api-key). Both examples are included below:
+
 ```bash
 # Check health
-curl -k https://localhost:5555/health
+curl -k https://localhost:5555/health?apikey=your-api-key
 
 # Get all metrics (with API key)
 curl -k -H "X-API-Key: your-api-key" https://localhost:5555/metrics
 
 # View interactive docs
-open https://localhost:5555/docs
+open https://localhost:5555/docs?apikey=your-api-key
 ```
 
 Note: The `-k` flag is used to accept self-signed certificates.
@@ -87,6 +90,7 @@ Note: The `-k` flag is used to accept self-signed certificates.
 ## Configuration
 
 The API is configured via `settings.json`. Key sections:
+
 - **Metrics**: Which modules to enable
 - **Thresholds**: Warning and critical limits
 - **Update intervals**: How often to collect data
