@@ -928,10 +928,12 @@
 <h1 id="dashpad-api-overview">DashPad API Overview<a class="headerlink" href="#dashpad-api-overview" title="Permanent link">&para;</a></h1>
 <p>The DashPad API is a FastAPI-based backend service that collects system metrics directly from the Linux server it runs on.</p>
 <h2 id="important-deployment-note">Important Deployment Note<a class="headerlink" href="#important-deployment-note" title="Permanent link">&para;</a></h2>
-<p>⚠️ <strong>The API container MUST run directly on the server being monitored.</strong> It cannot be deployed to cloud services like Google Cloud Run because it requires:
-- Direct access to <code>/proc</code> and <code>/sys</code> filesystems
-- Local file system access for logs
-- Host networking for system metric collection</p>
+<p>⚠️ <strong>The API container MUST run directly on the server being monitored.</strong> It cannot be deployed to cloud services like Google Cloud Run because it requires:</p>
+<ul>
+<li>Direct access to <code>/proc</code> and <code>/sys</code> filesystems</li>
+<li>Local file system access for logs</li>
+<li>Host networking to gather network information (planned feature)</li>
+</ul>
 <p>Only deploy the API container on the actual Linux server you want to monitor.</p>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
@@ -959,10 +961,11 @@
 └── alerts/
 </code></pre></div>
 <h3 id="data-sources">Data Sources<a class="headerlink" href="#data-sources" title="Permanent link">&para;</a></h3>
-<p>The API tries multiple sources in order:
-1. <strong>Direct</strong> - Read from system files
-2. <strong>Netdata</strong> - Query Netdata API if available
-3. <strong>Cache</strong> - Return cached data if sources fail</p>
+<p>The API tries to query one or more sources in the order they are specified within <code>settings.json</code>, including:</p>
+<ul>
+<li><strong>Direct</strong> - Read from system files</li>
+<li><strong>Netdata</strong> - Query Netdata API if available</li>
+</ul>
 <h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
 <h3 id="running-locally">Running Locally<a class="headerlink" href="#running-locally" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># With Docker</span>
@@ -976,21 +979,24 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <span class="w">  </span>ghcr.io/mrchrisneal/dashpad-api:latest
 </code></pre></div>
 <h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
+<p>By default, a valid API key MUST be passed to the API in either an HTTP header or as a URL parameter (?apikey=your-api-key). Both examples are included below:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check health</span>
-curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5555/health
+curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5555/health?apikey<span class="o">=</span>your-api-key
 
 <span class="c1"># Get all metrics (with API key)</span>
 curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5555/metrics
 
 <span class="c1"># View interactive docs</span>
-open<span class="w"> </span>https://localhost:5555/docs
+open<span class="w"> </span>https://localhost:5555/docs?apikey<span class="o">=</span>your-api-key
 </code></pre></div>
 <p>Note: The <code>-k</code> flag is used to accept self-signed certificates.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>The API is configured via <code>settings.json</code>. Key sections:
-- <strong>Metrics</strong>: Which modules to enable
-- <strong>Thresholds</strong>: Warning and critical limits
-- <strong>Update intervals</strong>: How often to collect data</p>
+<p>The API is configured via <code>settings.json</code>. Key sections:</p>
+<ul>
+<li><strong>Metrics</strong>: Which modules to enable</li>
+<li><strong>Thresholds</strong>: Warning and critical limits</li>
+<li><strong>Update intervals</strong>: How often to collect data</li>
+</ul>
 <p>See <a href="configuration/">Configuration Reference</a> for details.</p>
 <h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1031,7 +1037,7 @@ open<span class="w"> </span>https://localhost:5555/docs
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 19, 2025 20:54:27 UTC">June 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2025 21:37:40 UTC">June 26, 2025</span>
   </span>
 
     

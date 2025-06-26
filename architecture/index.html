@@ -1008,26 +1008,30 @@
 <h2 id="system-design">System Design<a class="headerlink" href="#system-design" title="Permanent link">&para;</a></h2>
 <p>DashPad uses a two-container architecture:</p>
 <ul>
-<li><strong>DashPad-API</strong>: Runs on the server being monitored, collects system metrics</li>
+<li><strong>DashPad-API</strong>: Runs on the (Linux-based) server being monitored, collects system metrics</li>
 <li><strong>DashPad-Web</strong>: Can run anywhere, displays the collected metrics</li>
 </ul>
 <p>The API container MUST run directly on the Linux server because it needs direct access to system files like <code>/proc</code>, <code>/sys</code>, and log files. The Web container connects to one or more API containers to display data.</p>
 <h2 id="dashpad-api-architecture">DashPad-API Architecture<a class="headerlink" href="#dashpad-api-architecture" title="Permanent link">&para;</a></h2>
 <p><strong>Technology Stack</strong>: FastAPI, Python 3.9+</p>
-<p><strong>Key Responsibilities</strong>:
-- System metrics collection from multiple sources
-- Data caching for efficiency
-- RESTful API endpoints
-- Modular metric collection system</p>
+<p><strong>Key Responsibilities</strong>:</p>
+<ul>
+<li>System metrics collection from multiple sources</li>
+<li>Data caching for efficiency</li>
+<li>RESTful API endpoints</li>
+<li>Modular metric collection system</li>
+</ul>
 <p><strong>Resource Usage</strong>: ~50MB RAM steady state</p>
 <p>The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a separate module with its own collection logic.</p>
 <h2 id="dashpad-web-architecture">DashPad-Web Architecture<a class="headerlink" href="#dashpad-web-architecture" title="Permanent link">&para;</a></h2>
 <p><strong>Technology Stack</strong>: Svelte 5, NGINX</p>
-<p><strong>Key Responsibilities</strong>:
-- Responsive tablet-optimized interface
-- Real-time data visualization
-- Local settings management via localStorage
-- Multi-server dashboard coordination</p>
+<p><strong>Key Responsibilities</strong>:</p>
+<ul>
+<li>Responsive tablet-optimized interface</li>
+<li>Real-time data visualization</li>
+<li>Local settings management via localStorage</li>
+<li>Multi-server dashboard coordination</li>
+</ul>
 <p><strong>Resource Usage</strong>: ~19MB RAM</p>
 <p>The Web interface polls the API at regular intervals and displays the data using a unified module system.</p>
 <h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
@@ -1040,10 +1044,11 @@
 <li><strong>Display Update</strong>: UI updates with new data and visual status indicators</li>
 </ol>
 <h3 id="data-sources">Data Sources<a class="headerlink" href="#data-sources" title="Permanent link">&para;</a></h3>
-<p>The API supports multiple data sources with automatic fallback:
-- <strong>Direct</strong>: Reads directly from <code>/proc</code>, <code>/sys</code>, and log files
-- <strong>Netdata</strong>: Queries the Netdata API if available
-- <strong>Cache</strong>: Returns cached data if sources are temporarily unavailable</p>
+<p>The API supports multiple data sources with automatic fallback:</p>
+<ul>
+<li><strong>Direct</strong>: Reads directly from <code>/proc</code>, <code>/sys</code>, and log files</li>
+<li><strong>Netdata</strong>: Queries the Netdata API if available</li>
+</ul>
 <h3 id="multi-server-architecture">Multi-Server Architecture<a class="headerlink" href="#multi-server-architecture" title="Permanent link">&para;</a></h3>
 <p>DashPad supports monitoring multiple servers from a single Web interface:</p>
 <div class="highlight"><pre><span></span><code>┌─────────────┐     ┌─────────────┐     ┌─────────────┐
@@ -1065,16 +1070,20 @@
 <p>Each server runs its own API container, and one central Web container connects to all of them.</p>
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
 <h3 id="separation-of-concerns">Separation of Concerns<a class="headerlink" href="#separation-of-concerns" title="Permanent link">&para;</a></h3>
-<p><strong>Backend Controls</strong>:
-- WHAT data is collected
-- Collection intervals and sources
-- Alert thresholds and business logic
-- System configuration and access</p>
-<p><strong>Frontend Controls</strong>:
-- HOW data is displayed
-- Dashboard layout and positioning
-- UI preferences and behavior
-- Which servers to monitor</p>
+<p><strong>Backend Controls</strong>:</p>
+<ul>
+<li>WHAT data is collected</li>
+<li>Collection intervals and sources</li>
+<li>Alert thresholds and business logic</li>
+<li>System configuration and access</li>
+</ul>
+<p><strong>Frontend Controls</strong>:</p>
+<ul>
+<li>HOW data is displayed</li>
+<li>Dashboard layout and positioning</li>
+<li>UI preferences and behavior</li>
+<li>Which servers to monitor</li>
+</ul>
 <p>This separation ensures the API remains authoritative for data while the frontend handles presentation, making the system flexible and maintainable.</p>
 
 
@@ -1096,7 +1105,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 19, 2025 20:54:27 UTC">June 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2025 21:37:40 UTC">June 26, 2025</span>
   </span>
 
     
