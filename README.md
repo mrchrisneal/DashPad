@@ -1,6 +1,9 @@
 # DashPad Documentation
 
-Documentation for the DashPad microservices architecture. 
+![Development Status](https://img.shields.io/badge/Status-pre--release-orange)
+[![Documentation](https://img.shields.io/badge/Documentation-view-blue)](https://dashpad.neal.media)
+
+**View the official documentation at [dashpad.neal.media](https://dashpad.neal.media).**
 
 ## 🚧 Project Status
 
