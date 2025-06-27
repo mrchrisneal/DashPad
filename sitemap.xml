@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dashpad.neal.media/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/architecture/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/api/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/api/configuration/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/api/endpoints/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/api/modules/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/deployment/cloud-run/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/deployment/docker/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/web/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
     <url>
          <loc>https://dashpad.neal.media/web/configuration/</loc>
-         <lastmod>2025-06-26</lastmod>
+         <lastmod>2025-06-27</lastmod>
     </url>
 </urlset>
