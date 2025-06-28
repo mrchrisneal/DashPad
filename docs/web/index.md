@@ -1,5 +1,5 @@
 
-# DashPad-Web Interface
+# DashPad-Web Overview
 
 The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.
 
