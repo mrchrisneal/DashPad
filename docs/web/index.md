@@ -3,13 +3,14 @@
 
 The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.
 
-!!! info "Most Important Takeaways" 
+### Important Concepts
+
 - **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
 - **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
 - **Multi-Server:** It can monitor multiple `DashPad-API` instances from a single dashboard. 
 - **Stateless & (Near) Real-Time:** The web interface has no database. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
 
-!!! tip "In a Hurry?" Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running.
+!!! info "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running. (TODO)"
 
 ### Key Features
 
