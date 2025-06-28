@@ -2,6 +2,8 @@
 
 DashPad implements a clean microservices architecture with two distinct components designed for different deployment scenarios.
 
+![DashPad Data Flow Diagram](assets/dashpad-diagram-api-web-container.jpg)
+
 ## System Design
 
 DashPad uses a two-container architecture:
@@ -22,7 +24,7 @@ The API container MUST run directly on the Linux server because it needs direct 
 - RESTful API endpoints
 - Modular metric collection system
 
-**Resource Usage**: ~50MB RAM steady state
+**Resource Usage**: ~50MB RAM
 
 The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a separate module with its own collection logic.
 
@@ -37,7 +39,7 @@ The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a
 - Local settings management via localStorage
 - Multi-server dashboard coordination
 
-**Resource Usage**: ~19MB RAM
+**Resource Usage**: ~20MB RAM
 
 The Web interface polls the API at regular intervals and displays the data using a unified module system.
 
@@ -59,25 +61,7 @@ The API supports multiple data sources with automatic fallback:
 
 ### Multi-Server Architecture
 
-DashPad supports monitoring multiple servers from a single Web interface:
-
-```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Server 1   │     │  Server 2   │     │  Server 3   │
-│ DashPad-API │     │ DashPad-API │     │ DashPad-API │
-└──────┬──────┘     └──────┬──────┘     └──────┬──────┘
-       │                   │                   │
-       └───────────────────┴───────────────────┘
-                           │
-                    ┌──────┴──────┐
-                    │ DashPad-Web │
-                    │  (Central)  │
-                    └─────────────┘
-                           │
-                    ┌──────┴──────┐
-                    │   Tablets   │
-                    └─────────────┘
-```
+DashPad supports monitoring multiple servers from a single Web interface.
 
 Each server runs its own API container, and one central Web container connects to all of them.
 
