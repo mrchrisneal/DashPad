@@ -2,6 +2,9 @@
 
 A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
+[![DashPad Screenshot](assets/screenshot-web-1.png)](assets/screenshot-web-1.png)
+
+
 ## IMPORTANT NOTICE
 - DashPad is *alpha software* in active development, created and maintained by a single hobbyist developer. 
 - This documentation is a work-in-progress and may change significantly.

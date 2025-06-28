@@ -7,8 +7,8 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 - **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
 - **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
-- **Multi-Server:** It can monitor multiple `DashPad-API` instances from a single dashboard. 
-- **Stateless & (Near) Real-Time:** The web interface has no database. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
+- **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard. 
+- **Stateless & (Near) Real-Time:** The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
 
 !!! info "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running. (TODO)"
 
@@ -16,7 +16,7 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 -   **Tablet-Optimized Layout:** The interface uses a responsive, adjustable grid from 1 to 4 columns to fit any screen size. This ensures optimal use of display real estate on everything from a phone to a large monitor. Module and column widths automatically adapt with orientation, allowing for fluid changes between portrait and landscape modes on portable devices. 
     
--   **Multi-Server Monitoring:** View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The `startup.sh` script reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been tested successfully). This provides a centralized command center, eliminating the need to switch between different tabs or tools to monitor your entire infrastructure.
+-   **Multi-Server Monitoring:** View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The `startup.sh` script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates   the need to switch between different tabs or tools to monitor your infrastructure.
     
 -   **Real-Time Updates:** The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (`next_update_sec`). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. 
     
@@ -112,7 +112,7 @@ In addition to local Docker deployments, DashPad-Web is fully compatible with se
 
 By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than **$0.03 per day**, with projected monthly costs under **$1.00** and projected yearly costs under **$10.00**. This makes it an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.
 
-As a reminder, the DashPad-API container must still be deployed on monitored servers; the API container *must* be deployed locally.
+As a reminder, the DashPad-API container must still be deployed on monitored servers so the Web container has a data source.
 
 
 ## Next Steps
