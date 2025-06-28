@@ -1005,6 +1005,7 @@
 
 <h1 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h1>
 <p>DashPad implements a clean microservices architecture with two distinct components designed for different deployment scenarios.</p>
+<p><img alt="DashPad Data Flow Diagram" src="../assets/dashpad-diagram-api-web-container.jpg" /></p>
 <h2 id="system-design">System Design<a class="headerlink" href="#system-design" title="Permanent link">&para;</a></h2>
 <p>DashPad uses a two-container architecture:</p>
 <ul>
@@ -1021,7 +1022,7 @@
 <li>RESTful API endpoints</li>
 <li>Modular metric collection system</li>
 </ul>
-<p><strong>Resource Usage</strong>: ~50MB RAM steady state</p>
+<p><strong>Resource Usage</strong>: ~50MB RAM</p>
 <p>The API uses a modular architecture where each metric type (CPU, RAM, etc.) is a separate module with its own collection logic.</p>
 <h2 id="dashpad-web-architecture">DashPad-Web Architecture<a class="headerlink" href="#dashpad-web-architecture" title="Permanent link">&para;</a></h2>
 <p><strong>Technology Stack</strong>: Svelte 5, NGINX</p>
@@ -1032,7 +1033,7 @@
 <li>Local settings management via localStorage</li>
 <li>Multi-server dashboard coordination</li>
 </ul>
-<p><strong>Resource Usage</strong>: ~19MB RAM</p>
+<p><strong>Resource Usage</strong>: ~20MB RAM</p>
 <p>The Web interface polls the API at regular intervals and displays the data using a unified module system.</p>
 <h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
 <ol>
@@ -1050,23 +1051,7 @@
 <li><strong>Netdata</strong>: Queries the Netdata API if available</li>
 </ul>
 <h3 id="multi-server-architecture">Multi-Server Architecture<a class="headerlink" href="#multi-server-architecture" title="Permanent link">&para;</a></h3>
-<p>DashPad supports monitoring multiple servers from a single Web interface:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Server 1   │     │  Server 2   │     │  Server 3   │
-│ DashPad-API │     │ DashPad-API │     │ DashPad-API │
-└──────┬──────┘     └──────┬──────┘     └──────┬──────┘
-       │                   │                   │
-       └───────────────────┴───────────────────┘
-                           │
-                    ┌──────┴──────┐
-                    │ DashPad-Web │
-                    │  (Central)  │
-                    └─────────────┘
-                           │
-                    ┌──────┴──────┐
-                    │   Tablets   │
-                    └─────────────┘
-</code></pre></div>
+<p>DashPad supports monitoring multiple servers from a single Web interface.</p>
 <p>Each server runs its own API container, and one central Web container connects to all of them.</p>
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permanent link">&para;</a></h2>
 <h3 id="separation-of-concerns">Separation of Concerns<a class="headerlink" href="#separation-of-concerns" title="Permanent link">&para;</a></h3>
@@ -1105,7 +1090,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 26, 2025 21:37:40 UTC">June 26, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 28, 2025 06:03:49 UTC">June 28, 2025</span>
   </span>
 
     

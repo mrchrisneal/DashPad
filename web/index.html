@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dashpad-web-interface-overview" class="md-skip">
+        <a href="#dashpad-web-interface" class="md-skip">
           Skip to content
         </a>
       
@@ -796,64 +796,19 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#dashboard-layout" class="md-nav__link">
+  <a href="#dashboard-layout-modules" class="md-nav__link">
     <span class="md-ellipsis">
-      Dashboard Layout
+      Dashboard Layout &amp; Modules
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      Module Types
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Module Types">
+    <nav class="md-nav" aria-label="Dashboard Layout &amp; Modules">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#system-metrics" class="md-nav__link">
+  <a href="#status-indicators" class="md-nav__link">
     <span class="md-ellipsis">
-      System Metrics
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#information-display" class="md-nav__link">
-    <span class="md-ellipsis">
-      Information Display
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#log-viewer" class="md-nav__link">
-    <span class="md-ellipsis">
-      Log Viewer
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#task-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      Task Monitoring
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alerts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alerts
+      Status Indicators
     </span>
   </a>
   
@@ -874,42 +829,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-interface" class="md-nav__link">
+  <a href="#performance" class="md-nav__link">
     <span class="md-ellipsis">
-      User Interface
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="User Interface">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#settings-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Settings Panel
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#status-indicators" class="md-nav__link">
-    <span class="md-ellipsis">
-      Status Indicators
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#browser-support" class="md-nav__link">
-    <span class="md-ellipsis">
-      Browser Support
+      Performance
     </span>
   </a>
   
@@ -928,24 +850,6 @@
   <a href="#deployment" class="md-nav__link">
     <span class="md-ellipsis">
       Deployment
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
     </span>
   </a>
   
@@ -979,103 +883,140 @@
   
 
 
-<h1 id="dashpad-web-interface-overview">DashPad Web Interface Overview<a class="headerlink" href="#dashpad-web-interface-overview" title="Permanent link">&para;</a></h1>
-<p>The DashPad Web interface is a Svelte-based frontend designed for tablet displays, providing real-time system monitoring.</p>
-<h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
+<h1 id="dashpad-web-interface">DashPad-Web Interface<a class="headerlink" href="#dashpad-web-interface" title="Permanent link">&para;</a></h1>
+<p>The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.</p>
+<div class="admonition info">
+<p class="admonition-title">Most Important Takeaways</p>
+</div>
 <ul>
-<li><strong>Tablet-optimized</strong> responsive layout (1-4 columns)</li>
-<li><strong>Multi-server monitoring</strong> in one dashboard</li>
-<li><strong>Real-time updates</strong> with automatic polling</li>
-<li><strong>Background sparklines</strong> for performance trends</li>
-<li><strong>Drag-and-drop</strong> layout customization</li>
-<li><strong>Module-specific settings</strong> for each display</li>
+<li><strong>Purpose:</strong> DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. </li>
+<li><strong>Security:</strong> DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. </li>
+<li><strong>Multi-Server:</strong> It can monitor multiple <code>DashPad-API</code> instances from a single dashboard. </li>
+<li><strong>Stateless &amp; (Near) Real-Time:</strong> The web interface has no database. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.</li>
 </ul>
-<h2 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h2>
+<p>!!! tip "In a Hurry?" Check out the <a href="./quick-start.md"><strong>Quick Start Guide</strong></a> for the fastest way to get up and running.</p>
+<h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Framework</strong>: Svelte 5</li>
-<li><strong>Server</strong>: NGINX with proxy</li>
-<li><strong>State Management</strong>: Svelte stores with localStorage</li>
-<li><strong>Charts</strong>: Native SVG implementation</li>
+<li>
+<p><strong>Tablet-Optimized Layout:</strong> The interface uses a responsive, adjustable grid from 1 to 4 columns to fit any screen size. This ensures optimal use of display real estate on everything from a phone to a large monitor. Module and column widths automatically adapt with orientation, allowing for fluid changes between portrait and landscape modes on portable devices. </p>
+</li>
+<li>
+<p><strong>Multi-Server Monitoring:</strong> View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The <code>startup.sh</code> script reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been tested successfully). This provides a centralized command center, eliminating the need to switch between different tabs or tools to monitor your entire infrastructure.</p>
+</li>
+<li>
+<p><strong>Real-Time Updates:</strong> The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (<code>next_update_sec</code>). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. </p>
+</li>
+<li>
+<p><strong>Historical Sparklines:</strong> Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (<code>historical.js</code>) and is capped at 50MB to ensure performance. </p>
+<ul>
+<li><strong>Important:</strong> As all data is stored client-side, the dashboard must remain open and active in your browser to collect data for the sparklines and charts.</li>
 </ul>
-<h2 id="dashboard-layout">Dashboard Layout<a class="headerlink" href="#dashboard-layout" title="Permanent link">&para;</a></h2>
-<p>The interface automatically adjusts columns based on screen width:
-- <strong>&lt; 768px</strong>: 1 column
-- <strong>768-1024px</strong>: 2 columns<br />
-- <strong>1024-1440px</strong>: 3 columns
-- <strong>&gt; 1440px</strong>: 4 columns</p>
-<h2 id="module-types">Module Types<a class="headerlink" href="#module-types" title="Permanent link">&para;</a></h2>
-<h3 id="system-metrics">System Metrics<a class="headerlink" href="#system-metrics" title="Permanent link">&para;</a></h3>
-<p><strong>CPU</strong> and <strong>RAM</strong> modules show:
-- Current usage percentage
-- Visual gauge
-- Historical chart (expandable)
-- Background sparkline</p>
-<h3 id="information-display">Information Display<a class="headerlink" href="#information-display" title="Permanent link">&para;</a></h3>
-<p><strong>System Uptime</strong> shows runtime in compact format</p>
-<h3 id="log-viewer">Log Viewer<a class="headerlink" href="#log-viewer" title="Permanent link">&para;</a></h3>
-<p><strong>System Logs</strong> with:
-- Real-time streaming
-- Autoscroll option
-- Syntax highlighting
-- Incremental updates</p>
-<h3 id="task-monitoring">Task Monitoring<a class="headerlink" href="#task-monitoring" title="Permanent link">&para;</a></h3>
-<p><strong>Cron Tasks</strong> display upcoming scheduled tasks</p>
-<h3 id="alerts">Alerts<a class="headerlink" href="#alerts" title="Permanent link">&para;</a></h3>
-<p><strong>Netdata Alerts</strong> show active system warnings</p>
-<h2 id="real-time-updates">Real-Time Updates<a class="headerlink" href="#real-time-updates" title="Permanent link">&para;</a></h2>
-<p>The web interface uses intelligent polling based on API hints:
-- Metrics: 4 seconds
-- Logs: 30 seconds
-- Cron: 60 seconds
-- Alerts: 30 seconds</p>
-<h2 id="user-interface">User Interface<a class="headerlink" href="#user-interface" title="Permanent link">&para;</a></h2>
-<h3 id="settings-panel">Settings Panel<a class="headerlink" href="#settings-panel" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Server management (enable/disable)</li>
-<li>Layout configuration</li>
-<li>Display preferences</li>
-<li>Module settings</li>
-<li>Import/export configuration</li>
+</li>
+<li>
+<p><strong>Drag-and-Drop Customization:</strong> In "Edit Mode," you can easily rearrange modules by dragging and dropping them to create a layout that suits your needs. This functionality is powered by the <code>svelte-dnd-action</code> library, and your custom layout is automatically saved to your browser's <code>localStorage</code>, making it persistent across sessions.</p>
+</li>
+<li>
+<p><strong>Module-Specific Settings:</strong> Each module has its own set of configurable options, accessible via a cog icon in the module header. For example, you can toggle autoscroll for logs, customize the color thresholds for CPU and RAM warnings, define keyword highlighting rules for log viewers, or set the number of upcoming cron jobs to display. All display settings can be exported to your clipboard and imported later on a different device.</p>
+</li>
 </ul>
-<h3 id="status-indicators">Status Indicators<a class="headerlink" href="#status-indicators" title="Permanent link">&para;</a></h3>
+<h3 id="technology-stack">Technology Stack<a class="headerlink" href="#technology-stack" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Green</strong>: Normal</li>
-<li><strong>Yellow</strong>: Warning  </li>
-<li><strong>Red</strong>: Critical</li>
-<li><strong>Gray</strong>: Unknown</li>
-<li><strong>Blue</strong>: Loading</li>
+<li>
+<p><strong>Framework:</strong> Built with <strong>Svelte 5</strong> for a highly reactive and performant user experience. As the Svelte framework leverages a compiler, it generates highly optimized, minimal vanilla JavaScript, resulting in a small application bundle and fast load times.</p>
+</li>
+<li>
+<p><strong>Web Server:</strong> Served by <strong>NGINX</strong>, which also acts as a secure reverse proxy to the backend API servers. This is a key part of the security model, as NGINX handles injecting authentication headers, ensuring API keys are never exposed to the frontend.</p>
+</li>
+<li>
+<p><strong>State Management:</strong> Utilizes Svelte stores with <code>localStorage</code> persistence for UI state, layout, and module configurations. This keeps the application state consistent and preserves user customizations.</p>
+</li>
+<li>
+<p><strong>Charting:</strong> Native SVG charts are used as a lightweight visualization solution. This avoids heavy, third-party charting libraries, contributing to the small footprint of the application.</p>
+</li>
 </ul>
-<h2 id="browser-support">Browser Support<a class="headerlink" href="#browser-support" title="Permanent link">&para;</a></h2>
+<h3 id="dashboard-layout-modules">Dashboard Layout &amp; Modules<a class="headerlink" href="#dashboard-layout-modules" title="Permanent link">&para;</a></h3>
+<p>The dashboard is the core of the web interface. Modules are automatically organized into columns, and the number of columns can be changed with just one tap (or click). The layout is fully persistent across sessions, stored directly in your browser.</p>
+<p><strong>Available Module Types:</strong></p>
 <ul>
-<li>Safari on iPad (primary)</li>
-<li>Chrome/Chromium 90+</li>
-<li>Firefox 88+</li>
-<li>Edge 90+</li>
+<li>
+<p><strong>System Metrics:</strong> Modules for CPU and RAM usage, featuring charts for real-time values and historical charts when expanded, giving you an at-a-glance view of system health. Chart durations can be toggled between 5 minutes, 15 minutes, 30 minutes (default), and 60 minutes in the Settings pane; they can be set globally and overridden on a per-module basis.</p>
+</li>
+<li>
+<p><strong>Information Display:</strong> A simple module for displaying information like system uptime in a human-readable format.</p>
+</li>
+<li>
+<p><strong>Log Viewer:</strong> A dedicated module for viewing system and application logs in real-time, with support for custom, hexadecimal color codes and keyword highlighting to make finding important events easier.</p>
+</li>
+<li>
+<p><strong>Task Monitoring:</strong> A list-based module that displays upcoming scheduled <code>cron</code> tasks and their relative execution times, helping you anticipate system activity.</p>
+</li>
+<li>
+<p><strong>Alerts:</strong> An Alerts module that shows active system warnings and critical alerts from a connected Netdata instance, providing immediate visibility into potential issues. <em>This module requires an installed and functional Netdata instance.</em></p>
+</li>
 </ul>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<h4 id="status-indicators">Status Indicators<a class="headerlink" href="#status-indicators" title="Permanent link">&para;</a></h4>
+<p>At-a-glance status information is conveyed through a simple color-coded system, which is shown primarily as a circular indicator icon within each module (where applicable).</p>
+<p>🟢 <strong>Green:</strong> Normal operation.</p>
+<p>🟡 <strong>Yellow:</strong> Warning state, indicating a potential issue (e.g., high CPU usage).</p>
+<p>🔴 <strong>Red:</strong> Critical state, indicating an active problem that requires attention.</p>
+<p>Modules without threshold logic (such as the <code>uptime</code> module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. Threshold states are determined by a connected DashPad-API instance.</p>
+<h3 id="real-time-updates">Real-Time Updates<a class="headerlink" href="#real-time-updates" title="Permanent link">&para;</a></h3>
+<p>The web interface intelligently polls the DashPad-API container based on <code>next_update_sec</code> hints provided by the API itself. This allows the frontend to adapt its polling frequency dynamically, reducing unnecessary network traffic and server load. Default polling intervals are:</p>
 <ul>
-<li>No sensitive data stored in browser</li>
-<li>Server URLs masked in UI</li>
-<li>HTTPS enforced for production</li>
-<li>Basic Auth support via NGINX</li>
+<li>
+<p><strong>Metrics:</strong> ~4 seconds</p>
+</li>
+<li>
+<p><strong>Logs &amp; Alerts:</strong> ~30 seconds</p>
+</li>
+<li>
+<p><strong>Cron Tasks:</strong> ~60 seconds</p>
+</li>
 </ul>
-<h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
-<p>The Web container can be deployed:
-- <strong>Locally</strong> with the API container
-- <strong>Cloud</strong> (Google Cloud Run, etc.)
-- <strong>Anywhere</strong> Docker runs</p>
-<p>Unlike the API container, the Web container doesn't need direct server access.</p>
-<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
+<p>The minimum configurable interval for any data or module type is 2 seconds.</p>
+<h3 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h3>
+<p>DashPad strives to be lightweight, making it ideal for older or resource-constrained devices.</p>
 <ul>
-<li><strong>Initial Load</strong>: ~500KB</li>
-<li><strong>Memory</strong>: 30-50MB active</li>
+<li>
+<p><strong>Initial Load:</strong> The application has a small initial footprint, with a transfer size of under 1MB on first page load.</p>
+</li>
+<li>
+<p><strong>Memory Usage:</strong> Active memory consumption of the DashPad-Web container is typically between 10-25MB (on the platform running the container). This is achieved by leveraging an in-memory browser store on the viewing device for historical data rather than a persistent database, which also means the dashboard must remain open to collect trend data.</p>
+</li>
 </ul>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>See <a href="configuration/">Web Configuration</a> for setup details.</p>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h3>
+<p>Security is a core design principle of the web container, handled primarily by the bundled NGINX proxy and the container's <code>startup.sh</code> script:</p>
 <ul>
-<li><a href="configuration/">Configuration Guide</a> - Setup instructions</li>
-<li><a href="../api/">API Documentation</a> - Backend reference</li>
+<li>
+<p><strong>Proxy-Based Architecture:</strong> The web container is (currently) the only component that communicates with API containers. API keys are never sent to the browser. The NGINX proxy injects the required <code>X-API-Key</code> header for each request.</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Access to the web interface is protected by basic authentication (<code>htpasswd</code>), configured via environment variables. This provides a simple but effective layer of security for access to the dashboard.</p>
+</li>
+<li>
+<p><strong>Encryption:</strong> Communication is secured with HTTPS. The container generates a self-signed certificate at startup, and it can also validate DashPad-API server certificates via SSL fingerprinting.</p>
+</li>
+<li>
+<p><strong>Masked URLs:</strong> To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. Other information, including keywords and email, IP, &amp; MAC addresses, can be obfuscated within the log module, though this is an API container-based setting.</p>
+</li>
+</ul>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<p>The DashPad-Web container is designed to be deployed using Docker, and runs anywhere containers are supported. Unlike DashPad-API, the Web container does not need direct access to your monitored servers; it only requires network access to your DashPad-API container(s). This separation of concerns makes deployment flexible and secure.</p>
+<p><strong>Example: Cloud Deployment (Google Cloud Run)</strong></p>
+<p>In addition to local Docker deployments, DashPad-Web is fully compatible with serverless platforms like Google Cloud Run.</p>
+<p>By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than <strong>$0.03 per day</strong>, with projected monthly costs under <strong>$1.00</strong> and projected yearly costs under <strong>$10.00</strong>. This makes it an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.</p>
+<p>As a reminder, the DashPad-API container must still be deployed on monitored servers; the API container <em>must</em> be deployed locally.</p>
+<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="configuration/"><strong>Configuration Guide</strong></a><strong>:</strong> Learn how to set up and configure the web container.</p>
+</li>
+<li>
+<p><a href="./usage.md"><strong>Usage Guide</strong></a><strong>:</strong> Explore the features of the dashboard and settings panel.</p>
+</li>
+<li>
+<p><a href="./troubleshooting.md"><strong>Troubleshooting Guide</strong></a><strong>:</strong> Find solutions to common issues.</p>
+</li>
 </ul>
 
 
@@ -1097,7 +1038,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 19, 2025 20:54:27 UTC">June 19, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 28, 2025 06:03:49 UTC">June 28, 2025</span>
   </span>
 
     
