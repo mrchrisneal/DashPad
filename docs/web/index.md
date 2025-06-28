@@ -3,7 +3,7 @@
 
 The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.
 
-### Important Concepts
+## Important Concepts
 
 - **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
 - **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
@@ -12,7 +12,7 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 !!! info "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running. (TODO)"
 
-### Key Features
+## Key Features
 
 -   **Tablet-Optimized Layout:** The interface uses a responsive, adjustable grid from 1 to 4 columns to fit any screen size. This ensures optimal use of display real estate on everything from a phone to a large monitor. Module and column widths automatically adapt with orientation, allowing for fluid changes between portrait and landscape modes on portable devices. 
     
@@ -28,7 +28,7 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 -   **Module-Specific Settings:** Each module has its own set of configurable options, accessible via a cog icon in the module header. For example, you can toggle autoscroll for logs, customize the color thresholds for CPU and RAM warnings, define keyword highlighting rules for log viewers, or set the number of upcoming cron jobs to display. All display settings can be exported to your clipboard and imported later on a different device.
 
 
-### Technology Stack
+## Technology Stack
 
 -   **Framework:** Built with **Svelte 5** for a highly reactive and performant user experience. As the Svelte framework leverages a compiler, it generates highly optimized, minimal vanilla JavaScript, resulting in a small application bundle and fast load times.
     
@@ -39,7 +39,7 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 -   **Charting:** Native SVG charts are used as a lightweight visualization solution. This avoids heavy, third-party charting libraries, contributing to the small footprint of the application.
     
 
-### Dashboard Layout & Modules
+## Dashboard Layout & Modules
 
 The dashboard is the core of the web interface. Modules are automatically organized into columns, and the number of columns can be changed with just one tap (or click). The layout is fully persistent across sessions, stored directly in your browser.
 
@@ -56,7 +56,7 @@ The dashboard is the core of the web interface. Modules are automatically organi
 -   **Alerts:** An Alerts module that shows active system warnings and critical alerts from a connected Netdata instance, providing immediate visibility into potential issues. *This module requires an installed and functional Netdata instance.*
 
 
-#### Status Indicators
+## Status Indicators
 
 At-a-glance status information is conveyed through a simple color-coded system, which is shown primarily as a circular indicator icon within each module (where applicable).
 
@@ -68,7 +68,7 @@ At-a-glance status information is conveyed through a simple color-coded system, 
 
 Modules without threshold logic (such as the `uptime` module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. Threshold states are determined by a connected DashPad-API instance.
 
-### Real-Time Updates
+## Real-Time Updates
 
 The web interface intelligently polls the DashPad-API container based on `next_update_sec` hints provided by the API itself. This allows the frontend to adapt its polling frequency dynamically, reducing unnecessary network traffic and server load. Default polling intervals are:
 
@@ -80,7 +80,7 @@ The web interface intelligently polls the DashPad-API container based on `next_u
     
 The minimum configurable interval for any data or module type is 2 seconds.
 
-### Performance
+## Performance
 
 DashPad strives to be lightweight, making it ideal for older or resource-constrained devices.
 
@@ -89,7 +89,7 @@ DashPad strives to be lightweight, making it ideal for older or resource-constra
 -   **Memory Usage:** Active memory consumption of the DashPad-Web container is typically between 10-25MB (on the platform running the container). This is achieved by leveraging an in-memory browser store on the viewing device for historical data rather than a persistent database, which also means the dashboard must remain open to collect trend data.
     
 
-### Security
+## Security
 
 Security is a core design principle of the web container, handled primarily by the bundled NGINX proxy and the container's `startup.sh` script:
 
@@ -102,11 +102,11 @@ Security is a core design principle of the web container, handled primarily by t
 -   **Masked URLs:** To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. Other information, including keywords and email, IP, & MAC addresses, can be obfuscated within the log module, though this is an API container-based setting.
     
 
-### Deployment
+## Deployment
 
 The DashPad-Web container is designed to be deployed using Docker, and runs anywhere containers are supported. Unlike DashPad-API, the Web container does not need direct access to your monitored servers; it only requires network access to your DashPad-API container(s). This separation of concerns makes deployment flexible and secure.
 
-**Example: Cloud Deployment (Google Cloud Run)**
+### Cloud Deployment (Google Cloud Run)
 
 In addition to local Docker deployments, DashPad-Web is fully compatible with serverless platforms like Google Cloud Run.
 
@@ -115,7 +115,7 @@ By setting the container to "request-based billing" and permitting it to scale d
 As a reminder, the DashPad-API container must still be deployed on monitored servers; the API container *must* be deployed locally.
 
 
-### Next Steps
+## Next Steps
 
 -   [**Configuration Guide**](./configuration.md)**:** Learn how to set up and configure the web container.
     
