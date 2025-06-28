@@ -55,7 +55,20 @@
     
     
     
-  </head>
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .glightbox-clean .gslide-media {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -423,7 +436,7 @@
         <li class="md-nav__item">
   <a href="#important-notice" class="md-nav__link">
     <span class="md-ellipsis">
-      IMPORTANT NOTICE
+      ⚠️ IMPORTANT NOTICE
     </span>
   </a>
   
@@ -904,7 +917,7 @@
         <li class="md-nav__item">
   <a href="#important-notice" class="md-nav__link">
     <span class="md-ellipsis">
-      IMPORTANT NOTICE
+      ⚠️ IMPORTANT NOTICE
     </span>
   </a>
   
@@ -1009,42 +1022,36 @@
 
 <h1 id="dashpad">DashPad<a class="headerlink" href="#dashpad" title="Permanent link">&para;</a></h1>
 <p>A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.</p>
-<p><a href="assets/screenshot-web-1.png"><img alt="DashPad Screenshot" src="assets/screenshot-web-1.png" /></a></p>
-<h2 id="important-notice">IMPORTANT NOTICE<a class="headerlink" href="#important-notice" title="Permanent link">&para;</a></h2>
-<ul>
-<li>DashPad is <em>alpha software</em> in active development, created and maintained by a single hobbyist developer. </li>
-<li>This documentation is a work-in-progress and may change significantly.</li>
-</ul>
+<p><a class="glightbox" href="assets/screenshot-web-1.png" data-type="image" data-width="100%" data-height="auto" data-title="Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled." data-desc-position="bottom"><img alt="Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled." src="assets/screenshot-web-1.png" /></a></p>
+<h2 id="important-notice">⚠️ IMPORTANT NOTICE<a class="headerlink" href="#important-notice" title="Permanent link">&para;</a></h2>
+<p>DashPad is <em>alpha software</em> in development (pre-release), created and maintained by a single hobbyist developer. </p>
+<p>This documentation is a work-in-progress and may change significantly.</p>
 <h2 id="what-is-dashpad">What is DashPad?<a class="headerlink" href="#what-is-dashpad" title="Permanent link">&para;</a></h2>
 <p>DashPad transforms old, unused tablets (namely iPads) into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.</p>
 <p>DashPad traces its origins to 2024 as a basic, single-container solution to monitor unRAID server metrics in near-real-time. The project saw major development in mid-2025 where it was used as part of an educational project. </p>
 <h3 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Real-time Monitoring</strong>: Updates every 2-60 seconds</li>
+<li><strong>Real-time Monitoring</strong>: Updates every 2-60 seconds (configurable)</li>
 <li><strong>Tablet Optimized</strong>: Responsive interface designed for iPad and other tablets</li>
 <li><strong>Multi-Server Support</strong>: Monitor multiple systems from one dashboard</li>
 <li><strong>Modular Design</strong>: Enable only the metrics you need</li>
 <li><strong>Lightweight</strong>: Minimal resource usage on both server and tablet</li>
 </ul>
 <h2 id="dashpad-is-for-you-if">DashPad is for you if...<a class="headerlink" href="#dashpad-is-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You have old tablets gathering dust</li>
-<li>You want lightweight system monitoring without a database</li>
-<li>You prefer simple, visual monitoring displays</li>
-<li>You run home servers or small infrastructure</li>
-<li>You value resource efficiency</li>
-<li>You want at-a-glance system health visibility</li>
-</ul>
+<p>✅ You have old tablets gathering dust</p>
+<p>✅ You want lightweight system monitoring without a database</p>
+<p>✅ You prefer simple, visual monitoring displays</p>
+<p>✅ You run home servers or small infrastructure </p>
+<p>✅ You value resource efficiency</p>
+<p>✅ You want at-a-glance system health visibility</p>
 <h2 id="dashpad-is-not-for-you-if">DashPad is NOT for you if...<a class="headerlink" href="#dashpad-is-not-for-you-if" title="Permanent link">&para;</a></h2>
-<ul>
-<li>You need historical data storage or trending</li>
-<li>You require complex alerting rules</li>
-<li>You want a full monitoring stack</li>
-<li>You need Windows support</li>
-<li>You require user management or multi-tenancy</li>
-<li>You need to monitor many dozens of servers </li>
-<li>You're uncomfortable leaving electronics on and plugged in constantly</li>
-</ul>
+<p>❌ You need historical data storage (at least, for more than one hour)</p>
+<p>❌ You require complex alerting rules</p>
+<p>❌ You want a full monitoring stack</p>
+<p>❌ You need Windows support</p>
+<p>❌ You require user management or multi-tenancy</p>
+<p>❌ You need to monitor multiple dozens of servers</p>
+<p>❌ You're uncomfortable leaving electronics on and plugged in constantly</p>
 <h2 id="architecture-overview">Architecture Overview<a class="headerlink" href="#architecture-overview" title="Permanent link">&para;</a></h2>
 <p>DashPad consists of two primary microservices:</p>
 <table>
@@ -1068,7 +1075,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Important</strong>: The API container must run directly on the Linux server being monitored, as it requires direct access to system files like <code>/proc</code>. Only the Web container can be deployed to the cloud.</p>
+<p><strong>Important</strong>: The API container must run directly on the server being monitored, as it requires access to system directories like <code>/proc</code>. Only the Web container can be deployed to the cloud.</p>
 <h2 id="available-metrics">Available Metrics<a class="headerlink" href="#available-metrics" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>System Metrics</strong>: CPU usage, RAM usage, system uptime</li>
@@ -1085,7 +1092,7 @@
 </ul>
 <h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Documentation</strong>: You're here!</li>
+<li><strong>Documentation</strong>: You're here! 👋</li>
 <li><strong>Source Code</strong>: <a href="https://github.com/mrchrisneal/DashPad">GitHub Repository</a></li>
 </ul>
 
@@ -1108,7 +1115,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 28, 2025 10:06:31 UTC">June 28, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 28, 2025 11:13:36 UTC">June 28, 2025</span>
   </span>
 
     
@@ -1190,5 +1197,7 @@
       <script src="assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
-  </body>
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
 </html>
