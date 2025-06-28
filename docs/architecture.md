@@ -2,7 +2,7 @@
 
 DashPad implements a clean microservices architecture with two distinct components designed for different deployment scenarios.
 
-[![DashPad Data Flow Diagram](assets/dashpad-diagram-api-web-container.jpg)](assets/dashpad-diagram-api-web-container.jpg)
+![DashPad Data Flow Diagram: One DashPad-Web instance connects to three DashPad-API instances (multi-server setup example)](assets/dashpad-diagram-api-web-container.jpg)
 ## System Design
 
 DashPad uses a two-container architecture:

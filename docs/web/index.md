@@ -110,7 +110,7 @@ The DashPad-Web container is designed to be deployed using Docker, and runs anyw
 
 In addition to local Docker deployments, DashPad-Web is fully compatible with serverless platforms like Google Cloud Run.
 
-By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than **$0.03 per day**, with projected monthly costs under **$1.00** and projected yearly costs under **$10.00**. This makes it an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.
+By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than **$0.03 per day**, with projected monthly costs under **$1.00** and projected yearly costs under **$10.00**. This makes DashPad an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.
 
 As a reminder, the DashPad-API container must still be deployed on monitored servers so the Web container has a data source.
 

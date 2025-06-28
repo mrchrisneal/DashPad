@@ -2,12 +2,13 @@
 
 A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
-[![DashPad Screenshot](assets/screenshot-web-1.png)](assets/screenshot-web-1.png)
+![Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled.](assets/screenshot-web-1.png)
 
 
-## IMPORTANT NOTICE
-- DashPad is *alpha software* in active development, created and maintained by a single hobbyist developer. 
-- This documentation is a work-in-progress and may change significantly.
+## ⚠️ IMPORTANT NOTICE 
+DashPad is *alpha software* in development (pre-release), created and maintained by a single hobbyist developer. 
+
+This documentation is a work-in-progress and may change significantly.
 
 ## What is DashPad?
 
@@ -17,7 +18,7 @@ DashPad traces its origins to 2024 as a basic, single-container solution to moni
 
 ### Key Features
 
-- **Real-time Monitoring**: Updates every 2-60 seconds
+- **Real-time Monitoring**: Updates every 2-60 seconds (configurable)
 - **Tablet Optimized**: Responsive interface designed for iPad and other tablets
 - **Multi-Server Support**: Monitor multiple systems from one dashboard
 - **Modular Design**: Enable only the metrics you need
@@ -25,22 +26,35 @@ DashPad traces its origins to 2024 as a basic, single-container solution to moni
 
 ## DashPad is for you if...
 
-- You have old tablets gathering dust
-- You want lightweight system monitoring without a database
-- You prefer simple, visual monitoring displays
-- You run home servers or small infrastructure
-- You value resource efficiency
-- You want at-a-glance system health visibility
+✅ You have old tablets gathering dust
+
+✅ You want lightweight system monitoring without a database
+
+✅ You prefer simple, visual monitoring displays
+
+✅ You run home servers or small infrastructure 
+
+✅ You value resource efficiency
+
+✅ You want at-a-glance system health visibility
+
 
 ## DashPad is NOT for you if...
 
-- You need historical data storage or trending
-- You require complex alerting rules
-- You want a full monitoring stack
-- You need Windows support
-- You require user management or multi-tenancy
-- You need to monitor many dozens of servers 
-- You're uncomfortable leaving electronics on and plugged in constantly
+❌ You need historical data storage (at least, for more than one hour)
+
+❌ You require complex alerting rules
+
+❌ You want a full monitoring stack
+
+❌ You need Windows support
+
+❌ You require user management or multi-tenancy
+
+❌ You need to monitor multiple dozens of servers
+
+❌ You're uncomfortable leaving electronics on and plugged in constantly
+
 
 ## Architecture Overview
 
@@ -51,7 +65,7 @@ DashPad consists of two primary microservices:
 | **[DashPad-API](api/index.md)** | Backend data collection service | Local server only |
 | **[DashPad-Web](web/index.md)** | Frontend monitoring interface | Local or cloud |
 
-**Important**: The API container must run directly on the Linux server being monitored, as it requires direct access to system files like `/proc`. Only the Web container can be deployed to the cloud.
+**Important**: The API container must run directly on the server being monitored, as it requires access to system directories like `/proc`. Only the Web container can be deployed to the cloud.
 
 ## Available Metrics
 
@@ -69,5 +83,5 @@ DashPad consists of two primary microservices:
 
 ## Support
 
-- **Documentation**: You're here!
+- **Documentation**: You're here! 👋
 - **Source Code**: [GitHub Repository](https://github.com/mrchrisneal/DashPad)
