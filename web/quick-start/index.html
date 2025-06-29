@@ -784,7 +784,7 @@
         <li class="md-nav__item">
   <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      ✅ Prerequisites
     </span>
   </a>
   
@@ -797,10 +797,9 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1: Create the Docker Compose File">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-2-configure-your-server" class="md-nav__link">
     <span class="md-ellipsis">
       Step 2: Configure Your Server
@@ -808,8 +807,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#step-3-launch-the-container" class="md-nav__link">
     <span class="md-ellipsis">
       Step 3: Launch the Container
@@ -817,8 +816,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#step-4-access-your-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
       Step 4: Access Your Dashboard
@@ -826,18 +825,13 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
       Next Steps
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -861,8 +855,8 @@
 
 
 <h1 id="quick-start-guide-dashpad-web">Quick Start Guide (DashPad-Web)<a class="headerlink" href="#quick-start-guide-dashpad-web" title="Permanent link">&para;</a></h1>
-<p>This guide will walk you through the fastest way to get the DashPad-Web interface up and running using Docker Compose. The goal is to have a functional dashboard in under 5 minutes.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>This guide will walk you through the fastest way to get the DashPad-Web interface up and running using Docker Compose.</p>
+<h2 id="prerequisites">✅ Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before you begin, please ensure you have the following:</p>
 <ol>
 <li>
@@ -912,7 +906,7 @@ services:
 <span class="w">      </span>-<span class="w"> </span><span class="nv">SKIP_SSL_FINGERPRINT_VERIFICATION</span><span class="o">=</span>true
 <span class="w">    </span>restart:<span class="w"> </span>unless-stopped
 </code></pre></div>
-<h3 id="step-2-configure-your-server">Step 2: Configure Your Server<a class="headerlink" href="#step-2-configure-your-server" title="Permanent link">&para;</a></h3>
+<h2 id="step-2-configure-your-server">Step 2: Configure Your Server<a class="headerlink" href="#step-2-configure-your-server" title="Permanent link">&para;</a></h2>
 <p>You only need to change <strong>two</strong> lines in the <code>environment</code> section of the <code>docker-compose.yml</code> file you just created:</p>
 <ol>
 <li>
@@ -924,25 +918,26 @@ services:
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Persistent vs. Ephemeral Storage</p>
-<p>The volumes section in the docker-compose.yml is highly recommended but optional.
-<strong>With a volume (Recommended)</strong>: SSL certificates from your API servers are cached in the dashpad-data directory. This makes container restarts much faster.
-<strong>Without a volume</strong>: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the logs if this happens.</p>
+<p>The volumes section in the docker-compose.yml is highly recommended but optional.</p>
+<p><strong>With a volume (Recommended)</strong>: SSL certificates from your API servers are cached in the dashpad-data directory. This makes container restarts much faster.</p>
+<p><strong>Without a volume</strong>: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the logs if this happens.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Security Notice: SSL Verification</p>
-<p>For this quick start, we are setting <code>SKIP_SSL_FINGERPRINT_VERIFICATION</code> to <code>true</code>. This simplifies the initial setup but is not recommended for production. Once your dashboard is running, you should disable this option and provide the correct <code>SERVER1_SSLFINGERPRINT</code> for each server to ensure you are connecting to the correct, trusted API endpoint.</p>
+<p>For this quick start, we are setting <code>SKIP_SSL_FINGERPRINT_VERIFICATION</code> to <code>true</code>. This simplifies the initial setup but is not recommended for production. </p>
+<p>Once your dashboard is running, you should disable this option and provide the correct <code>SERVER1_SSLFINGERPRINT</code> for each server to ensure you are connecting to the correct, trusted API endpoint.</p>
 </div>
-<h3 id="step-3-launch-the-container">Step 3: Launch the Container<a class="headerlink" href="#step-3-launch-the-container" title="Permanent link">&para;</a></h3>
+<h2 id="step-3-launch-the-container">Step 3: Launch the Container<a class="headerlink" href="#step-3-launch-the-container" title="Permanent link">&para;</a></h2>
 <p>Save the changes to your <code>docker-compose.yml</code> file. Now, open a terminal in the same directory and run the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <p>Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-data directory in the same folder to store SSL certificate data.</p>
-<h3 id="step-4-access-your-dashboard">Step 4: Access Your Dashboard<a class="headerlink" href="#step-4-access-your-dashboard" title="Permanent link">&para;</a></h3>
+<h2 id="step-4-access-your-dashboard">Step 4: Access Your Dashboard<a class="headerlink" href="#step-4-access-your-dashboard" title="Permanent link">&para;</a></h2>
 <p>Once the container is running, open your web browser and navigate to:</p>
 <p><code>http://&lt;your_docker_host_ip&gt;:5432</code></p>
 <p>You will be prompted for a username and password. Use the credentials you specified in the <code>docker-compose.yml</code> file (the defaults are <code>chris</code> and <code>password</code>).</p>
 <p>You should now see the DashPad dashboard, and it will begin populating with data from your API server!</p>
-<h3 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h3>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>This guide covers the most basic setup. To learn about all the available environment variables, including how to add more servers, configure HTTPS, and enable proper SSL fingerprinting, please see the full <a href="../configuration/">Configuration Guide</a>.</p>
 
 
@@ -964,7 +959,7 @@ services:
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2025 11:13:23 UTC">June 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2025 21:44:50 UTC">June 29, 2025</span>
   </span>
 
     
