@@ -10,7 +10,7 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 - **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard. 
 - **Stateless & (Near) Real-Time:** The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
 
-!!! info "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running. (TODO)"
+!!! info "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running."
 
 ## Key Features
 
