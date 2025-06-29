@@ -1,8 +1,8 @@
 # Quick Start Guide (DashPad-Web)
 
-This guide will walk you through the fastest way to get the DashPad-Web interface up and running using Docker Compose. The goal is to have a functional dashboard in under 5 minutes.
+This guide will walk you through the fastest way to get the DashPad-Web interface up and running using Docker Compose.
 
-## Prerequisites
+## ✅ Prerequisites
 
 Before you begin, please ensure you have the following:
 
@@ -55,7 +55,7 @@ services:
     restart: unless-stopped
 ```
 
-### Step 2: Configure Your Server
+## Step 2: Configure Your Server
 
 You only need to change **two** lines in the `environment` section of the `docker-compose.yml` file you just created:
 
@@ -64,14 +64,19 @@ You only need to change **two** lines in the `environment` section of the `docke
 2.  **`SERVER1_KEY`**: Replace `<REPLACE_WITH_YOUR_64_CHARACTER_API_KEY>` with the API key provided by your `DashPad-API` container.
 
 !!! info "Persistent vs. Ephemeral Storage"
+
 	The volumes section in the docker-compose.yml is highly recommended but optional.
+
 	**With a volume (Recommended)**: SSL certificates from your API servers are cached in the dashpad-data directory. This makes container restarts much faster.
+
 	**Without a volume**: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the logs if this happens.
 
 !!! warning "Security Notice: SSL Verification"
-	For this quick start, we are setting `SKIP_SSL_FINGERPRINT_VERIFICATION` to `true`. This simplifies the initial setup but is not recommended for production. Once your dashboard is running, you should disable this option and provide the correct `SERVER1_SSLFINGERPRINT` for each server to ensure you are connecting to the correct, trusted API endpoint.
+	For this quick start, we are setting `SKIP_SSL_FINGERPRINT_VERIFICATION` to `true`. This simplifies the initial setup but is not recommended for production. 
 
-### Step 3: Launch the Container
+	Once your dashboard is running, you should disable this option and provide the correct `SERVER1_SSLFINGERPRINT` for each server to ensure you are connecting to the correct, trusted API endpoint.
+
+## Step 3: Launch the Container
 
 Save the changes to your `docker-compose.yml` file. Now, open a terminal in the same directory and run the following command:
 
@@ -81,7 +86,7 @@ docker compose up -d
 
 Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-data directory in the same folder to store SSL certificate data.
 
-### Step 4: Access Your Dashboard
+## Step 4: Access Your Dashboard
 
 Once the container is running, open your web browser and navigate to:
 
@@ -91,6 +96,6 @@ You will be prompted for a username and password. Use the credentials you specif
 
 You should now see the DashPad dashboard, and it will begin populating with data from your API server!
 
-### Next Steps
+## Next Steps
 
 This guide covers the most basic setup. To learn about all the available environment variables, including how to add more servers, configure HTTPS, and enable proper SSL fingerprinting, please see the full [Configuration Guide](./configuration.md).
