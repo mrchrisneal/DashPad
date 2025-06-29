@@ -1,6 +1,10 @@
-# Google Cloud Run Deployment
+---
+title: Deployment - Google Cloud Run (DashPad-Web)
+---
 
-Deploy the DashPad Web container to Google Cloud Run for cloud-based dashboard access.
+# Deployment - Google Cloud Run
+
+Deploy the DashPad-Web container to Google Cloud Run for cloud-based dashboard access.
 
 ## Important Note
 

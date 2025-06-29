@@ -5,7 +5,7 @@ A modular system monitoring solution designed to repurpose old tablets as dedica
 ![Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled.](assets/screenshot-web-1.png)
 
 
-## ⚠️ IMPORTANT NOTICE 
+## ⚠️ IMPORTANT NOTICE ⚠️
 DashPad is *alpha software* in development (pre-release), created and maintained by a single hobbyist developer. 
 
 This documentation is a work-in-progress and may change significantly.

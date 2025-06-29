@@ -1,6 +1,10 @@
-# DashPad API Overview
+---
+title: DashPad-API Overview
+---
 
-The DashPad API is a FastAPI-based backend service that collects system metrics directly from the Linux server it runs on.
+# DashPad-API Overview
+
+DashPad-API is a FastAPI-based backend service that collects system metrics directly from the Linux server it runs on.
 
 ## Important Deployment Note
 

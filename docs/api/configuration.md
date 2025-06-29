@@ -1,4 +1,8 @@
-# API Configuration Reference
+---
+title: Configuration (DashPad-API)
+---
+
+# Configuration Reference
 
 This document covers configuring the DashPad API through the `settings.json` file.
 

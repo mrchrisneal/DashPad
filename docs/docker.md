@@ -238,6 +238,5 @@ Verify:
 
 ## Next Steps
 
-- [API Configuration](../api/configuration.md) - Configure metrics
-- [Web Configuration](../web/configuration.md) - Configure interface
-- [Cloud Run Guide](cloud-run.md) - Deploy Web container to cloud
+- [API Configuration](api/configuration.md) - Configure metrics
+- [Web Configuration](web/configuration.md) - Configure interface

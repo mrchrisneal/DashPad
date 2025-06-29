@@ -1,4 +1,8 @@
-# API Endpoints Reference
+---
+title: API Endpoints (DashPad-API)
+---
+
+# API Endpoints
 
 Complete reference for all DashPad API endpoints.
 

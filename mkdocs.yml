@@ -16,10 +16,11 @@ nav:
     - Modules: api/modules.md
   - DashPad-Web:
     - Overview: web/index.md
+    - Quick Start: web/quick-start.md
     - Configuration: web/configuration.md
-  - Deployment:
-    - Docker: deployment/docker.md
-    - Cloud Run: deployment/cloud-run.md
+    - Deployment:
+      - Google Cloud Run: web/deployment/cloud-run.md
+  - Devlog: devlog/index.md
 
 theme:
   name: material
@@ -50,6 +51,10 @@ theme:
 
 plugins:
   - search
+  - section-index
+  - blog:
+      blog_dir: devlog
+      blog_toc: true
   - glightbox:
       touchNavigation: true
       loop: false

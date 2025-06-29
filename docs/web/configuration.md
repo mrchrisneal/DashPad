@@ -1,4 +1,8 @@
-# Web Interface Configuration
+---
+title: Configuration (DashPad-Web)
+---
+
+# Configuration
 
 This guide covers configuring the DashPad Web interface.
 
@@ -176,4 +180,4 @@ Check environment variables are set correctly:
 ## Next Steps
 
 - [API Configuration](../api/configuration.md) - Backend setup
-- [Docker Deployment](../deployment/docker.md) - Local deployment
+- [Docker Deployment](../docker.md) - Local deployment

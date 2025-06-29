@@ -1,3 +1,7 @@
+---
+title: Available Modules (DashPad-API)
+---
+
 # Available Modules
 
 DashPad provides several monitoring modules that can be enabled and configured independently.
