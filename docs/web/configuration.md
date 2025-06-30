@@ -1,183 +1,191 @@
 ---
-title: Configuration (DashPad-Web)
+title: Configuration Guide (DashPad-Web)
 ---
 
-# Configuration
+# Configuration Guide
 
-This guide covers configuring the DashPad Web interface.
+This guide provides a comprehensive reference for all the environment variables used to configure the DashPad-Web container. A proper configuration is key to tailoring the dashboard to your specific needs, from defining API servers to enhancing security.
 
-## Container Configuration
+All configuration for the DashPad-Web container is managed exclusively through environment variables. This design choice provides maximum flexibility, allowing you to use the same Docker image across different environments without any changes. It simplifies deployments for local setups using docker run or Docker Compose, and is especially powerful for cloud-based platforms where environment variables are the standard for injecting configuration.
 
-The Web container uses environment variables for configuration.
+!!! abstract "Important Concepts"
+    * **Configuration Method:** All settings for the DashPad-Web container are managed exclusively through environment variables.
+    * **Server Definitions:** Define each `DashPad-API` server you wish to monitor using a sequentially numbered block of variables (e.g., `SERVER1_...`, `SERVER2_...`, etc.).
+    * **Reference Example:** Full `docker-compose.yml` [examples](#full-docker-compose-example) for Linux and unRAID servers are provided at the end of this guide.
 
-### Basic Configuration
+## Configuration Summary
 
-| Variable | Description | Example |
-|----------|-------------|---------|
-| `LISTEN_PORT` | NGINX listen port | `5240` |
-| `USE_HTTPS` | Enable HTTPS | `true` |
-| `AUTH_USERNAME` | Basic auth username | `admin` |
-| `AUTH_PASSWORD` | Basic auth password | `secure-password` |
-| `SKIP_SSL_FINGERPRINT_VERIFICATION` | Skip SSL verification | `false` |
+The following tables provide a quick reference for all available environment variables. Detailed explanations for each variable can be found in the [Variable Details](#variable-details) section below.
 
-### Server Configuration
+### Core Configuration
 
-Servers are configured using numbered environment variables:
+| Variable | Default | Example |
+| :--- | :--- | :--- |
+| `AUTH_USERNAME` | `user` | `-e AUTH_USERNAME=admin` |
+| `AUTH_PASSWORD` | `password`| `-e AUTH_PASSWORD=mysecret` |
+| `USE_HTTPS` | `true` | `-e USE_HTTPS=false` |
+| `PORT` | `5240` | `-e PORT=8080` |
 
-**Server 1:**
-- `SERVER1_NAME` - Display name
-- `SERVER1_URL` - API URL (with https://)
-- `SERVER1_KEY` - 64-character API key
-- `SERVER1_SSLFINGERPRINT` - SSL certificate fingerprint
+### Server Definitions
 
-**Server 2:**
-- `SERVER2_NAME` - Display name
-- `SERVER2_URL` - API URL
-- `SERVER2_KEY` - API key
-- `SERVER2_SSLFINGERPRINT` - SSL fingerprint
+| Variable                 | Required | Example |
+|:-------------------------| :--- | :--- |
+| `SERVERX_NAME`           | Yes | `-e SERVER1_NAME=unraid` |
+| `SERVERX_URL`            | Yes | `-e SERVER1_URL=https://192.168.1.100:5241`|
+| `SERVERX_KEY`            | Yes | `-e SERVER1_KEY=a1b2...` |
+| `SERVERX_SSLFINGERPRINT` | No | `-e SERVER1_SSLFINGERPRINT=AA:BB...` |
 
-Continue pattern for additional servers (SERVER3_*, SERVER4_*, etc.)
+!!! warning "Server Numbering"
+    When configuring servers, it is important to replace the "X" in all `SERVERX_` variables with a number. The numbering should be sequential, beginning with `SERVER1_`, followed by `SERVER2_`, and so on:
 
-### Docker Compose Example
+    - `SERVER1_NAME`
+    - `SERVER1_URL`
+    - `SERVER1_KEY`
+    - `SERVER2_NAME`
+    - `SERVER2_URL`
+    - `SERVER2_KEY`
+    - ...
 
-```yaml
-version: '3.8'
+### Security Configuration
 
-services:
-  dashpad-web:
-    image: ghcr.io/mrchrisneal/dashpad-web:latest
-    ports:
-      - "5240:5240"
-    environment:
-      - LISTEN_PORT=5240
-      - USE_HTTPS=true
-      - AUTH_USERNAME=admin
-      - AUTH_PASSWORD=password
-      
-      # Server 1
-      - SERVER1_NAME=Production
-      - SERVER1_URL=https://192.168.1.10:5241
-      - SERVER1_KEY=a4514a337c35c834dc4703f286efd90118aaa568bf324ffd7aedaeba61d7a679
-      - SERVER1_SSLFINGERPRINT=F0:B5:B7:98:59:35:42:4B:59:28:47:62:83:EB:BA:DD
-      
-      # Server 2
-      - SERVER2_NAME=Development
-      - SERVER2_URL=https://192.168.1.20:5241
-      - SERVER2_KEY=b1b8908f1754f512e24f2355e405c73fc4ee85fdefae8674363e69bddc6d39b3
-      - SERVER2_SSLFINGERPRINT=4F:B4:5C:24:91:56:D5:B3:93:DE:53:DE:1B:95:4B:2E
-```
+| Variable | Default | Example |
+| :--- | :--- | :--- |
+| `SKIP_SSL_FINGERPRINT_VERIFICATION` | `false` | `-e SKIP_SSL_FINGERPRINT_VERIFICATION=true` |
 
-### Getting API Keys and SSL Fingerprints
+### Development Configuration
 
-1. Deploy the API container first
-2. Check API container logs for the generated API key and SSL fingerprint
-3. Use these values in the Web container configuration
+| Variable | Default | Example |
+| :--- | :--- | :--- |
+| `DEVELOPMENT_MODE` | `false` | `-e DEVELOPMENT_MODE=true` |
 
-## User Interface Settings
+---
 
-### Dashboard Layout
+## Variable Details
 
-Configure through the Settings panel:
-- **Columns**: 1-4 based on screen size
-- **Module Layout**: Drag to reposition
-- **Expand/Collapse**: Individual module control
+### Core Variables
+* **`AUTH_USERNAME`**: The username required to access the web UI via Basic Authentication. It is highly recommended to change this from the default value for any deployment.
+* **`AUTH_PASSWORD`**: The password required for web UI access. Always change this to a strong, unique password.
+* **`USE_HTTPS`**: Toggles HTTPS for the web UI. If set to `false`, the container serves content over HTTP. This should only be done if you are running DashPad-Web behind another reverse proxy (like Traefik or Nginx Proxy Manager) that is already handling SSL termination.
+* **`PORT`**: The internal port that the NGINX server listens on inside the container. You map a host port to this value in your Docker command (e.g., `-p 8080:5240` would make the UI accessible on port 8080 on your host).
 
-### Chart Settings
+### Server Definition Variables
+These variables must be defined in sequential blocks for each `DashPad-API` instance you wish to monitor.
 
-**Duration Options**:
-- Expanded charts: 5, 15, 30, or 60 minutes
-- Background sparklines: 5, 10, or 15 minutes
+* **`SERVERX_NAME`**: A unique, friendly name for the server (e.g., `main-server`, `backup-nas`). This name is used for display purposes in the UI and must not contain spaces or special characters.
+* **`SERVERX_URL`**: The full HTTPS URL of the `DashPad-API` instance. The connection from DashPad-Web to the API is always encrypted, so this **must** start with `https://`.
+* **`SERVERX_KEY`**: The 64-character hexadecimal API key generated by the corresponding `DashPad-API` instance. On startup, the container performs a test connection to validate this key. If validation fails, the server will be disabled for monitoring.
+* **`SERVERX_SSLFINGERPRINT`**: The SHA-256 fingerprint of the API server's SSL certificate. This is the most secure way to ensure you are connecting to the correct server and is highly recommended for production environments.
 
-**Data Retention**:
-- 15 minutes: Low-memory devices
-- 30 minutes: Tablets
-- 60 minutes: Default
-- 120 minutes: High-memory devices
+!!! warning "Remember to replace the "X" in all `SERVERX_` variables with a number as described previously." 
 
-## Module-Specific Settings
+!!! note "Obtaining An SSL Fingerprint"
+    You can get the SHA-256 fingerprint directly from your `DashPad-API` container's logs on its first startup. Alternatively, you can use this `openssl` command from a machine that can reach the API server:
+    ```bash
+    openssl s_client -connect <API_HOST>:<API_PORT> -showcerts </dev/null 2>/dev/null | openssl x509 -fingerprint -sha256 -noout -in /dev/stdin
+    ```
+    Make sure to replace `<API_HOST>` and `<API_PORT>` with your server's information!
 
-### Log Modules
+### Security Variable
+* **`SKIP_SSL_FINGERPRINT_VERIFICATION`**: If set to `true`, the container will not validate the SSL certificate fingerprints of the backend API servers. This is useful for quick tests or in environments with frequently changing certificates, but it **is not recommended for production** as it removes a key security check.
 
-```javascript
-{
-  "autoscroll": true,
-  "highlightRules": [
-    {
-      "keyword": "error",
-      "color": "#ff4444",
-      "enabled": true
-    }
-  ]
-}
-```
+!!! danger "Production Security"
+    For any production environment, you should always set `SKIP_SSL_FINGERPRINT_VERIFICATION` to `false` and provide the correct `SSLFINGERPRINT` for each server. The fingerprint is a unique identifier for your API server's certificate. Verifying it ensures that you are establishing a secure connection to a trusted endpoint and protects your API keys from being exposed in a man-in-the-middle (MITM) attack.
 
-### Metric Modules
+### Development Variable
+* **`DEVELOPMENT_MODE`**: If set to `true`, this disables authentication for source maps and other asset files, making it easier to use browser-based debugging tools to inspect the original Svelte code. This should never be enabled in a production environment.
 
-- Autoscale: Dynamic Y-axis
-- Duration: Override global setting
+---
 
-### Alert Modules
+## Full Docker Compose Example
 
-- Show past alerts
-- Maximum alert history
+Here are complete `docker-compose.yml` examples for a production-ready, two-server setup.
 
-## Security
+=== "Linux (Generic)"
 
-### HTTPS
+    ```yaml
+    version: '3.8'
 
-The container auto-generates self-signed certificates when `USE_HTTPS=true`.
+    services:
+      dashpad-web:
+        image: dashpad-web:latest
+        container_name: dashpad-web
+        ports:
+          # Map the default port 5240 on the host to 5240 in the container
+          - "5240:5240"
+        volumes:
+          # Use a named volume for persistent SSL certificate caching.
+          # This improves startup performance and resilience.
+          - dashpad-web:/data
+        environment:
+          # --- Authentication: Change these to secure credentials ---
+          - AUTH_USERNAME=admin
+          - AUTH_PASSWORD=a-very-secure-password
 
-### Basic Authentication
+          # --- Security: Set to false for production ---
+          - SKIP_SSL_FINGERPRINT_VERIFICATION=false
 
-Always configure authentication:
+          # --- Server 1: Primary NAS ---
+          - SERVER1_NAME=primary-nas
+          - SERVER1_URL=[https://192.168.1.50:5241](https://192.168.1.50:5241)
+          - SERVER1_KEY=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2
+          - SERVER1_SSLFINGERPRINT=AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00:AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00
 
-```yaml
-environment:
-  - AUTH_USERNAME=yourusername
-  - AUTH_PASSWORD=strongpassword
-```
+          # --- Server 2: Media Server ---
+          - SERVER2_NAME=plex-server
+          - SERVER2_URL=[https://192.168.1.51:5241](https://192.168.1.51:5241)
+          - SERVER2_KEY=f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5
+          - SERVER2_SSLFINGERPRINT=00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA:00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA
 
-### SSL Verification
+        restart: unless-stopped
 
-- Set `SKIP_SSL_FINGERPRINT_VERIFICATION=false` for production
-- Use `true` only for testing or if certificates change frequently
+    # Define the named volume for data persistence. Docker will manage this volume.
+    volumes:
+      dashpad-web: {}
+    ```
 
-## Import/Export
+=== "unRAID"
 
-### Export Settings
-1. Open Settings → Import/Export
-2. Click "Export Configuration"
-3. Save JSON file
+    ```yaml
+    version: '3.8'
 
-### Import Settings
-1. Open Settings → Import/Export
-2. Select saved JSON
-3. Click "Import Configuration"
+    services:
+      dashpad-web:
+        image: dashpad-web:latest
+        container_name: dashpad-web
+        ports:
+          # Map the default port 5240 on the host to 5240 in the container
+          - "5240:5240"
+        volumes:
+          # For unRAID, it is recommended to use a host path mount
+          # to the appdata share for easier management.
+          - /mnt/user/appdata/dashpad-web:/data
+        environment:
+          # --- Authentication: Change these to secure credentials ---
+          - AUTH_USERNAME=admin
+          - AUTH_PASSWORD=a-very-secure-password
 
-## Troubleshooting
+          # --- Security: Set to false for production ---
+          - SKIP_SSL_FINGERPRINT_VERIFICATION=false
 
-### Servers Not Appearing
+          # --- Server 1: Primary NAS ---
+          - SERVER1_NAME=primary-nas
+          - SERVER1_URL=[https://192.168.1.50:5241](https://192.168.1.50:5241)
+          - SERVER1_KEY=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2
+          - SERVER1_SSLFINGERPRINT=AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00:AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00
 
-Check environment variables are set correctly:
-- Each server needs all 4 variables (NAME, URL, KEY, SSLFINGERPRINT)
-- URLs must include protocol (https://)
-- API keys must be exactly 64 characters
+          # --- Server 2: Media Server ---
+          - SERVER2_NAME=plex-server
+          - SERVER2_URL=[https://192.168.1.51:5241](https://192.168.1.51:5241)
+          - SERVER2_KEY=f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5
+          - SERVER2_SSLFINGERPRINT=00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA:00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA
 
-### Connection Issues
+        restart: unless-stopped
+    ```
 
-- Verify API containers are running
-- Check firewall rules
-- Confirm SSL fingerprints match
-- Test with `SKIP_SSL_FINGERPRINT_VERIFICATION=true`
+!!! question "Why is a Volume Recommended?"
+    While all primary configuration is indeed handled by environment variables, mounting a volume to the `/data` directory inside the container is recommended for two key reasons:
 
-## Best Practices
+    1.  **Performance:** The container caches the SSL certificates of your backend API servers in the `/data` directory. By using a persistent volume, the container can reuse these certificates on restart, which significantly speeds up the startup process, especially in multi-server setups.
+    2.  **Resilience:** If an API server is temporarily offline when you restart the DashPad-Web container, having a cached certificate allows the container to start up successfully and continue monitoring your other online servers. Without a volume, the startup would fail for that server until it comes back online.
 
-- Always use HTTPS in production
-- Configure strong passwords
-- Keep SSL fingerprint verification enabled
-- Regular configuration backups
-
-## Next Steps
-
-- [API Configuration](../api/configuration.md) - Backend setup
-- [Docker Deployment](../docker.md) - Local deployment
+    You can run the container without a volume (it will operate in "ephemeral mode"), but you will see a warning in the logs, and performance will be reduced on every restart.

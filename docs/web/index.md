@@ -6,12 +6,11 @@ title: DashPad-Web Overview
 
 The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.
 
-## Important Concepts
-
-- **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
-- **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
-- **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard. 
-- **Stateless & (Near) Real-Time:** The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
+!!! abstract "Important Concepts"
+	- **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
+	- **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
+  	- **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard. 
+  	- **Stateless & (Near) Real-Time:** The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
 
 !!! tip "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running."
 
@@ -19,17 +18,17 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 -   **Tablet-Optimized Layout:** The interface uses a responsive, adjustable grid from 1 to 4 columns to fit any screen size. This ensures optimal use of display real estate on everything from a phone to a large monitor. Module and column widths automatically adapt with orientation, allowing for fluid changes between portrait and landscape modes on portable devices. 
     
--   **Multi-Server Monitoring:** View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The `startup.sh` script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates   the need to switch between different tabs or tools to monitor your infrastructure.
+-   **Multi-Server Monitoring:** View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The `startup.sh` script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates the need to switch between different tabs or tools to monitor your infrastructure.
     
 -   **Real-Time Updates:** The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (`next_update_sec`). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. 
     
--   **Historical Sparklines:** Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (`historical.js`) and is capped at 50MB to ensure performance. 
-	- **Important:** As all data is stored client-side, the dashboard must remain open and active in your browser to collect data for the sparklines and charts.
-    
+-   **Historical Sparklines:** Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (`historical.js`) and is capped at 50MB to ensure performance.
+
+!!! danger "By design, all data is stored client-side. The dashboard must remain open and active in your browser to collect, cache, and display all data."
+ 
 -   **Drag-and-Drop Customization:** In "Edit Mode," you can easily rearrange modules by dragging and dropping them to create a layout that suits your needs. This functionality is powered by the `svelte-dnd-action` library, and your custom layout is automatically saved to your browser's `localStorage`, making it persistent across sessions.
     
 -   **Module-Specific Settings:** Each module has its own set of configurable options, accessible via a cog icon in the module header. For example, you can toggle autoscroll for logs, customize the color thresholds for CPU and RAM warnings, define keyword highlighting rules for log viewers, or set the number of upcoming cron jobs to display. All display settings can be exported to your clipboard and imported later on a different device.
-
 
 ## Technology Stack
 
@@ -69,7 +68,9 @@ At-a-glance status information is conveyed through a simple color-coded system, 
     
 🔴 **Red:** Critical state, indicating an active problem that requires attention.
 
-Modules without threshold logic (such as the `uptime` module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. Threshold states are determined by a connected DashPad-API instance.
+Modules without threshold logic (such as the `uptime` module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. 
+
+!!! info "Threshold states (and consequently the indicator colors) are determined by a connected DashPad-API instance. This logic is evaluated by DashPad-API *before* DashPad-Web receives the information."
 
 ## Real-Time Updates
 
@@ -102,8 +103,18 @@ Security is a core design principle of the web container, handled primarily by t
     
 -   **Encryption:** Communication is secured with HTTPS. The container generates a self-signed certificate at startup, and it can also validate DashPad-API server certificates via SSL fingerprinting.
     
--   **Masked URLs:** To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. Other information, including keywords and email, IP, & MAC addresses, can be obfuscated within the log module, though this is an API container-based setting.
-    
+-   **Masked URLs:** To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. 
+
+!!! tip "Redacting Log Entries"
+
+	The display of select information can be obfuscated within log modules, including:
+
+	- Custom strings/keywords 
+	- Email addresses 
+	- IP addresses 
+	- MAC addresses
+
+	Note that this is a DashPad-API setting, and must be set on a per-log basis.
 
 ## Deployment
 
@@ -115,7 +126,11 @@ In addition to local Docker deployments, DashPad-Web is fully compatible with se
 
 By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than **$0.03 per day**, with projected monthly costs under **$1.00** and projected yearly costs under **$10.00**. This makes DashPad an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.
 
-As a reminder, the DashPad-API container must still be deployed on monitored servers so the Web container has a data source.
+!!! note "Google Cloud Run Deployment Guide"
+
+	More information about deployment on Google Cloud Platform is available in the [Google Cloud Run Deployment](./deployment/cloud-run.md) guide.
+
+!!! info "As a reminder, the DashPad-API container must still be deployed on at least one monitored server. The Web container must have a data source."
 
 
 ## Next Steps

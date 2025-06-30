@@ -1,0 +1,18 @@
+/* Increase font size for table body cells */
+.md-typeset table td {
+    font-size: 0.7rem;
+}
+
+/* Increase font size for table headings */
+.md-typeset table th{
+     font-size: 0.7rem;
+}
+
+/* Increase font size for inline code inside table cells */
+.md-typeset table td code {
+    font-size: 0.7rem;
+}
+
+.md-typeset .admonition{
+    font-size: 0.7rem;
+}

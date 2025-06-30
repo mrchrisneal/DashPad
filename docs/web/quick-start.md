@@ -16,7 +16,7 @@ Before you begin, please ensure you have the following:
 
 !!! question "Is DashPad-API Running?"
 
-	If you haven't set up or started at least one instance of `DashPad-API` yet, please follow the [DashPad-API documentation](../api/index.md) before continuing.
+	If you haven't set up or started at least one instance of `DashPad-API` yet, please follow the [DashPad-API documentation](../api/index.md) before continuing. Ensure it is reachable from the environment hosting DashPad-Web.
 
 ## Step 1: Create the Docker Compose File
 
@@ -39,7 +39,7 @@ Oreate a new file named `docker-compose.yml` and paste the following content int
 		# The 'volumes' section maps a host directory to a directory inside the container.
 		# It is highly recommended for performance, as it caches SSL certificates.
 		volumes:
-		  - ./dashpad-data:/data
+		  - ./dashpad-web:/data
 		environment:
 		  # --- Web Interface Authentication ---
 		  - AUTH_USERNAME=username
@@ -106,7 +106,7 @@ Oreate a new file named `docker-compose.yml` and paste the following content int
 
 ## Step 2: Configure Your Server
 
-You only need to change **two** lines in the `environment` section of the `docker-compose.yml` file you just created:
+While you may want to configure the `SERVER1_NAME` variable, you only *need* to change **two** lines in the `environment` section of the `docker-compose.yml` file you just created:
 
 1.  **`SERVER1_URL`**: Replace `<REPLACE_WITH_API_IP>:<REPLACE_WITH_API_PORT>` with the actual HTTPS URL of your running `DashPad-API` instance.
 
@@ -114,11 +114,11 @@ You only need to change **two** lines in the `environment` section of the `docke
 
 !!! info "Persistent vs. Ephemeral Storage"
 
-	The volumes section in the docker-compose.yml is highly recommended but optional.
+	The volumes section in the docker-compose.yml is recommended but optional.
 
-	**With a volume (Recommended)**: SSL certificates from your API servers are cached in the dashpad-data directory. This makes container restarts much faster.
+	**With a volume (Recommended)**: SSL certificates from your API servers are cached in the dashpad-web directory. This makes container restarts much faster.
 
-	**Without a volume**: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the logs if this happens.
+	**Without a volume**: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the DashPad-Web container logs if this happens.
 
 !!! warning "Security Notice: SSL Verification"
 
@@ -134,15 +134,13 @@ Save the changes to your `docker-compose.yml` file. Now, open a terminal in the 
 docker compose up -d
 ```
 
-Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-data directory in the same folder to store SSL certificate data.
+Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-web directory in the same folder to store SSL certificate data.
 
 ## Step 4: Access Your Dashboard
 
 Once the container is running, open your web browser and navigate to:
 
 `http://<your_docker_host_ip>:5240`
-
-### TODO: Update port numbers
 
 You will be prompted for a username and password. Use the credentials you specified in the `docker-compose.yml` file.
 

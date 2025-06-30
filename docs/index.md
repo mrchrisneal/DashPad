@@ -24,6 +24,8 @@ DashPad traces its origins to 2024 as a basic, single-container solution to moni
 - **Modular Design**: Enable only the metrics you need
 - **Lightweight**: Minimal resource usage on both server and tablet
 
+!!! success "DashPad-API and DashPad-Web can be used 100% locally without a connection to the Internet."
+
 ## DashPad is for you if...
 
 ✅ You have old tablets gathering dust

@@ -6,6 +6,9 @@ repo_name: mrchrisneal/DashPad
 repo_url: https://github.com/mrchrisneal/DashPad
 edit_uri: edit/main/docs/
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Architecture: architecture.md
