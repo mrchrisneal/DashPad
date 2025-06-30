@@ -24,7 +24,7 @@
     
     
       
-        <title>Configuration (DashPad-Web) - DashPad Documentation</title>
+        <title>Configuration Guide (DashPad-Web) - DashPad Documentation</title>
       
     
     
@@ -49,6 +49,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -89,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#configuration-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration (DashPad-Web)
+              Configuration Guide (DashPad-Web)
             
           </span>
         </div>
@@ -711,46 +713,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#container-configuration" class="md-nav__link">
+  <a href="#configuration-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Container Configuration
+      Configuration Summary
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Container Configuration">
+    <nav class="md-nav" aria-label="Configuration Summary">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#core-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Core Configuration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#server-configuration" class="md-nav__link">
+  <a href="#server-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Server Configuration
+      Server Definitions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#docker-compose-example" class="md-nav__link">
+  <a href="#security-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker Compose Example
+      Security Configuration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-api-keys-and-ssl-fingerprints" class="md-nav__link">
+  <a href="#development-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting API Keys and SSL Fingerprints
+      Development Configuration
     </span>
   </a>
   
@@ -762,28 +764,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-interface-settings" class="md-nav__link">
+  <a href="#variable-details" class="md-nav__link">
     <span class="md-ellipsis">
-      User Interface Settings
+      Variable Details
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="User Interface Settings">
+    <nav class="md-nav" aria-label="Variable Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dashboard-layout" class="md-nav__link">
+  <a href="#core-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Dashboard Layout
+      Core Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chart-settings" class="md-nav__link">
+  <a href="#server-definition-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Chart Settings
+      Server Definition Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Variable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Variable
     </span>
   </a>
   
@@ -795,168 +815,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-specific-settings" class="md-nav__link">
+  <a href="#full-docker-compose-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Module-Specific Settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Module-Specific Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#log-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Log Modules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metric-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metric Modules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alert Modules
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#https" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTPS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Authentication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ssl-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      SSL Verification
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#importexport" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import/Export
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Import/Export">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#export-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Export Settings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#import-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import Settings
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#servers-not-appearing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Servers Not Appearing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connection Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
+      Full Docker Compose Example
     </span>
   </a>
   
@@ -1112,46 +973,46 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#container-configuration" class="md-nav__link">
+  <a href="#configuration-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Container Configuration
+      Configuration Summary
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Container Configuration">
+    <nav class="md-nav" aria-label="Configuration Summary">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-configuration" class="md-nav__link">
+  <a href="#core-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Basic Configuration
+      Core Configuration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#server-configuration" class="md-nav__link">
+  <a href="#server-definitions" class="md-nav__link">
     <span class="md-ellipsis">
-      Server Configuration
+      Server Definitions
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#docker-compose-example" class="md-nav__link">
+  <a href="#security-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Docker Compose Example
+      Security Configuration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-api-keys-and-ssl-fingerprints" class="md-nav__link">
+  <a href="#development-configuration" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting API Keys and SSL Fingerprints
+      Development Configuration
     </span>
   </a>
   
@@ -1163,28 +1024,46 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#user-interface-settings" class="md-nav__link">
+  <a href="#variable-details" class="md-nav__link">
     <span class="md-ellipsis">
-      User Interface Settings
+      Variable Details
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="User Interface Settings">
+    <nav class="md-nav" aria-label="Variable Details">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dashboard-layout" class="md-nav__link">
+  <a href="#core-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Dashboard Layout
+      Core Variables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#chart-settings" class="md-nav__link">
+  <a href="#server-definition-variables" class="md-nav__link">
     <span class="md-ellipsis">
-      Chart Settings
+      Server Definition Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Variable
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#development-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      Development Variable
     </span>
   </a>
   
@@ -1196,168 +1075,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#module-specific-settings" class="md-nav__link">
+  <a href="#full-docker-compose-example" class="md-nav__link">
     <span class="md-ellipsis">
-      Module-Specific Settings
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Module-Specific Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#log-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Log Modules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#metric-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Metric Modules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alert-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      Alert Modules
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Security">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#https" class="md-nav__link">
-    <span class="md-ellipsis">
-      HTTPS
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-authentication" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Authentication
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ssl-verification" class="md-nav__link">
-    <span class="md-ellipsis">
-      SSL Verification
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#importexport" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import/Export
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Import/Export">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#export-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Export Settings
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#import-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      Import Settings
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#servers-not-appearing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Servers Not Appearing
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#connection-issues" class="md-nav__link">
-    <span class="md-ellipsis">
-      Connection Issues
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      Best Practices
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
+      Full Docker Compose Example
     </span>
   </a>
   
@@ -1382,182 +1102,263 @@
   
 
 
-<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
-<p>This guide covers configuring the DashPad Web interface.</p>
-<h2 id="container-configuration">Container Configuration<a class="headerlink" href="#container-configuration" title="Permanent link">&para;</a></h2>
-<p>The Web container uses environment variables for configuration.</p>
-<h3 id="basic-configuration">Basic Configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">&para;</a></h3>
+<h1 id="configuration-guide">Configuration Guide<a class="headerlink" href="#configuration-guide" title="Permanent link">&para;</a></h1>
+<p>This guide provides a comprehensive reference for all the environment variables used to configure the DashPad-Web container. A proper configuration is key to tailoring the dashboard to your specific needs, from defining API servers to enhancing security.</p>
+<p>All configuration for the DashPad-Web container is managed exclusively through environment variables. This design choice provides maximum flexibility, allowing you to use the same Docker image across different environments without any changes. It simplifies deployments for local setups using docker run or Docker Compose, and is especially powerful for cloud-based platforms where environment variables are the standard for injecting configuration.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Important Concepts</p>
+<ul>
+<li><strong>Configuration Method:</strong> All settings for the DashPad-Web container are managed exclusively through environment variables.</li>
+<li><strong>Server Definitions:</strong> Define each <code>DashPad-API</code> server you wish to monitor using a sequentially numbered block of variables (e.g., <code>SERVER1_...</code>, <code>SERVER2_...</code>, etc.).</li>
+<li><strong>Reference Example:</strong> Full <code>docker-compose.yml</code> <a href="#full-docker-compose-example">examples</a> for Linux and unRAID servers are provided at the end of this guide.</li>
+</ul>
+</div>
+<h2 id="configuration-summary">Configuration Summary<a class="headerlink" href="#configuration-summary" title="Permanent link">&para;</a></h2>
+<p>The following tables provide a quick reference for all available environment variables. Detailed explanations for each variable can be found in the <a href="#variable-details">Variable Details</a> section below.</p>
+<h3 id="core-configuration">Core Configuration<a class="headerlink" href="#core-configuration" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Variable</th>
-<th>Description</th>
-<th>Example</th>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>LISTEN_PORT</code></td>
-<td>NGINX listen port</td>
-<td><code>5240</code></td>
+<td style="text-align: left;"><code>AUTH_USERNAME</code></td>
+<td style="text-align: left;"><code>user</code></td>
+<td style="text-align: left;"><code>-e AUTH_USERNAME=admin</code></td>
 </tr>
 <tr>
-<td><code>USE_HTTPS</code></td>
-<td>Enable HTTPS</td>
-<td><code>true</code></td>
+<td style="text-align: left;"><code>AUTH_PASSWORD</code></td>
+<td style="text-align: left;"><code>password</code></td>
+<td style="text-align: left;"><code>-e AUTH_PASSWORD=mysecret</code></td>
 </tr>
 <tr>
-<td><code>AUTH_USERNAME</code></td>
-<td>Basic auth username</td>
-<td><code>admin</code></td>
+<td style="text-align: left;"><code>USE_HTTPS</code></td>
+<td style="text-align: left;"><code>true</code></td>
+<td style="text-align: left;"><code>-e USE_HTTPS=false</code></td>
 </tr>
 <tr>
-<td><code>AUTH_PASSWORD</code></td>
-<td>Basic auth password</td>
-<td><code>secure-password</code></td>
-</tr>
-<tr>
-<td><code>SKIP_SSL_FINGERPRINT_VERIFICATION</code></td>
-<td>Skip SSL verification</td>
-<td><code>false</code></td>
+<td style="text-align: left;"><code>PORT</code></td>
+<td style="text-align: left;"><code>5240</code></td>
+<td style="text-align: left;"><code>-e PORT=8080</code></td>
 </tr>
 </tbody>
 </table>
-<h3 id="server-configuration">Server Configuration<a class="headerlink" href="#server-configuration" title="Permanent link">&para;</a></h3>
-<p>Servers are configured using numbered environment variables:</p>
-<p><strong>Server 1:</strong>
-- <code>SERVER1_NAME</code> - Display name
-- <code>SERVER1_URL</code> - API URL (with https://)
-- <code>SERVER1_KEY</code> - 64-character API key
-- <code>SERVER1_SSLFINGERPRINT</code> - SSL certificate fingerprint</p>
-<p><strong>Server 2:</strong>
-- <code>SERVER2_NAME</code> - Display name
-- <code>SERVER2_URL</code> - API URL
-- <code>SERVER2_KEY</code> - API key
-- <code>SERVER2_SSLFINGERPRINT</code> - SSL fingerprint</p>
-<p>Continue pattern for additional servers (SERVER3_<em>, SERVER4_</em>, etc.)</p>
-<h3 id="docker-compose-example">Docker Compose Example<a class="headerlink" href="#docker-compose-example" title="Permanent link">&para;</a></h3>
+<h3 id="server-definitions">Server Definitions<a class="headerlink" href="#server-definitions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SERVERX_NAME</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;"><code>-e SERVER1_NAME=unraid</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SERVERX_URL</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;"><code>-e SERVER1_URL=https://192.168.1.100:5241</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SERVERX_KEY</code></td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;"><code>-e SERVER1_KEY=a1b2...</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>SERVERX_SSLFINGERPRINT</code></td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"><code>-e SERVER1_SSLFINGERPRINT=AA:BB...</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Server Numbering</p>
+<p>When configuring servers, it is important to replace the "X" in all <code>SERVERX_</code> variables with a number. The numbering should be sequential, beginning with <code>SERVER1_</code>, followed by <code>SERVER2_</code>, and so on:</p>
+<ul>
+<li><code>SERVER1_NAME</code></li>
+<li><code>SERVER1_URL</code></li>
+<li><code>SERVER1_KEY</code></li>
+<li><code>SERVER2_NAME</code></li>
+<li><code>SERVER2_URL</code></li>
+<li><code>SERVER2_KEY</code></li>
+<li>...</li>
+</ul>
+</div>
+<h3 id="security-configuration">Security Configuration<a class="headerlink" href="#security-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>SKIP_SSL_FINGERPRINT_VERIFICATION</code></td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;"><code>-e SKIP_SSL_FINGERPRINT_VERIFICATION=true</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="development-configuration">Development Configuration<a class="headerlink" href="#development-configuration" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>DEVELOPMENT_MODE</code></td>
+<td style="text-align: left;"><code>false</code></td>
+<td style="text-align: left;"><code>-e DEVELOPMENT_MODE=true</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="variable-details">Variable Details<a class="headerlink" href="#variable-details" title="Permanent link">&para;</a></h2>
+<h3 id="core-variables">Core Variables<a class="headerlink" href="#core-variables" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>AUTH_USERNAME</code></strong>: The username required to access the web UI via Basic Authentication. It is highly recommended to change this from the default value for any deployment.</li>
+<li><strong><code>AUTH_PASSWORD</code></strong>: The password required for web UI access. Always change this to a strong, unique password.</li>
+<li><strong><code>USE_HTTPS</code></strong>: Toggles HTTPS for the web UI. If set to <code>false</code>, the container serves content over HTTP. This should only be done if you are running DashPad-Web behind another reverse proxy (like Traefik or Nginx Proxy Manager) that is already handling SSL termination.</li>
+<li><strong><code>PORT</code></strong>: The internal port that the NGINX server listens on inside the container. You map a host port to this value in your Docker command (e.g., <code>-p 8080:5240</code> would make the UI accessible on port 8080 on your host).</li>
+</ul>
+<h3 id="server-definition-variables">Server Definition Variables<a class="headerlink" href="#server-definition-variables" title="Permanent link">&para;</a></h3>
+<p>These variables must be defined in sequential blocks for each <code>DashPad-API</code> instance you wish to monitor.</p>
+<ul>
+<li><strong><code>SERVERX_NAME</code></strong>: A unique, friendly name for the server (e.g., <code>main-server</code>, <code>backup-nas</code>). This name is used for display purposes in the UI and must not contain spaces or special characters.</li>
+<li><strong><code>SERVERX_URL</code></strong>: The full HTTPS URL of the <code>DashPad-API</code> instance. The connection from DashPad-Web to the API is always encrypted, so this <strong>must</strong> start with <code>https://</code>.</li>
+<li><strong><code>SERVERX_KEY</code></strong>: The 64-character hexadecimal API key generated by the corresponding <code>DashPad-API</code> instance. On startup, the container performs a test connection to validate this key. If validation fails, the server will be disabled for monitoring.</li>
+<li><strong><code>SERVERX_SSLFINGERPRINT</code></strong>: The SHA-256 fingerprint of the API server's SSL certificate. This is the most secure way to ensure you are connecting to the correct server and is highly recommended for production environments.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Remember to replace the "X" in all <code>SERVERX_</code> variables with a number as described previously.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Obtaining An SSL Fingerprint</p>
+<p>You can get the SHA-256 fingerprint directly from your <code>DashPad-API</code> container's logs on its first startup. Alternatively, you can use this <code>openssl</code> command from a machine that can reach the API server:
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>s_client<span class="w"> </span>-connect<span class="w"> </span>&lt;API_HOST&gt;:&lt;API_PORT&gt;<span class="w"> </span>-showcerts<span class="w"> </span>&lt;/dev/null<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="w"> </span><span class="p">|</span><span class="w"> </span>openssl<span class="w"> </span>x509<span class="w"> </span>-fingerprint<span class="w"> </span>-sha256<span class="w"> </span>-noout<span class="w"> </span>-in<span class="w"> </span>/dev/stdin
+</code></pre></div>
+Make sure to replace <code>&lt;API_HOST&gt;</code> and <code>&lt;API_PORT&gt;</code> with your server's information!</p>
+</div>
+<h3 id="security-variable">Security Variable<a class="headerlink" href="#security-variable" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>SKIP_SSL_FINGERPRINT_VERIFICATION</code></strong>: If set to <code>true</code>, the container will not validate the SSL certificate fingerprints of the backend API servers. This is useful for quick tests or in environments with frequently changing certificates, but it <strong>is not recommended for production</strong> as it removes a key security check.</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Production Security</p>
+<p>For any production environment, you should always set <code>SKIP_SSL_FINGERPRINT_VERIFICATION</code> to <code>false</code> and provide the correct <code>SSLFINGERPRINT</code> for each server. The fingerprint is a unique identifier for your API server's certificate. Verifying it ensures that you are establishing a secure connection to a trusted endpoint and protects your API keys from being exposed in a man-in-the-middle (MITM) attack.</p>
+</div>
+<h3 id="development-variable">Development Variable<a class="headerlink" href="#development-variable" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>DEVELOPMENT_MODE</code></strong>: If set to <code>true</code>, this disables authentication for source maps and other asset files, making it easier to use browser-based debugging tools to inspect the original Svelte code. This should never be enabled in a production environment.</li>
+</ul>
+<hr />
+<h2 id="full-docker-compose-example">Full Docker Compose Example<a class="headerlink" href="#full-docker-compose-example" title="Permanent link">&para;</a></h2>
+<p>Here are complete <code>docker-compose.yml</code> examples for a production-ready, two-server setup.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux (Generic)</label><label for="__tabbed_1_2">unRAID</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
 
 <span class="nt">services</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">dashpad-web</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mrchrisneal/dashpad-web:latest</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-web:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-web</span>
 <span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Map the default port 5240 on the host to 5240 in the container</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5240:5240&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Use a named volume for persistent SSL certificate caching.</span>
+<span class="w">      </span><span class="c1"># This improves startup performance and resilience.</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-web:/data</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LISTEN_PORT=5240</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">USE_HTTPS=true</span>
+<span class="w">      </span><span class="c1"># --- Authentication: Change these to secure credentials ---</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_USERNAME=admin</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_PASSWORD=password</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_PASSWORD=a-very-secure-password</span>
 
-<span class="w">      </span><span class="c1"># Server 1</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_NAME=Production</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_URL=https://192.168.1.10:5241</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_KEY=a4514a337c35c834dc4703f286efd90118aaa568bf324ffd7aedaeba61d7a679</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_SSLFINGERPRINT=F0:B5:B7:98:59:35:42:4B:59:28:47:62:83:EB:BA:DD</span>
+<span class="w">      </span><span class="c1"># --- Security: Set to false for production ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SKIP_SSL_FINGERPRINT_VERIFICATION=false</span>
 
-<span class="w">      </span><span class="c1"># Server 2</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_NAME=Development</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_URL=https://192.168.1.20:5241</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_KEY=b1b8908f1754f512e24f2355e405c73fc4ee85fdefae8674363e69bddc6d39b3</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_SSLFINGERPRINT=4F:B4:5C:24:91:56:D5:B3:93:DE:53:DE:1B:95:4B:2E</span>
+<span class="w">      </span><span class="c1"># --- Server 1: Primary NAS ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_NAME=primary-nas</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_URL=[https://192.168.1.50:5241](https://192.168.1.50:5241)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_KEY=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_SSLFINGERPRINT=AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00:AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00</span>
+
+<span class="w">      </span><span class="c1"># --- Server 2: Media Server ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_NAME=plex-server</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_URL=[https://192.168.1.51:5241](https://192.168.1.51:5241)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_KEY=f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_SSLFINGERPRINT=00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA:00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA</span>
+
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+
+<span class="c1"># Define the named volume for data persistence. Docker will manage this volume.</span>
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dashpad-web</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </code></pre></div>
-<h3 id="getting-api-keys-and-ssl-fingerprints">Getting API Keys and SSL Fingerprints<a class="headerlink" href="#getting-api-keys-and-ssl-fingerprints" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Deploy the API container first</li>
-<li>Check API container logs for the generated API key and SSL fingerprint</li>
-<li>Use these values in the Web container configuration</li>
-</ol>
-<h2 id="user-interface-settings">User Interface Settings<a class="headerlink" href="#user-interface-settings" title="Permanent link">&para;</a></h2>
-<h3 id="dashboard-layout">Dashboard Layout<a class="headerlink" href="#dashboard-layout" title="Permanent link">&para;</a></h3>
-<p>Configure through the Settings panel:
-- <strong>Columns</strong>: 1-4 based on screen size
-- <strong>Module Layout</strong>: Drag to reposition
-- <strong>Expand/Collapse</strong>: Individual module control</p>
-<h3 id="chart-settings">Chart Settings<a class="headerlink" href="#chart-settings" title="Permanent link">&para;</a></h3>
-<p><strong>Duration Options</strong>:
-- Expanded charts: 5, 15, 30, or 60 minutes
-- Background sparklines: 5, 10, or 15 minutes</p>
-<p><strong>Data Retention</strong>:
-- 15 minutes: Low-memory devices
-- 30 minutes: Tablets
-- 60 minutes: Default
-- 120 minutes: High-memory devices</p>
-<h2 id="module-specific-settings">Module-Specific Settings<a class="headerlink" href="#module-specific-settings" title="Permanent link">&para;</a></h2>
-<h3 id="log-modules">Log Modules<a class="headerlink" href="#log-modules" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="s2">&quot;autoscroll&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="s2">&quot;highlightRules&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="s2">&quot;keyword&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;color&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;#ff4444&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="s2">&quot;enabled&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
-<span class="p">}</span>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dashpad-web</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-web:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-web</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Map the default port 5240 on the host to 5240 in the container</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5240:5240&quot;</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># For unRAID, it is recommended to use a host path mount</span>
+<span class="w">      </span><span class="c1"># to the appdata share for easier management.</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/user/appdata/dashpad-web:/data</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># --- Authentication: Change these to secure credentials ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_USERNAME=admin</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_PASSWORD=a-very-secure-password</span>
+
+<span class="w">      </span><span class="c1"># --- Security: Set to false for production ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SKIP_SSL_FINGERPRINT_VERIFICATION=false</span>
+
+<span class="w">      </span><span class="c1"># --- Server 1: Primary NAS ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_NAME=primary-nas</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_URL=[https://192.168.1.50:5241](https://192.168.1.50:5241)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_KEY=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER1_SSLFINGERPRINT=AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00:AA:BB:CC:DD:EE:FF:11:22:33:44:55:66:77:88:99:00</span>
+
+<span class="w">      </span><span class="c1"># --- Server 2: Media Server ---</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_NAME=plex-server</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_URL=[https://192.168.1.51:5241](https://192.168.1.51:5241)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_KEY=f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6e5</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SERVER2_SSLFINGERPRINT=00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA:00:99:88:77:66:55:44:33:22:11:FF:EE:DD:CC:BB:AA</span>
+
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 </code></pre></div>
-<h3 id="metric-modules">Metric Modules<a class="headerlink" href="#metric-modules" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Autoscale: Dynamic Y-axis</li>
-<li>Duration: Override global setting</li>
-</ul>
-<h3 id="alert-modules">Alert Modules<a class="headerlink" href="#alert-modules" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Show past alerts</li>
-<li>Maximum alert history</li>
-</ul>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
-<h3 id="https">HTTPS<a class="headerlink" href="#https" title="Permanent link">&para;</a></h3>
-<p>The container auto-generates self-signed certificates when <code>USE_HTTPS=true</code>.</p>
-<h3 id="basic-authentication">Basic Authentication<a class="headerlink" href="#basic-authentication" title="Permanent link">&para;</a></h3>
-<p>Always configure authentication:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">environment</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_USERNAME=yourusername</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_PASSWORD=strongpassword</span>
-</code></pre></div>
-<h3 id="ssl-verification">SSL Verification<a class="headerlink" href="#ssl-verification" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Set <code>SKIP_SSL_FINGERPRINT_VERIFICATION=false</code> for production</li>
-<li>Use <code>true</code> only for testing or if certificates change frequently</li>
-</ul>
-<h2 id="importexport">Import/Export<a class="headerlink" href="#importexport" title="Permanent link">&para;</a></h2>
-<h3 id="export-settings">Export Settings<a class="headerlink" href="#export-settings" title="Permanent link">&para;</a></h3>
+</div>
+</div>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Why is a Volume Recommended?</p>
+<p>While all primary configuration is indeed handled by environment variables, mounting a volume to the <code>/data</code> directory inside the container is recommended for two key reasons:</p>
 <ol>
-<li>Open Settings → Import/Export</li>
-<li>Click "Export Configuration"</li>
-<li>Save JSON file</li>
+<li><strong>Performance:</strong> The container caches the SSL certificates of your backend API servers in the <code>/data</code> directory. By using a persistent volume, the container can reuse these certificates on restart, which significantly speeds up the startup process, especially in multi-server setups.</li>
+<li><strong>Resilience:</strong> If an API server is temporarily offline when you restart the DashPad-Web container, having a cached certificate allows the container to start up successfully and continue monitoring your other online servers. Without a volume, the startup would fail for that server until it comes back online.</li>
 </ol>
-<h3 id="import-settings">Import Settings<a class="headerlink" href="#import-settings" title="Permanent link">&para;</a></h3>
-<ol>
-<li>Open Settings → Import/Export</li>
-<li>Select saved JSON</li>
-<li>Click "Import Configuration"</li>
-</ol>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="servers-not-appearing">Servers Not Appearing<a class="headerlink" href="#servers-not-appearing" title="Permanent link">&para;</a></h3>
-<p>Check environment variables are set correctly:
-- Each server needs all 4 variables (NAME, URL, KEY, SSLFINGERPRINT)
-- URLs must include protocol (https://)
-- API keys must be exactly 64 characters</p>
-<h3 id="connection-issues">Connection Issues<a class="headerlink" href="#connection-issues" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Verify API containers are running</li>
-<li>Check firewall rules</li>
-<li>Confirm SSL fingerprints match</li>
-<li>Test with <code>SKIP_SSL_FINGERPRINT_VERIFICATION=true</code></li>
-</ul>
-<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Always use HTTPS in production</li>
-<li>Configure strong passwords</li>
-<li>Keep SSL fingerprint verification enabled</li>
-<li>Regular configuration backups</li>
-</ul>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../api/configuration/">API Configuration</a> - Backend setup</li>
-<li><a href="../../docker/">Docker Deployment</a> - Local deployment</li>
-</ul>
+<p>You can run the container without a volume (it will operate in "ephemeral mode"), but you will see a warning in the logs, and performance will be reduced on every restart.</p>
+</div>
 
 
 
@@ -1578,7 +1379,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 01:48:36 UTC">June 30, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 22:46:45 UTC">June 30, 2025</span>
   </span>
 
     

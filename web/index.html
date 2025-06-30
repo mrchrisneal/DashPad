@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -818,15 +820,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#important-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important Concepts
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
       Key Features
@@ -943,13 +936,15 @@
 
 <h1 id="dashpad-web-overview">DashPad-Web Overview<a class="headerlink" href="#dashpad-web-overview" title="Permanent link">&para;</a></h1>
 <p>The DashPad-Web interface is a Svelte 5-based frontend designed primarily for tablet displays, and provides a performant, responsive dashboard for real-time system monitoring. It securely connects to one or more DashPad-API instances to display live metrics, logs, and alerts, turning any spare tablet into a dedicated, always-on monitoring screen. The entire experience is crafted to be lightweight and performant, ensuring it operates effectively even on older hardware.</p>
-<h2 id="important-concepts">Important Concepts<a class="headerlink" href="#important-concepts" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Important Concepts</p>
 <ul>
 <li><strong>Purpose:</strong> DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. </li>
 <li><strong>Security:</strong> DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. </li>
 <li><strong>Multi-Server:</strong> DashPad-Web can monitor multiple <code>DashPad-API</code> instances from a single dashboard. </li>
 <li><strong>Stateless &amp; (Near) Real-Time:</strong> The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.</li>
 </ul>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">In a Hurry? Check out the <a href="quick-start/"><strong>Quick Start Guide</strong></a> for the fastest way to get up and running.</p>
 </div>
@@ -959,17 +954,19 @@
 <p><strong>Tablet-Optimized Layout:</strong> The interface uses a responsive, adjustable grid from 1 to 4 columns to fit any screen size. This ensures optimal use of display real estate on everything from a phone to a large monitor. Module and column widths automatically adapt with orientation, allowing for fluid changes between portrait and landscape modes on portable devices. </p>
 </li>
 <li>
-<p><strong>Multi-Server Monitoring:</strong> View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The <code>startup.sh</code> script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates   the need to switch between different tabs or tools to monitor your infrastructure.</p>
+<p><strong>Multi-Server Monitoring:</strong> View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The <code>startup.sh</code> script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates the need to switch between different tabs or tools to monitor your infrastructure.</p>
 </li>
 <li>
 <p><strong>Real-Time Updates:</strong> The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (<code>next_update_sec</code>). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. </p>
 </li>
 <li>
-<p><strong>Historical Sparklines:</strong> Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (<code>historical.js</code>) and is capped at 50MB to ensure performance. </p>
-<ul>
-<li><strong>Important:</strong> As all data is stored client-side, the dashboard must remain open and active in your browser to collect data for the sparklines and charts.</li>
-</ul>
+<p><strong>Historical Sparklines:</strong> Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (<code>historical.js</code>) and is capped at 50MB to ensure performance.</p>
 </li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">By design, all data is stored client-side. The dashboard must remain open and active in your browser to collect, cache, and display all data.</p>
+</div>
+<ul>
 <li>
 <p><strong>Drag-and-Drop Customization:</strong> In "Edit Mode," you can easily rearrange modules by dragging and dropping them to create a layout that suits your needs. This functionality is powered by the <code>svelte-dnd-action</code> library, and your custom layout is automatically saved to your browser's <code>localStorage</code>, making it persistent across sessions.</p>
 </li>
@@ -1017,7 +1014,10 @@
 <p>🟢 <strong>Green:</strong> Normal operation.</p>
 <p>🟡 <strong>Yellow:</strong> Warning state, indicating a potential issue (e.g., high CPU usage).</p>
 <p>🔴 <strong>Red:</strong> Critical state, indicating an active problem that requires attention.</p>
-<p>Modules without threshold logic (such as the <code>uptime</code> module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. Threshold states are determined by a connected DashPad-API instance.</p>
+<p>Modules without threshold logic (such as the <code>uptime</code> module) do not display threshold indicators. Charts also follow a similar default color scheme; they can be customized in the Settings pane. </p>
+<div class="admonition info">
+<p class="admonition-title">Threshold states (and consequently the indicator colors) are determined by a connected DashPad-API instance. This logic is evaluated by DashPad-API <em>before</em> DashPad-Web receives the information.</p>
+</div>
 <h2 id="real-time-updates">Real-Time Updates<a class="headerlink" href="#real-time-updates" title="Permanent link">&para;</a></h2>
 <p>The web interface intelligently polls the DashPad-API container based on <code>next_update_sec</code> hints provided by the API itself. This allows the frontend to adapt its polling frequency dynamically, reducing unnecessary network traffic and server load. Default polling intervals are:</p>
 <ul>
@@ -1055,15 +1055,32 @@
 <p><strong>Encryption:</strong> Communication is secured with HTTPS. The container generates a self-signed certificate at startup, and it can also validate DashPad-API server certificates via SSL fingerprinting.</p>
 </li>
 <li>
-<p><strong>Masked URLs:</strong> To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. Other information, including keywords and email, IP, &amp; MAC addresses, can be obfuscated within the log module, though this is an API container-based setting.</p>
+<p><strong>Masked URLs:</strong> To prevent exposing potentially sensitive information in the UI, server URLs are masked, showing only the first few characters of the hostname. </p>
 </li>
 </ul>
+<div class="admonition tip">
+<p class="admonition-title">Redacting Log Entries</p>
+<p>The display of select information can be obfuscated within log modules, including:</p>
+<ul>
+<li>Custom strings/keywords </li>
+<li>Email addresses </li>
+<li>IP addresses </li>
+<li>MAC addresses</li>
+</ul>
+<p>Note that this is a DashPad-API setting, and must be set on a per-log basis.</p>
+</div>
 <h2 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h2>
 <p>The DashPad-Web container is designed to be deployed using Docker, and runs anywhere containers are supported. Unlike DashPad-API, the Web container does not need direct access to your monitored servers; it only requires network access to your DashPad-API container(s). This separation of concerns makes deployment flexible and secure.</p>
 <h3 id="cloud-deployment-google-cloud-run">Cloud Deployment (Google Cloud Run)<a class="headerlink" href="#cloud-deployment-google-cloud-run" title="Permanent link">&para;</a></h3>
 <p>In addition to local Docker deployments, DashPad-Web is fully compatible with serverless platforms like Google Cloud Run.</p>
 <p>By setting the container to "request-based billing" and permitting it to scale down to zero instances, you are only billed when the dashboard is actively being viewed. Performance testing shows that with request-based billing and minimal resource allocation (0.1 vCPU, 128MB RAM), the container operates with exceptional efficiency: continuous monitoring of two servers at default intervals costs less than <strong>$0.03 per day</strong>, with projected monthly costs under <strong>$1.00</strong> and projected yearly costs under <strong>$10.00</strong>. This makes DashPad an extremely cost-effective solution for a "publicly" accessible, secure monitoring dashboard.</p>
-<p>As a reminder, the DashPad-API container must still be deployed on monitored servers so the Web container has a data source.</p>
+<div class="admonition note">
+<p class="admonition-title">Google Cloud Run Deployment Guide</p>
+<p>More information about deployment on Google Cloud Platform is available in the <a href="deployment/cloud-run/">Google Cloud Run Deployment</a> guide.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">As a reminder, the DashPad-API container must still be deployed on at least one monitored server. The Web container must have a data source.</p>
+</div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
@@ -1096,7 +1113,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2025 23:44:37 UTC">June 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 22:46:45 UTC">June 30, 2025</span>
   </span>
 
     

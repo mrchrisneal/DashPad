@@ -50,6 +50,8 @@
       
     
     
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -730,21 +732,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 4: Access Your Dashboard">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#todo-update-port-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      TODO: Update port numbers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -971,21 +958,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 4: Access Your Dashboard">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#todo-update-port-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      TODO: Update port numbers
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1030,7 +1002,7 @@
 </ol>
 <div class="admonition question">
 <p class="admonition-title">Is DashPad-API Running?</p>
-<p>If you haven't set up or started at least one instance of <code>DashPad-API</code> yet, please follow the <a href="../../api/">DashPad-API documentation</a> before continuing.</p>
+<p>If you haven't set up or started at least one instance of <code>DashPad-API</code> yet, please follow the <a href="../../api/">DashPad-API documentation</a> before continuing. Ensure it is reachable from the environment hosting DashPad-Web.</p>
 </div>
 <h2 id="step-1-create-the-docker-compose-file">Step 1: Create the Docker Compose File<a class="headerlink" href="#step-1-create-the-docker-compose-file" title="Permanent link">&para;</a></h2>
 <p>Oreate a new file named <code>docker-compose.yml</code> and paste the following content into it. This file defines the DashPad-Web service and all the necessary configurations.</p>
@@ -1051,7 +1023,7 @@
 <span class="w">    </span><span class="c1"># The &#39;volumes&#39; section maps a host directory to a directory inside the container.</span>
 <span class="w">    </span><span class="c1"># It is highly recommended for performance, as it caches SSL certificates.</span>
 <span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./dashpad-data:/data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./dashpad-web:/data</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># --- Web Interface Authentication ---</span>
 <span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AUTH_USERNAME=username</span>
@@ -1117,7 +1089,7 @@
 </div>
 </div>
 <h2 id="step-2-configure-your-server">Step 2: Configure Your Server<a class="headerlink" href="#step-2-configure-your-server" title="Permanent link">&para;</a></h2>
-<p>You only need to change <strong>two</strong> lines in the <code>environment</code> section of the <code>docker-compose.yml</code> file you just created:</p>
+<p>While you may want to configure the <code>SERVER1_NAME</code> variable, you only <em>need</em> to change <strong>two</strong> lines in the <code>environment</code> section of the <code>docker-compose.yml</code> file you just created:</p>
 <ol>
 <li>
 <p><strong><code>SERVER1_URL</code></strong>: Replace <code>&lt;REPLACE_WITH_API_IP&gt;:&lt;REPLACE_WITH_API_PORT&gt;</code> with the actual HTTPS URL of your running <code>DashPad-API</code> instance.</p>
@@ -1128,9 +1100,9 @@
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Persistent vs. Ephemeral Storage</p>
-<p>The volumes section in the docker-compose.yml is highly recommended but optional.</p>
-<p><strong>With a volume (Recommended)</strong>: SSL certificates from your API servers are cached in the dashpad-data directory. This makes container restarts much faster.</p>
-<p><strong>Without a volume</strong>: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the logs if this happens.</p>
+<p>The volumes section in the docker-compose.yml is recommended but optional.</p>
+<p><strong>With a volume (Recommended)</strong>: SSL certificates from your API servers are cached in the dashpad-web directory. This makes container restarts much faster.</p>
+<p><strong>Without a volume</strong>: The container will run in "ephemeral mode" and re-download all certificates on every restart. You will see a warning in the DashPad-Web container logs if this happens.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Security Notice: SSL Verification</p>
@@ -1141,11 +1113,10 @@
 <p>Save the changes to your <code>docker-compose.yml</code> file. Now, open a terminal in the same directory and run the following command:</p>
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
-<p>Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-data directory in the same folder to store SSL certificate data.</p>
+<p>Docker will now pull (or use the local) image, create the container, and start the DashPad-Web service in the background. If you included the volumes section, it will also create a dashpad-web directory in the same folder to store SSL certificate data.</p>
 <h2 id="step-4-access-your-dashboard">Step 4: Access Your Dashboard<a class="headerlink" href="#step-4-access-your-dashboard" title="Permanent link">&para;</a></h2>
 <p>Once the container is running, open your web browser and navigate to:</p>
 <p><code>http://&lt;your_docker_host_ip&gt;:5240</code></p>
-<h3 id="todo-update-port-numbers">TODO: Update port numbers<a class="headerlink" href="#todo-update-port-numbers" title="Permanent link">&para;</a></h3>
 <p>You will be prompted for a username and password. Use the credentials you specified in the <code>docker-compose.yml</code> file.</p>
 <p>You should now see the DashPad dashboard, and it will begin populating with data from your API server!</p>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
@@ -1170,7 +1141,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 01:48:36 UTC">June 30, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 22:46:45 UTC">June 30, 2025</span>
   </span>
 
     
