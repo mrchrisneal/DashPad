@@ -1599,7 +1599,7 @@
 <p>Complete reference for all DashPad API endpoints.</p>
 <h2 id="interactive-documentation">Interactive Documentation<a class="headerlink" href="#interactive-documentation" title="Permanent link">&para;</a></h2>
 <p>FastAPI provides auto-generated interactive API documentation at:</p>
-<div class="highlight"><pre><span></span><code>https://your-server:5555/docs
+<div class="highlight"><pre><span></span><code>https://your-server:5241/docs
 </code></pre></div>
 <p>This allows you to explore and test all endpoints directly in your browser.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
@@ -1607,7 +1607,7 @@
 <div class="highlight"><pre><span></span><code>X-API-Key:<span class="w"> </span>your-64-character-hex-key
 </code></pre></div>
 <h2 id="base-url">Base URL<a class="headerlink" href="#base-url" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>https://your-server:5555
+<div class="highlight"><pre><span></span><code>https://your-server:5241
 </code></pre></div>
 <h2 id="health-status-endpoints">Health &amp; Status Endpoints<a class="headerlink" href="#health-status-endpoints" title="Permanent link">&para;</a></h2>
 <h3 id="get-health">GET /health<a class="headerlink" href="#get-health" title="Permanent link">&para;</a></h3>
@@ -1941,23 +1941,23 @@
 <h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">&para;</a></h2>
 <h3 id="using-curl">Using cURL<a class="headerlink" href="#using-curl" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Get all metrics</span>
-curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5555/metrics
+curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5241/metrics
 
 <span class="c1"># Get specific metric</span>
-curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5555/metrics/cpu_usage
+curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5241/metrics/cpu_usage
 
 <span class="c1"># With authentication</span>
-curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5555/metrics
+curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5241/metrics
 
 <span class="c1"># Control scheduler</span>
-curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://localhost:5555/scheduler/control?action=restart&quot;</span>
+curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://localhost:5241/scheduler/control?action=restart&quot;</span>
 </code></pre></div>
 <p><strong>Note</strong>: The <code>-k</code> flag is used to accept self-signed certificates. In production with proper certificates, this flag can be omitted.</p>
 <h3 id="using-python">Using Python<a class="headerlink" href="#using-python" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
 <span class="c1"># Base configuration</span>
-<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://localhost:5555&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://localhost:5241&quot;</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;X-API-Key&quot;</span><span class="p">:</span> <span class="s2">&quot;your-api-key&quot;</span><span class="p">}</span>
 
 <span class="c1"># Disable SSL verification for self-signed certificates</span>
@@ -1978,7 +1978,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 </code></pre></div>
 <h3 id="using-javascript">Using JavaScript<a class="headerlink" href="#using-javascript" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1">// Get all metrics</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://localhost:5555/metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://localhost:5241/metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="s1">&#39;X-API-Key&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-api-key&#39;</span>
 <span class="w">  </span><span class="p">}</span>
@@ -1987,7 +1987,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
 
 <span class="c1">// Poll for updates</span>
 <span class="nx">setInterval</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://localhost:5555/metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://localhost:5241/metrics&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;X-API-Key&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;your-api-key&#39;</span><span class="w"> </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>
 <span class="w">  </span><span class="nx">updateDashboard</span><span class="p">(</span><span class="nx">metrics</span><span class="p">);</span>
@@ -2018,7 +2018,7 @@ curl<span class="w"> </span>-k<span class="w"> </span>-X<span class="w"> </span>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2025 23:44:37 UTC">June 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 01:48:36 UTC">June 30, 2025</span>
   </span>
 
     

@@ -983,7 +983,7 @@
 </ul>
 <h2 id="interactive-api-documentation">Interactive API Documentation<a class="headerlink" href="#interactive-api-documentation" title="Permanent link">&para;</a></h2>
 <p>FastAPI automatically generates interactive API documentation. Access it at:</p>
-<div class="highlight"><pre><span></span><code>https://your-server:5555/docs
+<div class="highlight"><pre><span></span><code>https://your-server:5241/docs
 </code></pre></div>
 <p>This provides a web interface to explore and test all endpoints.</p>
 <h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
@@ -1008,7 +1008,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># With Docker</span>
 docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--name<span class="w"> </span>dashpad-api<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-p<span class="w"> </span><span class="m">5555</span>:5555<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5241</span>:5241<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/settings.json:/app/settings.json:ro<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/proc:/host/proc:ro<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-v<span class="w"> </span>/sys:/host/sys:ro<span class="w"> </span><span class="se">\</span>
@@ -1018,13 +1018,13 @@ docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </sp
 <h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
 <p>By default, a valid API key MUST be passed to the API in either an HTTP header or as a URL parameter (?apikey=your-api-key). Both examples are included below:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Check health</span>
-curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5555/health?apikey<span class="o">=</span>your-api-key
+curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5241/health?apikey<span class="o">=</span>your-api-key
 
 <span class="c1"># Get all metrics (with API key)</span>
-curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5555/metrics
+curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5241/metrics
 
 <span class="c1"># View interactive docs</span>
-open<span class="w"> </span>https://localhost:5555/docs?apikey<span class="o">=</span>your-api-key
+open<span class="w"> </span>https://localhost:5241/docs?apikey<span class="o">=</span>your-api-key
 </code></pre></div>
 <p>Note: The <code>-k</code> flag is used to accept self-signed certificates.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
@@ -1074,7 +1074,7 @@ open<span class="w"> </span>https://localhost:5555/docs?apikey<span class="o">=<
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 29, 2025 23:44:37 UTC">June 29, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 30, 2025 01:48:36 UTC">June 30, 2025</span>
   </span>
 
     
