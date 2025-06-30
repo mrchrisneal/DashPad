@@ -30,7 +30,7 @@ Only deploy the API container on the actual Linux server you want to monitor.
 FastAPI automatically generates interactive API documentation. Access it at:
 
 ```
-https://your-server:5555/docs
+https://your-server:5241/docs
 ```
 
 This provides a web interface to explore and test all endpoints.
@@ -66,7 +66,7 @@ The API tries to query one or more sources in the order they are specified withi
 # With Docker
 docker run -d \
   --name dashpad-api \
-  -p 5555:5555 \
+  -p 5241:5241 \
   -v $(pwd)/settings.json:/app/settings.json:ro \
   -v /proc:/host/proc:ro \
   -v /sys:/host/sys:ro \
@@ -80,13 +80,13 @@ By default, a valid API key MUST be passed to the API in either an HTTP header o
 
 ```bash
 # Check health
-curl -k https://localhost:5555/health?apikey=your-api-key
+curl -k https://localhost:5241/health?apikey=your-api-key
 
 # Get all metrics (with API key)
-curl -k -H "X-API-Key: your-api-key" https://localhost:5555/metrics
+curl -k -H "X-API-Key: your-api-key" https://localhost:5241/metrics
 
 # View interactive docs
-open https://localhost:5555/docs?apikey=your-api-key
+open https://localhost:5241/docs?apikey=your-api-key
 ```
 
 Note: The `-k` flag is used to accept self-signed certificates.

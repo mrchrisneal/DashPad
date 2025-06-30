@@ -34,7 +34,7 @@ Oreate a new file named `docker-compose.yml` and paste the following content int
 		image: dashpad-web:latest
 		container_name: dashpad-web
 		ports:
-		  - "5432:5432" 
+		  - "5240:5240" 
 		# TODO: Update port numbers
 		# The 'volumes' section maps a host directory to a directory inside the container.
 		# It is highly recommended for performance, as it caches SSL certificates.
@@ -75,7 +75,7 @@ Oreate a new file named `docker-compose.yml` and paste the following content int
 		image: dashpad-web:latest
 		container_name: dashpad-web
 		ports:
-		  - "5432:5432"
+		  - "5240:5240"
 		# TODO: Update port numbers
 		# The 'volumes' section maps a host directory to a directory inside the container.
 		# It is highly recommended for performance, as it caches SSL certificates.
@@ -140,7 +140,7 @@ Docker will now pull (or use the local) image, create the container, and start t
 
 Once the container is running, open your web browser and navigate to:
 
-`http://<your_docker_host_ip>:5432`
+`http://<your_docker_host_ip>:5240`
 
 ### TODO: Update port numbers
 

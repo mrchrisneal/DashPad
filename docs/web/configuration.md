@@ -14,7 +14,7 @@ The Web container uses environment variables for configuration.
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `LISTEN_PORT` | NGINX listen port | `5432` |
+| `LISTEN_PORT` | NGINX listen port | `5240` |
 | `USE_HTTPS` | Enable HTTPS | `true` |
 | `AUTH_USERNAME` | Basic auth username | `admin` |
 | `AUTH_PASSWORD` | Basic auth password | `secure-password` |
@@ -47,22 +47,22 @@ services:
   dashpad-web:
     image: ghcr.io/mrchrisneal/dashpad-web:latest
     ports:
-      - "5432:5432"
+      - "5240:5240"
     environment:
-      - LISTEN_PORT=5432
+      - LISTEN_PORT=5240
       - USE_HTTPS=true
       - AUTH_USERNAME=admin
       - AUTH_PASSWORD=password
       
       # Server 1
       - SERVER1_NAME=Production
-      - SERVER1_URL=https://192.168.1.10:5555
+      - SERVER1_URL=https://192.168.1.10:5241
       - SERVER1_KEY=a4514a337c35c834dc4703f286efd90118aaa568bf324ffd7aedaeba61d7a679
       - SERVER1_SSLFINGERPRINT=F0:B5:B7:98:59:35:42:4B:59:28:47:62:83:EB:BA:DD
       
       # Server 2
       - SERVER2_NAME=Development
-      - SERVER2_URL=https://192.168.1.20:5555
+      - SERVER2_URL=https://192.168.1.20:5241
       - SERVER2_KEY=b1b8908f1754f512e24f2355e405c73fc4ee85fdefae8674363e69bddc6d39b3
       - SERVER2_SSLFINGERPRINT=4F:B4:5C:24:91:56:D5:B3:93:DE:53:DE:1B:95:4B:2E
 ```

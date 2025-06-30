@@ -20,7 +20,7 @@ The `settings.json` file should be placed in the API container root:
 {
   "api": {
     "host": "0.0.0.0",
-    "port": 5555,
+    "port": 5241,
     "allow_origins": ["*"],
     "auth": {
       "enabled": true,
@@ -128,7 +128,7 @@ Here's a minimal working configuration:
 {
   "api": {
     "host": "0.0.0.0",
-    "port": 5555
+    "port": 5241
   },
   "metrics": {
     "update_interval_seconds": 4,
@@ -166,7 +166,7 @@ Some settings can be overridden:
 | Variable | Overrides | Example |
 |----------|-----------|---------|
 | `API_HOST` | `api.host` | `0.0.0.0` |
-| `API_PORT` | `api.port` | `5555` |
+| `API_PORT` | `api.port` | `5241` |
 | `TZ` | System timezone | `America/New_York` |
 
 ## Path Types

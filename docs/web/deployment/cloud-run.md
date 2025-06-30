@@ -57,11 +57,11 @@ Set your server configurations when deploying:
 ```bash
 # Single server
 gcloud run deploy dashpad-web \
-  --set-env-vars "LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Home Server,SERVER1_URL=https://your-server:5555,SERVER1_KEY=your-api-key,SERVER1_SSLFINGERPRINT=your-ssl-fingerprint"
+  --set-env-vars "LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Home Server,SERVER1_URL=https://your-server:5241,SERVER1_KEY=your-api-key,SERVER1_SSLFINGERPRINT=your-ssl-fingerprint"
 
 # Multiple servers
 gcloud run deploy dashpad-web \
-  --set-env-vars "LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Server 1,SERVER1_URL=https://server1:5555,SERVER1_KEY=key1,SERVER1_SSLFINGERPRINT=fp1,SERVER2_NAME=Server 2,SERVER2_URL=https://server2:5555,SERVER2_KEY=key2,SERVER2_SSLFINGERPRINT=fp2"
+  --set-env-vars "LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Server 1,SERVER1_URL=https://server1:5241,SERVER1_KEY=key1,SERVER1_SSLFINGERPRINT=fp1,SERVER2_NAME=Server 2,SERVER2_URL=https://server2:5241,SERVER2_KEY=key2,SERVER2_SSLFINGERPRINT=fp2"
 ```
 
 ## Custom Domain (Optional)

@@ -11,7 +11,7 @@ Complete reference for all DashPad API endpoints.
 FastAPI provides auto-generated interactive API documentation at:
 
 ```
-https://your-server:5555/docs
+https://your-server:5241/docs
 ```
 
 This allows you to explore and test all endpoints directly in your browser.
@@ -27,7 +27,7 @@ X-API-Key: your-64-character-hex-key
 ## Base URL
 
 ```
-https://your-server:5555
+https://your-server:5241
 ```
 
 ## Health & Status Endpoints
@@ -444,16 +444,16 @@ No built-in rate limiting. Implement at proxy level if needed.
 
 ```bash
 # Get all metrics
-curl -k https://localhost:5555/metrics
+curl -k https://localhost:5241/metrics
 
 # Get specific metric
-curl -k https://localhost:5555/metrics/cpu_usage
+curl -k https://localhost:5241/metrics/cpu_usage
 
 # With authentication
-curl -k -H "X-API-Key: your-api-key" https://localhost:5555/metrics
+curl -k -H "X-API-Key: your-api-key" https://localhost:5241/metrics
 
 # Control scheduler
-curl -k -X POST "https://localhost:5555/scheduler/control?action=restart"
+curl -k -X POST "https://localhost:5241/scheduler/control?action=restart"
 ```
 
 **Note**: The `-k` flag is used to accept self-signed certificates. In production with proper certificates, this flag can be omitted.
@@ -464,7 +464,7 @@ curl -k -X POST "https://localhost:5555/scheduler/control?action=restart"
 import requests
 
 # Base configuration
-base_url = "https://localhost:5555"
+base_url = "https://localhost:5241"
 headers = {"X-API-Key": "your-api-key"}
 
 # Disable SSL verification for self-signed certificates
@@ -488,7 +488,7 @@ log_data = response.json()
 
 ```javascript
 // Get all metrics
-const response = await fetch('https://localhost:5555/metrics', {
+const response = await fetch('https://localhost:5241/metrics', {
   headers: {
     'X-API-Key': 'your-api-key'
   }
@@ -497,7 +497,7 @@ const data = await response.json();
 
 // Poll for updates
 setInterval(async () => {
-  const metrics = await fetch('https://localhost:5555/metrics', {
+  const metrics = await fetch('https://localhost:5241/metrics', {
     headers: { 'X-API-Key': 'your-api-key' }
   }).then(r => r.json());
   updateDashboard(metrics);

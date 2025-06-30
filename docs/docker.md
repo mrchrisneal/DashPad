@@ -38,7 +38,7 @@ services:
     container_name: dashpad-api
     restart: unless-stopped
     ports:
-      - "5555:5555"
+      - "5241:5241"
     volumes:
       - ./settings.json:/app/settings.json:ro
       - /proc:/host/proc:ro
@@ -52,14 +52,14 @@ services:
     container_name: dashpad-web
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5240:5240"
     environment:
-      - LISTEN_PORT=5432
+      - LISTEN_PORT=5240
       - USE_HTTPS=true
       - AUTH_USERNAME=admin
       - AUTH_PASSWORD=password
       - SERVER1_NAME=Local Server
-      - SERVER1_URL=https://dashpad-api:5555
+      - SERVER1_URL=https://dashpad-api:5241
       - SERVER1_KEY=your-64-character-api-key-from-api-logs
       - SERVER1_SSLFINGERPRINT=your-ssl-fingerprint-from-api-logs
     depends_on:
@@ -72,7 +72,7 @@ services:
 {
   "api": {
     "host": "0.0.0.0",
-    "port": 5555
+    "port": 5241
   },
   "metrics": {
     "update_interval_seconds": 4,
@@ -120,7 +120,7 @@ To monitor multiple servers, run an API container on each server:
 ```bash
 docker run -d \
   --name dashpad-api-server1 \
-  -p 5555:5555 \
+  -p 5241:5241 \
   -v ./settings.json:/app/settings.json:ro \
   -v /proc:/host/proc:ro \
   -v /sys:/host/sys:ro \
@@ -131,7 +131,7 @@ docker run -d \
 ```bash
 docker run -d \
   --name dashpad-api-server2 \
-  -p 5556:5555 \
+  -p 5556:5241 \
   -v ./settings.json:/app/settings.json:ro \
   -v /proc:/host/proc:ro \
   -v /sys:/host/sys:ro \
@@ -142,17 +142,17 @@ docker run -d \
 ```bash
 docker run -d \
   --name dashpad-web \
-  -p 5432:5432 \
-  -e LISTEN_PORT=5432 \
+  -p 5240:5240 \
+  -e LISTEN_PORT=5240 \
   -e USE_HTTPS=true \
   -e AUTH_USERNAME=admin \
   -e AUTH_PASSWORD=password \
   -e SERVER1_NAME="Server 1" \
-  -e SERVER1_URL="https://server1:5555" \
+  -e SERVER1_URL="https://server1:5241" \
   -e SERVER1_KEY="api-key-from-server1-logs" \
   -e SERVER1_SSLFINGERPRINT="ssl-fingerprint-from-server1-logs" \
   -e SERVER2_NAME="Server 2" \
-  -e SERVER2_URL="https://server2:5555" \
+  -e SERVER2_URL="https://server2:5241" \
   -e SERVER2_KEY="api-key-from-server2-logs" \
   -e SERVER2_SSLFINGERPRINT="ssl-fingerprint-from-server2-logs" \
   dashpad-web
@@ -231,7 +231,7 @@ Common issues:
 ### No Data Showing
 
 Verify:
-- API is accessible: `curl -k https://localhost:5555/health`
+- API is accessible: `curl -k https://localhost:5241/health`
 - Correct volume mounts
 - Settings.json is valid JSON
 - API key and SSL fingerprint are correct in Web container
