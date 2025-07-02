@@ -4,17 +4,20 @@ A modular system monitoring solution designed to repurpose old tablets as dedica
 
 ![Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled.](assets/screenshot-web-1.png)
 
+!!! abstract "IMPORTANT NOTE"
+    As of June 1st, 2025, DashPad is in active, pre-release development. Since the project is created and managed by a solo developer, the primary goal is to establish a stable and coherent codebase that aligns with long-term architectural goals.
+    
+    Consequently, pull requests will not be reviewed or accepted at this time. The codebase is likely to undergo significant changes, and this documentation should also be considered a living document. Your interest and patience as the project matures is appreciated!
 
-## ⚠️ IMPORTANT NOTICE ⚠️
-DashPad is *alpha software* in development (pre-release), created and maintained by a single hobbyist developer. 
 
-This documentation is a work-in-progress and may change significantly.
 
 ## What is DashPad?
 
 DashPad transforms old, unused tablets (namely iPads) into real-time system monitoring displays for your servers. Built with a microservices architecture, it provides comprehensive infrastructure monitoring with minimal resource usage.
 
 DashPad traces its origins to 2024 as a basic, single-container solution to monitor unRAID server metrics in near-real-time. The project saw major development in mid-2025 where it was used as part of an educational project. 
+
+For the curious, you can read the final report here: [DashPad Final Report](./assets/dashpad-report-public.pdf)
 
 ### Key Features
 
@@ -67,7 +70,8 @@ DashPad consists of two primary microservices:
 | **[DashPad-API](api/index.md)** | Backend data collection service | Local server only |
 | **[DashPad-Web](web/index.md)** | Frontend monitoring interface | Local or cloud |
 
-**Important**: The API container must run directly on the server being monitored, as it requires access to system directories like `/proc`. Only the Web container can be deployed to the cloud.
+!!! danger "IMPORTANT"
+    The API container (DashPad-API) must run directly on the server being monitored, as it requires access to system directories like `/proc`. Only the Web container can be deployed to the cloud.
 
 ## Available Metrics
 
