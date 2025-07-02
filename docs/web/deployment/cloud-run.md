@@ -6,9 +6,7 @@ title: Deployment - Google Cloud Run (DashPad-Web)
 
 Deploy the DashPad-Web container to Google Cloud Run for cloud-based dashboard access.
 
-## Important Note
-
-⚠️ **Only the Web container can be deployed to Cloud Run.** The API container must run on your actual servers because it needs direct filesystem access.
+!!! warning "Only the Web container can be deployed to Cloud Run. The API container must be run on actual servers, as it needs direct filesystem access to collect metrics and system information."
 
 ## Prerequisites
 
