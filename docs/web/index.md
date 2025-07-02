@@ -8,9 +8,11 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 !!! abstract "Important Concepts"
 	- **Purpose:** DashPad-Web turns any tablet into a dedicated, real-time monitoring screen for your servers. 
+  	- **Stateless & (Near) Real-Time:** The web interface **has no database**, and is limited to the last hour of gathered data. By design, historical graphs are built in your browser, so the device **must remain on with the page in focus for data collection**.
+	- **A Display, Not a Database:** DashPad is a (near) real-time visualization tool, **not a replacement** for a full monitoring stack. 
+		- For historical data, robust alerting, and in-depth analysis, you should use DashPad in addition to dedicated solutions like Prometheus/Grafana, or Netdata.
 	- **Security:** DashPad-Web uses a secure proxy for requests to the API container; API keys and credentials are never exposed to the browser. 
-  	- **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard. 
-  	- **Stateless & (Near) Real-Time:** The web interface has no database, and is limited to the last hour of gathered data. Historical graphs are built in your browser, so the device must remain on with the page in focus for data collection.
+  	- **Multi-Server:** DashPad-Web can monitor multiple `DashPad-API` instances from a single dashboard.
 
 !!! tip "In a Hurry? Check out the [**Quick Start Guide**](./quick-start.md) for the fastest way to get up and running."
 
@@ -20,15 +22,15 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
     
 -   **Multi-Server Monitoring:** View metrics and logs from multiple DashPad-API instances in a single, unified dashboard. The `startup.sh` script inside the Web container reads environment variables that allow you to configure as many servers as you need (up to 50 by default; only 2 servers have been thoroughly tested). This eliminates the need to switch between different tabs or tools to monitor your infrastructure.
     
--   **Real-Time Updates:** The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (`next_update_sec`). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. 
+-   **(Near) Real-Time Updates:** The interface uses a clever polling mechanism that adjusts its update frequency based on hints from the API (`next_update_sec`). This ensures that frequently changing data like CPU metrics are updated quickly, while less volatile data like upcoming cron jobs are polled less often, resulting in a responsive UI that is also highly efficient. 
     
--   **Historical Sparklines:** Metric modules feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in your browser's memory (`historical.js`) and is capped at 50MB to ensure performance.
+-   **Historical Sparklines:** Modules that display time-series data (ex. CPU/RAM utilization) feature background sparklines that show performance trends over the last 10 minutes (by default; additional toggles for 5 and 15 minute durations are available). This data is collected and stored directly in browser memory and is capped at 50MB to ensure performance.
 
 !!! danger "By design, all data is stored client-side. The dashboard must remain open and active in your browser to collect, cache, and display all data."
  
--   **Drag-and-Drop Customization:** In "Edit Mode," you can easily rearrange modules by dragging and dropping them to create a layout that suits your needs. This functionality is powered by the `svelte-dnd-action` library, and your custom layout is automatically saved to your browser's `localStorage`, making it persistent across sessions.
+-   **Drag-and-Drop Customization:** In "Edit Layout" mode, you can easily rearrange modules by dragging and dropping them to create a layout that suits your needs. This functionality is powered by the `svelte-dnd-action` library, and your custom layout is automatically saved to your browser's `localStorage`, making it persistent across sessions.
     
--   **Module-Specific Settings:** Each module has its own set of configurable options, accessible via a cog icon in the module header. For example, you can toggle autoscroll for logs, customize the color thresholds for CPU and RAM warnings, define keyword highlighting rules for log viewers, or set the number of upcoming cron jobs to display. All display settings can be exported to your clipboard and imported later on a different device.
+-   **Module-Specific Settings:** Each module has its own set of configurable options, accessible via a cog icon in the module header. You can toggle autoscroll for logs, customize the color thresholds for CPU and RAM warnings, define keyword highlighting rules for log viewers, or set the number of upcoming cron jobs to display. All display settings can be exported to your clipboard via the Settings pane, and imported later on a different device.
 
 ## Technology Stack
 
@@ -45,18 +47,19 @@ The DashPad-Web interface is a Svelte 5-based frontend designed primarily for ta
 
 The dashboard is the core of the web interface. Modules are automatically organized into columns, and the number of columns can be changed with just one tap (or click). The layout is fully persistent across sessions, stored directly in your browser.
 
-**Available Module Types:**
+### Available Module Types
 
 -   **System Metrics:** Modules for CPU and RAM usage, featuring charts for real-time values and historical charts when expanded, giving you an at-a-glance view of system health. Chart durations can be toggled between 5 minutes, 15 minutes, 30 minutes (default), and 60 minutes in the Settings pane; they can be set globally and overridden on a per-module basis.
     
--   **Information Display:** A simple module for displaying information like system uptime in a human-readable format.
+-   **Information Display:** A simple module for displaying information (like system `uptime`) in a human-readable format.
     
 -   **Log Viewer:** A dedicated module for viewing system and application logs in real-time, with support for custom, hexadecimal color codes and keyword highlighting to make finding important events easier.
     
 -   **Task Monitoring:** A list-based module that displays upcoming scheduled `cron` tasks and their relative execution times, helping you anticipate system activity.
     
--   **Alerts:** An Alerts module that shows active system warnings and critical alerts from a connected Netdata instance, providing immediate visibility into potential issues. *This module requires an installed and functional Netdata instance.*
+-   **Alerts:** An Alerts module that shows active system warnings and critical alerts from a connected Netdata instance, providing immediate visibility into potential issues. 
 
+!!! warning "The alerts module requires an installed and functional [Netdata](https://www.netdata.cloud/) instance."
 
 ## Status Indicators
 
@@ -82,7 +85,12 @@ The web interface intelligently polls the DashPad-API container based on `next_u
     
 -   **Cron Tasks:** ~60 seconds
     
-The minimum configurable interval for any data or module type is 2 seconds.
+!!! question "What's the minimum configurable update interval?" 
+	The minimum configurable interval for any data or module type is **2 seconds**. 
+
+	Shorter durations tend to cause timing-related bugs and missed updates , while also straining the CPU on the device rendering the dashboard. The 2-second limit represents a deliberate trade-off, prioritizing system stability and a smooth user experience over raw update frequency.
+
+	If you experience instability or missed updates at this rate, consider increasing the interval to 3 or 4+ seconds to improve stability.
 
 ## Performance
 
