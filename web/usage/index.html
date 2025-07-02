@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://dashpad.neal.media/web/deployment/cloud-run/">
+        <link rel="canonical" href="https://dashpad.neal.media/web/usage/">
       
       
-        <link rel="prev" href="../../usage/">
+        <link rel="prev" href="../configuration/">
       
       
-        <link rel="next" href="../../../devlog/">
+        <link rel="next" href="../deployment/cloud-run/">
       
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Deployment - Google Cloud Run (DashPad-Web) - DashPad Documentation (WIP)</title>
+        <title>Usage Guide (DashPad-Web) - DashPad Documentation (WIP)</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,16 +50,16 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
     
-   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -72,7 +72,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -91,7 +91,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deployment-google-cloud-run" class="md-skip">
+        <a href="#usage-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -105,7 +105,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="DashPad Documentation (WIP)" class="md-header__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation (WIP)" class="md-header__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Deployment - Google Cloud Run (DashPad-Web)
+              Usage Guide (DashPad-Web)
             
           </span>
         </div>
@@ -236,7 +236,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -255,7 +255,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../architecture/" class="md-tabs__link">
+      <a href="../../architecture/" class="md-tabs__link">
         
   
   
@@ -276,7 +276,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../api/" class="md-tabs__link">
+        <a href="../../api/" class="md-tabs__link">
           
   
   
@@ -300,7 +300,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -320,7 +320,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../devlog/" class="md-tabs__link">
+      <a href="../../devlog/" class="md-tabs__link">
         
   
   
@@ -355,7 +355,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="DashPad Documentation (WIP)" class="md-nav__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation (WIP)" class="md-nav__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -385,7 +385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -407,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -460,7 +460,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../api/" class="md-nav__link ">
+            <a href="../../api/" class="md-nav__link ">
               
   
   
@@ -495,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/configuration/" class="md-nav__link">
+      <a href="../../api/configuration/" class="md-nav__link">
         
   
   
@@ -518,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/endpoints/" class="md-nav__link">
+      <a href="../../api/endpoints/" class="md-nav__link">
         
   
   
@@ -541,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../api/modules/" class="md-nav__link">
+      <a href="../../api/modules/" class="md-nav__link">
         
   
   
@@ -607,7 +607,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -642,7 +642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quick-start/" class="md-nav__link">
+      <a href="../quick-start/" class="md-nav__link">
         
   
   
@@ -665,7 +665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -680,81 +680,6 @@
   
 
               
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../usage/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Usage
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Deployment
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_4_5">
-            <span class="md-nav__icon md-icon"></span>
-            Deployment
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -777,7 +702,7 @@
   
   
   <span class="md-ellipsis">
-    Google Cloud Run
+    Usage
     
   </span>
   
@@ -790,7 +715,7 @@
   
   
   <span class="md-ellipsis">
-    Google Cloud Run
+    Usage
     
   </span>
   
@@ -813,46 +738,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#navigating-the-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Navigating the Dashboard
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment Steps
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Steps">
+    <nav class="md-nav" aria-label="Navigating the Dashboard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-set-up-project" class="md-nav__link">
+  <a href="#header-bar-controls" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Set Up Project
+      Header Bar Controls
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-build-and-deploy-web-container" class="md-nav__link">
+  <a href="#interacting-with-modules" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Build and Deploy Web Container
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configure-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Configure Environment Variables
+      Interacting with Modules
     </span>
   </a>
   
@@ -864,37 +771,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-domain-optional" class="md-nav__link">
+  <a href="#customizing-the-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom Domain (Optional)
+      Customizing the Layout
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#the-main-settings-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Considerations
+      The Main Settings Panel
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security Considerations">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-specific-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module-Specific Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module-Specific Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#api-access" class="md-nav__link">
+  <a href="#log-module" class="md-nav__link">
     <span class="md-ellipsis">
-      API Access
+      Log Module
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#metric-modules-cpuram" class="md-nav__link">
     <span class="md-ellipsis">
-      Authentication
+      Metric Modules (CPU/RAM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alerts-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alerts Module:
     </span>
   </a>
   
@@ -902,33 +827,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
-    <span class="md-ellipsis">
-      Updating
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
-    </span>
-  </a>
   
 </li>
       
@@ -936,6 +834,81 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/cloud-run/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Cloud Run
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -965,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../devlog/" class="md-nav__link">
+      <a href="../../devlog/" class="md-nav__link">
         
   
   
@@ -1007,46 +980,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#navigating-the-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Navigating the Dashboard
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#deployment-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deployment Steps
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Deployment Steps">
+    <nav class="md-nav" aria-label="Navigating the Dashboard">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-set-up-project" class="md-nav__link">
+  <a href="#header-bar-controls" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Set Up Project
+      Header Bar Controls
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-build-and-deploy-web-container" class="md-nav__link">
+  <a href="#interacting-with-modules" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Build and Deploy Web Container
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configure-environment-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. Configure Environment Variables
+      Interacting with Modules
     </span>
   </a>
   
@@ -1058,37 +1013,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-domain-optional" class="md-nav__link">
+  <a href="#customizing-the-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom Domain (Optional)
+      Customizing the Layout
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#security-considerations" class="md-nav__link">
+  <a href="#the-main-settings-panel" class="md-nav__link">
     <span class="md-ellipsis">
-      Security Considerations
+      The Main Settings Panel
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Security Considerations">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-specific-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module-Specific Settings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module-Specific Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#api-access" class="md-nav__link">
+  <a href="#log-module" class="md-nav__link">
     <span class="md-ellipsis">
-      API Access
+      Log Module
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#authentication" class="md-nav__link">
+  <a href="#metric-modules-cpuram" class="md-nav__link">
     <span class="md-ellipsis">
-      Authentication
+      Metric Modules (CPU/RAM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alerts-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alerts Module:
     </span>
   </a>
   
@@ -1096,33 +1069,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cost-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cost Optimization
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating" class="md-nav__link">
-    <span class="md-ellipsis">
-      Updating
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Next Steps
-    </span>
-  </a>
   
 </li>
       
@@ -1145,90 +1091,106 @@
   
 
 
-<h1 id="deployment-google-cloud-run">Deployment - Google Cloud Run<a class="headerlink" href="#deployment-google-cloud-run" title="Permanent link">&para;</a></h1>
-<p>Deploy the DashPad-Web container to Google Cloud Run for cloud-based dashboard access.</p>
-<div class="admonition warning">
-<p class="admonition-title">Only the Web container can be deployed to Cloud Run. The API container must be run on actual servers, as it needs direct filesystem access to collect metrics and system information.</p>
-</div>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h1 id="usage-guide">Usage Guide<a class="headerlink" href="#usage-guide" title="Permanent link">&para;</a></h1>
+<p>This guide covers day-to-day use of the DashPad-Web interface. Once you have successfully deployed and configured your container (perhaps using the <a href="../quick-start/">Quick Start</a> or <a href="../configuration/">Configuration</a> guides), this document will help you utilize DashPad to its full potential.</p>
+<h2 id="navigating-the-dashboard">Navigating the Dashboard<a class="headerlink" href="#navigating-the-dashboard" title="Permanent link">&para;</a></h2>
+<p>The main dashboard is composed of a header for global controls, a bar beneath it that displays currently monitored servers (if multiple are configured), and of course, a grid of monitoring modules. The dashboard is designed to be left open on a dedicated display, like a tablet, providing you with an always-on, at-a-glance view of your systems' health.</p>
+<h3 id="header-bar-controls">Header Bar Controls<a class="headerlink" href="#header-bar-controls" title="Permanent link">&para;</a></h3>
+<p>At the top of the page are the main controls for the dashboard:</p>
 <ul>
-<li>Google Cloud account with billing enabled</li>
-<li><code>gcloud</code> CLI installed</li>
-<li>API containers running on your servers</li>
-<li>Domain name (optional)</li>
+<li>
+<p><strong>Refresh:</strong> Manually triggers a refresh of all data from the connected API servers. This is useful if you want to see the very latest data without waiting for the next automatic polling cycle.</p>
+</li>
+<li>
+<p><strong>Columns (1, 2, 3, 4):</strong> These buttons allow you to manually set the number of columns in the dashboard grid, overriding the automatic responsive layout. This is particularly useful for forcing a dense, multi-column layout on a high-resolution tablet. Your selection is saved automatically and will persist across browser sessions.</p>
+</li>
+<li>
+<p><strong>Edit Layout:</strong> This toggle button activates "Edit Mode," which unlocks the dashboard grid, allowing you to customize the position and settings of your modules. When active, modules will have a subtle highlight, and additional controls will become visible.</p>
+</li>
+<li>
+<p><strong>Reset Dashboard:</strong> This button will reset all of your dashboard customizations, including the module layout and any per-module settings, back to their default state.</p>
+</li>
+<li>
+<p><strong>Settings:</strong> This button opens the main settings panel, where you can manage global application preferences like server connections, appearance, and data retention policies.</p>
+</li>
 </ul>
-<h2 id="deployment-steps">Deployment Steps<a class="headerlink" href="#deployment-steps" title="Permanent link">&para;</a></h2>
-<h3 id="1-set-up-project">1. Set Up Project<a class="headerlink" href="#1-set-up-project" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Set project variables</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">PROJECT_ID</span><span class="o">=</span><span class="s2">&quot;your-project-id&quot;</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">REGION</span><span class="o">=</span><span class="s2">&quot;us-central1&quot;</span>
-
-<span class="c1"># Enable required APIs</span>
-gcloud<span class="w"> </span>services<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>run.googleapis.com
-</code></pre></div>
-<h3 id="2-build-and-deploy-web-container">2. Build and Deploy Web Container<a class="headerlink" href="#2-build-and-deploy-web-container" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># Clone repository</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/mrchrisneal/DashPad-Web
-<span class="nb">cd</span><span class="w"> </span>DashPad-Web
-
-<span class="c1"># Build and submit to Cloud Build</span>
-gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
-
-<span class="c1"># Deploy to Cloud Run</span>
-gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--image<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--platform<span class="w"> </span>managed<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span><span class="nv">$REGION</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--allow-unauthenticated<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--port<span class="w"> </span><span class="m">80</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;DASHPAD_SERVERS=http://your-server:8000|Server Name&quot;</span>
-</code></pre></div>
-<h3 id="3-configure-environment-variables">3. Configure Environment Variables<a class="headerlink" href="#3-configure-environment-variables" title="Permanent link">&para;</a></h3>
-<p>Set your server configurations when deploying:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Single server</span>
-gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Home Server,SERVER1_URL=https://your-server:5241,SERVER1_KEY=your-api-key,SERVER1_SSLFINGERPRINT=your-ssl-fingerprint&quot;</span>
-
-<span class="c1"># Multiple servers</span>
-gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--set-env-vars<span class="w"> </span><span class="s2">&quot;LISTEN_PORT=443,USE_HTTPS=true,AUTH_USERNAME=admin,AUTH_PASSWORD=password,SERVER1_NAME=Server 1,SERVER1_URL=https://server1:5241,SERVER1_KEY=key1,SERVER1_SSLFINGERPRINT=fp1,SERVER2_NAME=Server 2,SERVER2_URL=https://server2:5241,SERVER2_KEY=key2,SERVER2_SSLFINGERPRINT=fp2&quot;</span>
-</code></pre></div>
-<h2 id="custom-domain-optional">Custom Domain (Optional)<a class="headerlink" href="#custom-domain-optional" title="Permanent link">&para;</a></h2>
-<p>Map a custom domain:</p>
-<div class="highlight"><pre><span></span><code>gcloud<span class="w"> </span>run<span class="w"> </span>domain-mappings<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--service<span class="w"> </span>dashpad-web<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--domain<span class="w"> </span>your-domain.com<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--region<span class="w"> </span><span class="nv">$REGION</span>
-</code></pre></div>
-<p>Update DNS records as instructed.</p>
-<h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
-<h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
-<p>Your API containers must be accessible from Cloud Run:
-- Use public IPs with strong API keys
-- Set up Cloud VPN for private access
-- Use a reverse proxy with authentication</p>
-<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
-<p>The Web container includes basic authentication:</p>
-<div class="highlight"><pre><span></span><code>--set-env-vars<span class="w"> </span><span class="s2">&quot;AUTH_USERNAME=admin,AUTH_PASSWORD=secure-password&quot;</span>
-</code></pre></div>
-<p>API authentication is handled via individual API keys per server.</p>
-<h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
-<p>Cloud Run bills per request and compute time:
-- Set minimum instances to 0
-- Use appropriate memory allocation (128MB usually sufficient)
-- Consider using Cloud CDN for static assets</p>
-<p>Typical cost: ~$0.35/month for light usage</p>
-<h2 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h2>
-<p>To update the deployed container:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Rebuild and deploy</span>
-gcloud<span class="w"> </span>builds<span class="w"> </span>submit<span class="w"> </span>--tag<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
-gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> </span>dashpad-web<span class="w"> </span>--image<span class="w"> </span>gcr.io/<span class="nv">$PROJECT_ID</span>/dashpad-web
-</code></pre></div>
-<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h3 id="interacting-with-modules">Interacting with Modules<a class="headerlink" href="#interacting-with-modules" title="Permanent link">&para;</a></h3>
+<p>Each module on the dashboard is a self-contained, interactive component that provides a specific piece of information.</p>
 <ul>
-<li>Ensure your API containers are accessible</li>
-<li>Configure authentication on both API and Web</li>
-<li>Set up monitoring for the Cloud Run service</li>
+<li>
+<p><strong>Expand/Collapse:</strong> Click anywhere on a module's header to expand it for a detailed view or collapse it to save space. For example, expanding a CPU module will reveal a detailed historical chart, while the collapsed view shows a compact summary.</p>
+</li>
+<li>
+<p><strong>Status Indicators:</strong> The colored dot in the top-left of most modules indicates the current status of the metric being monitored. This color is not determined by the web interface itself but is passed directly from the <code>DashPad-API</code> instance, which is responsible for evaluating the data against predefined thresholds. This ensures that the status logic is centralized and consistent.</p>
+</li>
+</ul>
+<h2 id="customizing-the-layout">Customizing the Layout<a class="headerlink" href="#customizing-the-layout" title="Permanent link">&para;</a></h2>
+<p>DashPad allows you to create a layout that is perfectly tailored to your needs. The drag-and-drop functionality makes it intuitive to organize your dashboard exactly how you want it.</p>
+<ol>
+<li>
+<p><strong>Activate Edit Mode:</strong> Click the <strong>Edit Layout</strong> button in the header bar. The dashboard will enter a state where you can move modules. You'll notice that the modules are now visually distinct, indicating they can be interacted with.</p>
+</li>
+<li>
+<p><strong>Drag and Drop:</strong> Simply click and hold on any module's header and drag it to a new position. You can move modules within the same column or to a different column entirely. As you drag, a placeholder will show you where the module will be placed.</p>
+</li>
+<li>
+<p><strong>Save Layout:</strong> Your changes are saved automatically and instantly to your browser's <code>localStorage</code> as you make them. There is no "save" button to press; your layout is always up-to-date.</p>
+</li>
+<li>
+<p><strong>Exit Edit Mode:</strong> Click the <strong>Edit Layout</strong> button again to lock the layout in place and return to the normal viewing mode.</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Plan Your Layout for Different Devices</p>
+<p>Since the layout configuration is stored in your browser's <code>localStorage</code>, it is unique to each device and browser. This allows you to create different layouts optimized for different screens. For example, you might have a dense 4-column layout on your desktop monitor but a simpler 2-column layout on a wall-mounted tablet.</p>
+</div>
+<h2 id="the-main-settings-panel">The Main Settings Panel<a class="headerlink" href="#the-main-settings-panel" title="Permanent link">&para;</a></h2>
+<p>Clicking the global <strong>Settings</strong> (cog) icon in the header bar opens a panel with several configuration tabs, giving you control over the entire application's behavior.</p>
+<ul>
+<li>
+<p><strong>Server Management:</strong> This tab lists all the API servers you configured with environment variables. Here, you can temporarily enable or disable polling for any server. This is useful if you need to take a server offline for maintenance and want to prevent connection errors from appearing on your dashboard, all without needing to restart the DashPad-Web container.</p>
+</li>
+<li>
+<p><strong>Appearance Settings:</strong> Customize the look and feel of your charts. You can change the default colors used for "Normal," "Warning," and "Critical" statuses. These color settings apply to both the detailed expanded charts and the subtle background sparklines, allowing you to create a theme that matches your preferences.</p>
+</li>
+<li>
+<p><strong>Historical Data:</strong> Configure the time windows for your charts. You can set the global default duration for expanded charts (e.g., 30 minutes) and the duration for the background sparklines (e.g., 10 minutes). These settings help you balance between viewing long-term trends and focusing on recent activity.</p>
+</li>
+<li>
+<p><strong>Import/Export:</strong> This powerful feature allows you to back up your entire UI configuration—including the module layout, server visibility states, and all global and module-specific settings—to a single JSON file. You can then use the "Import" function to restore this configuration on a different browser or device, making it easy to replicate your setup.</p>
+</li>
+</ul>
+<h2 id="module-specific-settings">Module-Specific Settings<a class="headerlink" href="#module-specific-settings" title="Permanent link">&para;</a></h2>
+<p>You can override global settings for individual (applicable) modules to create a highly customized view. This allows for granular control over how data is presented.</p>
+<div class="admonition info">
+<p class="admonition-title">Accessing Module Settings</p>
+<p>There are two ways to access settings for a specific module:</p>
+<ol>
+<li><strong>General Method (Edit Mode):</strong> First, enter <strong>Edit Layout</strong> mode. A new <strong>cog icon</strong> will appear in the header of each module. Clicking this will open its specific settings panel.</li>
+<li><strong>Metric Modules (CPU/RAM):</strong> For modules that display charts, you can also click the <strong>duration chip</strong> (e.g., "30m") in the top-right corner of the expanded view to directly open the chart duration settings for that module.</li>
+</ol>
+</div>
+<h3 id="log-module">Log Module<a class="headerlink" href="#log-module" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Autoscroll:</strong> Toggle whether the log view automatically scrolls to the bottom as new lines arrive. This is useful for tailing live logs.</p>
+</li>
+<li>
+<p><strong>Highlight Rules:</strong> Define custom keywords (e.g., "error", "failed", "success") and assign specific colors to them. This makes it incredibly easy to spot important events in a fast-moving log stream.</p>
+</li>
+</ul>
+<h3 id="metric-modules-cpuram">Metric Modules (CPU/RAM)<a class="headerlink" href="#metric-modules-cpuram" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Chart Duration:</strong> Override the global chart duration to show more or less historical data for a specific metric. For example, you might want to see a 60-minute view for RAM usage but only a 15-minute view for CPU to focus on recent spikes.</li>
+</ul>
+<h3 id="alerts-module">Alerts Module:<a class="headerlink" href="#alerts-module" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Show Past Alerts:</strong> Choose whether to display alerts that have already been resolved. This can be helpful for understanding recent system events.</p>
+</li>
+<li>
+<p><strong>History Limit:</strong> Set the maximum number of past alerts to keep in the view, preventing the list from becoming cluttered.</p>
+</li>
 </ul>
 
 
@@ -1250,7 +1212,7 @@ gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2025 01:10:16 UTC">July 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2025 06:52:09 UTC">July 2, 2025</span>
   </span>
 
     
@@ -1326,10 +1288,10 @@ gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> 
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
