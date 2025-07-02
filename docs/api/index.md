@@ -6,15 +6,14 @@ title: DashPad-API Overview
 
 DashPad-API is a FastAPI-based backend service that collects system metrics directly from the Linux server it runs on.
 
-## Important Deployment Note
+!!! warning "DashPad-API Deployment"
+    **The DashPad-API container MUST run directly on the server being monitored.** It cannot be deployed to cloud services like Google Cloud Run because it requires:
 
-⚠️ **The API container MUST run directly on the server being monitored.** It cannot be deployed to cloud services like Google Cloud Run because it requires:
+    - Direct access to `/proc` and `/sys` filesystems
+    - Local file system access for logs
+    - Host networking to gather network information (planned feature)
 
-- Direct access to `/proc` and `/sys` filesystems
-- Local file system access for logs
-- Host networking to gather network information (planned feature)
-
-Only deploy the API container on the actual Linux server you want to monitor.
+    Only deploy the API container on the actual Linux server you want to monitor.
 
 ## Key Features
 
