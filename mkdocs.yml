@@ -21,6 +21,7 @@ nav:
     - Overview: web/index.md
     - Quick Start: web/quick-start.md
     - Configuration: web/configuration.md
+    - Usage: web/usage.md
     - Deployment:
       - Google Cloud Run: web/deployment/cloud-run.md
   - Devlog: devlog/index.md
