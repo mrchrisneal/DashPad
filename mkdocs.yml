@@ -99,5 +99,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/mrchrisneal/DashPad
+  analytics:
+    provider: google
+    property: G-LQ4QTFY855
 
 copyright: Copyright &copy; 2025 Chris Neal
