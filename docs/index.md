@@ -2,14 +2,16 @@
 
 A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
+Or, if you prefer something with a bit more flair: 
+
+!!! tip "Don't let your old iPad or tablet become *[superannuated](https://en.wiktionary.org/wiki/superannuated#:~:text=Retired%20or%20discarded%20due%20to%20age.)* (what a word!)—repurpose it with DashPad!"
+
 ![Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled.](assets/screenshot-web-1.png)
 
 !!! abstract "IMPORTANT NOTE"
     As of July 1st, 2025, DashPad is in active, pre-release development. Since the project is created and managed by a solo developer, the primary goal is to establish a stable and coherent codebase that aligns with long-term architectural goals.
-    
+
     Consequently, pull requests will not be reviewed or accepted at this time. The codebase is likely to undergo significant changes, and this documentation should also be considered a living document. Your interest and patience as the project matures is appreciated!
-
-
 
 ## What is DashPad?
 
@@ -43,7 +45,6 @@ For the curious, you can read the final report here: [DashPad Final Report](./as
 
 ✅ You want at-a-glance system health visibility
 
-
 ## DashPad is NOT for you if...
 
 ❌ You need historical data storage (at least, for more than one hour)
@@ -59,7 +60,6 @@ For the curious, you can read the final report here: [DashPad Final Report](./as
 ❌ You need to monitor multiple dozens of servers
 
 ❌ You're uncomfortable leaving electronics on and plugged in constantly
-
 
 ## Architecture Overview
 

@@ -80,6 +80,7 @@ Update DNS records as instructed.
 ### API Access
 
 Your API containers must be accessible from Cloud Run:
+
 - Use public IPs with strong API keys
 - Set up Cloud VPN for private access
 - Use a reverse proxy with authentication
@@ -97,6 +98,7 @@ API authentication is handled via individual API keys per server.
 ## Cost Optimization
 
 Cloud Run bills per request and compute time:
+
 - Set minimum instances to 0
 - Use appropriate memory allocation (128MB usually sufficient)
 - Consider using Cloud CDN for static assets
