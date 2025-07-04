@@ -1104,21 +1104,24 @@
 <h1 id="usage-guide">Usage Guide<a class="headerlink" href="#usage-guide" title="Permanent link">&para;</a></h1>
 <p>This guide covers day-to-day use of the DashPad-Web interface. Once you have successfully deployed and configured your container (perhaps using the <a href="../quick-start/">Quick Start</a> or <a href="../configuration/">Configuration</a> guides), this document will help you utilize DashPad to its full potential.</p>
 <h2 id="navigating-the-dashboard">Navigating the Dashboard<a class="headerlink" href="#navigating-the-dashboard" title="Permanent link">&para;</a></h2>
-<p>The main dashboard is composed of a header for global controls, a bar beneath it that displays currently monitored servers (if multiple are configured), and of course, a grid of monitoring modules. The dashboard is designed to be left open on a dedicated display, like a tablet, providing you with an always-on, at-a-glance view of your systems' health.</p>
+<p>The main dashboard is composed of a header containing global controls, a bar beneath it that displays currently monitored servers (if multiple are configured), and of course, a grid of monitoring modules. The dashboard is designed to be left open on a dedicated display (like an older tablet!) providing you with an always-on, at-a-glance view of your systems' health.</p>
 <h3 id="header-bar-controls">Header Bar Controls<a class="headerlink" href="#header-bar-controls" title="Permanent link">&para;</a></h3>
 <p>At the top of the page are the main controls for the dashboard:</p>
 <ul>
+<li><strong>Refresh:</strong> Manually triggers a data fetch from all connected servers. This is useful for synchronizing the dashboard with the latest data cached by the API. </li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note that DashPad-API containers have their own update interval. This button just retrieves the most recent data available from the API; it does NOT force the API to gather new data.</p>
+</div>
+<ul>
 <li>
-<p><strong>Refresh:</strong> Manually triggers a refresh of all data from the connected API servers. This is useful if you want to see the very latest data without waiting for the next automatic polling cycle.</p>
+<p><strong>Columns (1, 2, 3, 4):</strong> These buttons allow you to manually set the number of columns in the dashboard grid. This is particularly useful for forcing a dense, multi-column layout on a high-resolution tablet. Like other options, your selection is saved automatically and will persist across browser sessions.</p>
 </li>
 <li>
-<p><strong>Columns (1, 2, 3, 4):</strong> These buttons allow you to manually set the number of columns in the dashboard grid, overriding the automatic responsive layout. This is particularly useful for forcing a dense, multi-column layout on a high-resolution tablet. Your selection is saved automatically and will persist across browser sessions.</p>
+<p><strong>Edit Layout:</strong> This toggle button activates "Edit Mode," which unlocks the dashboard grid, allowing you to customize the position and settings of your modules. When active, modules will become draggable, and additional controls will become visible.</p>
 </li>
 <li>
-<p><strong>Edit Layout:</strong> This toggle button activates "Edit Mode," which unlocks the dashboard grid, allowing you to customize the position and settings of your modules. When active, modules will have a subtle highlight, and additional controls will become visible.</p>
-</li>
-<li>
-<p><strong>Reset Dashboard:</strong> This button will reset all of your dashboard customizations, including the module layout and any per-module settings, back to their default state.</p>
+<p><strong>Reset Dashboard:</strong> This button will reset all of your dashboard customizations, including the module layout and all per-module settings, back to their default state.</p>
 </li>
 <li>
 <p><strong>Settings:</strong> This button opens the main settings panel, where you can manage global application preferences like server connections, appearance, and data retention policies.</p>
@@ -1186,12 +1189,17 @@
 <p><strong>Autoscroll:</strong> Toggle whether the log view automatically scrolls to the bottom as new lines arrive. This is useful for tailing live logs.</p>
 </li>
 <li>
-<p><strong>Highlight Rules:</strong> Define custom keywords (e.g., "error", "failed", "success") and assign specific colors to them. This makes it incredibly easy to spot important events in a fast-moving log stream.</p>
+<p><strong>Highlight Rules:</strong> Define custom keywords (e.g., "error", "failed", "success") and assign specific colors to them. This makes it much easier to spot important events in a stream of log entries.</p>
 </li>
 </ul>
 <h3 id="metric-modules-cpuram">Metric Modules (CPU/RAM)<a class="headerlink" href="#metric-modules-cpuram" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Chart Duration:</strong> Override the global chart duration to show more or less historical data for a specific metric. For example, you might want to see a 60-minute view for RAM usage but only a 15-minute view for CPU to focus on recent spikes.</li>
+<li>
+<p><strong>Chart Duration:</strong> Override the global chart duration to show more or less historical data for a specific metric. For example, you might want to see a 60-minute view for RAM usage but only a 15-minute view for CPU to focus on recent spikes.</p>
+</li>
+<li>
+<p><strong>Autoscale:</strong> By default, metric charts have a fixed Y-axis (e.g., 0% to 100% for CPU). Enabling autoscale will cause the Y-axis to dynamically adjust to the minimum and maximum values currently visible in the chart.</p>
+</li>
 </ul>
 <h3 id="alerts-module">Alerts Module:<a class="headerlink" href="#alerts-module" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1222,7 +1230,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2025 06:52:09 UTC">July 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 4, 2025 18:58:01 UTC">July 4, 2025</span>
   </span>
 
     

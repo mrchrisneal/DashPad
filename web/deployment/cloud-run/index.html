@@ -1213,20 +1213,24 @@ gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> 
 <p>Update DNS records as instructed.</p>
 <h2 id="security-considerations">Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
 <h3 id="api-access">API Access<a class="headerlink" href="#api-access" title="Permanent link">&para;</a></h3>
-<p>Your API containers must be accessible from Cloud Run:
-- Use public IPs with strong API keys
-- Set up Cloud VPN for private access
-- Use a reverse proxy with authentication</p>
+<p>Your API containers must be accessible from Cloud Run:</p>
+<ul>
+<li>Use public IPs with strong API keys</li>
+<li>Set up Cloud VPN for private access</li>
+<li>Use a reverse proxy with authentication</li>
+</ul>
 <h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h3>
 <p>The Web container includes basic authentication:</p>
 <div class="highlight"><pre><span></span><code>--set-env-vars<span class="w"> </span><span class="s2">&quot;AUTH_USERNAME=admin,AUTH_PASSWORD=secure-password&quot;</span>
 </code></pre></div>
 <p>API authentication is handled via individual API keys per server.</p>
 <h2 id="cost-optimization">Cost Optimization<a class="headerlink" href="#cost-optimization" title="Permanent link">&para;</a></h2>
-<p>Cloud Run bills per request and compute time:
-- Set minimum instances to 0
-- Use appropriate memory allocation (128MB usually sufficient)
-- Consider using Cloud CDN for static assets</p>
+<p>Cloud Run bills per request and compute time:</p>
+<ul>
+<li>Set minimum instances to 0</li>
+<li>Use appropriate memory allocation (128MB usually sufficient)</li>
+<li>Consider using Cloud CDN for static assets</li>
+</ul>
 <p>Typical cost: ~$0.35/month for light usage</p>
 <h2 id="updating">Updating<a class="headerlink" href="#updating" title="Permanent link">&para;</a></h2>
 <p>To update the deployed container:</p>
@@ -1260,7 +1264,7 @@ gcloud<span class="w"> </span>run<span class="w"> </span>deploy<span class="w"> 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 2, 2025 01:10:16 UTC">July 2, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 4, 2025 18:58:01 UTC">July 4, 2025</span>
   </span>
 
     
