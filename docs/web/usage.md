@@ -24,7 +24,7 @@ At the top of the page are the main controls for the dashboard:
 
 - **Reset Dashboard:** This button will reset all of your dashboard customizations, including the module layout and all per-module settings, back to their default state.
 
-- **Settings:** This button opens the main settings panel, where you can manage global application preferences like server connections, appearance, and data retention policies.
+- **Settings:** This button opens the main settings panel, where you can manage global application preferences like server connections and appearance.
 
 
 
@@ -34,7 +34,10 @@ Each module on the dashboard is a self-contained, interactive component that pro
 
 - **Expand/Collapse:** Click anywhere on a module's header to expand it for a detailed view or collapse it to save space. For example, expanding a CPU module will reveal a detailed historical chart, while the collapsed view shows a compact summary.
 
-- **Status Indicators:** The colored dot in the top-left of most modules indicates the current status of the metric being monitored. This color is not determined by the web interface itself but is passed directly from the `DashPad-API` instance, which is responsible for evaluating the data against predefined thresholds. This ensures that the status logic is centralized and consistent.
+- **Status Indicators:** The color-coded indicator in the (top) left of (applicable) modules indicates the current status of the metric being monitored. 
+
+!!! info "Regarding Thresholds"
+    The state (and therefore the color) of the status indicator is not determined by the web interface itself. Instead, this is passed directly from the `DashPad-API` instance, which is responsible for evaluating the data against predefined thresholds. This ensures that the status logic is centralized and consistent.
 
 
 ## Customizing the Layout
@@ -57,13 +60,13 @@ DashPad allows you to create a layout that is perfectly tailored to your needs. 
 
 Clicking the global **Settings** (cog) icon in the header bar opens a panel with several configuration tabs, giving you control over the entire application's behavior.
 
-- **Server Management:** This tab lists all the API servers you configured with environment variables. Here, you can temporarily enable or disable polling for any server. This is useful if you need to take a server offline for maintenance and want to prevent connection errors from appearing on your dashboard, all without needing to restart the DashPad-Web container.
+- **Server Management:** This tab lists all the API servers you configured with environment variables. Here, you can temporarily enable or disable polling for any server. 
 
 - **Appearance Settings:** Customize the look and feel of your charts. You can change the default colors used for "Normal," "Warning," and "Critical" statuses. These color settings apply to both the detailed expanded charts and the subtle background sparklines, allowing you to create a theme that matches your preferences.
 
-- **Historical Data:** Configure the time windows for your charts. You can set the global default duration for expanded charts (e.g., 30 minutes) and the duration for the background sparklines (e.g., 10 minutes). These settings help you balance between viewing long-term trends and focusing on recent activity.
+- **Historical Data:** Configure the time windows for your charts. You can set the global default duration for expanded charts (ex. 30 minutes) and the duration for the background sparklines (ex. 10 minutes). These settings help you balance between viewing long-term trends and focusing on recent activity.
 
-- **Import/Export:** This powerful feature allows you to back up your entire UI configuration—including the module layout, server visibility states, and all global and module-specific settings—to a single JSON file. You can then use the "Import" function to restore this configuration on a different browser or device, making it easy to replicate your setup.
+- **Import/Export:** This powerful feature allows you to back up your entire UI configuration—including the module layout, server visibility states, and all global and module-specific settings—to a single JSON file stored directly in your clipboard. You can then use the "Import" function to restore this configuration on a different browser or device, making it easy to replicate your setup.
 
 
 ## Module-Specific Settings
@@ -75,22 +78,24 @@ You can override global settings for individual (applicable) modules to create a
     There are two ways to access settings for a specific module:
 
     1. **General Method (Edit Mode):** First, enter **Edit Layout** mode. A new **cog icon** will appear in the header of each module. Clicking this will open its specific settings panel.
-    2. **Metric Modules (CPU/RAM):** For modules that display charts, you can also click the **duration chip** (e.g., "30m") in the top-right corner of the expanded view to directly open the chart duration settings for that module.
+    2. **Metric Modules (CPU/RAM):** For modules that display charts, you can also click the **duration chip** (ex. "30m") in the top-right corner of the expanded view to directly open the chart duration settings for that module.
 
 
-### Log Module
+### Log Module Settings
 
-- **Autoscroll:** Toggle whether the log view automatically scrolls to the bottom as new lines arrive. This is useful for tailing live logs.
+- **Autoscroll:** Toggles whether the log view automatically scrolls to the bottom as new lines arrive, which is ideal for tailing live logs. The toggle icon is a filled, green "play" button when autoscroll is active, and a gray, outlined button when it is disabled.
 
-- **Highlight Rules:** Define custom keywords (e.g., "error", "failed", "success") and assign specific colors to them. This makes it much easier to spot important events in a stream of log entries.
+!!! success "To prevent you from losing your place while reviewing past events, autoscroll will automatically disengage if you manually scroll up within the log window. Just toggle it back on when you're ready!"
 
-### Metric Modules (CPU/RAM)
+- **Highlight Rules:** Define custom keywords (ex. "error", "failed", "success") and assign specific colors to them. This makes it much easier to spot important events in a stream of log entries.
+
+### Metric Module (CPU/RAM) Settings
 
 - **Chart Duration:** Override the global chart duration to show more or less historical data for a specific metric. For example, you might want to see a 60-minute view for RAM usage but only a 15-minute view for CPU to focus on recent spikes.
 
-- **Autoscale:** By default, metric charts have a fixed Y-axis (e.g., 0% to 100% for CPU). Enabling autoscale will cause the Y-axis to dynamically adjust to the minimum and maximum values currently visible in the chart.
+- **Autoscale:** By default, metric charts have a fixed Y-axis (ex. 0% to 100% for CPU). Enabling autoscale will cause the Y-axis to dynamically adjust to the minimum and maximum values currently visible in the chart.
 
-### Alerts Module:
+### Alerts Module Settings
 
 - **Show Past Alerts:** Choose whether to display alerts that have already been resolved. This can be helpful for understanding recent system events.
 
