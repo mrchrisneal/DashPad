@@ -809,27 +809,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#log-module" class="md-nav__link">
+  <a href="#log-module-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Log Module
+      Log Module Settings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#metric-modules-cpuram" class="md-nav__link">
+  <a href="#metric-module-cpuram-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Metric Modules (CPU/RAM)
+      Metric Module (CPU/RAM) Settings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alerts-module" class="md-nav__link">
+  <a href="#alerts-module-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Alerts Module:
+      Alerts Module Settings
     </span>
   </a>
   
@@ -1051,27 +1051,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#log-module" class="md-nav__link">
+  <a href="#log-module-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Log Module
+      Log Module Settings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#metric-modules-cpuram" class="md-nav__link">
+  <a href="#metric-module-cpuram-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Metric Modules (CPU/RAM)
+      Metric Module (CPU/RAM) Settings
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#alerts-module" class="md-nav__link">
+  <a href="#alerts-module-settings" class="md-nav__link">
     <span class="md-ellipsis">
-      Alerts Module:
+      Alerts Module Settings
     </span>
   </a>
   
@@ -1124,7 +1124,7 @@
 <p><strong>Reset Dashboard:</strong> This button will reset all of your dashboard customizations, including the module layout and all per-module settings, back to their default state.</p>
 </li>
 <li>
-<p><strong>Settings:</strong> This button opens the main settings panel, where you can manage global application preferences like server connections, appearance, and data retention policies.</p>
+<p><strong>Settings:</strong> This button opens the main settings panel, where you can manage global application preferences like server connections and appearance.</p>
 </li>
 </ul>
 <h3 id="interacting-with-modules">Interacting with Modules<a class="headerlink" href="#interacting-with-modules" title="Permanent link">&para;</a></h3>
@@ -1134,9 +1134,13 @@
 <p><strong>Expand/Collapse:</strong> Click anywhere on a module's header to expand it for a detailed view or collapse it to save space. For example, expanding a CPU module will reveal a detailed historical chart, while the collapsed view shows a compact summary.</p>
 </li>
 <li>
-<p><strong>Status Indicators:</strong> The colored dot in the top-left of most modules indicates the current status of the metric being monitored. This color is not determined by the web interface itself but is passed directly from the <code>DashPad-API</code> instance, which is responsible for evaluating the data against predefined thresholds. This ensures that the status logic is centralized and consistent.</p>
+<p><strong>Status Indicators:</strong> The color-coded indicator in the (top) left of (applicable) modules indicates the current status of the metric being monitored. </p>
 </li>
 </ul>
+<div class="admonition info">
+<p class="admonition-title">Regarding Thresholds</p>
+<p>The state (and therefore the color) of the status indicator is not determined by the web interface itself. Instead, this is passed directly from the <code>DashPad-API</code> instance, which is responsible for evaluating the data against predefined thresholds. This ensures that the status logic is centralized and consistent.</p>
+</div>
 <h2 id="customizing-the-layout">Customizing the Layout<a class="headerlink" href="#customizing-the-layout" title="Permanent link">&para;</a></h2>
 <p>DashPad allows you to create a layout that is perfectly tailored to your needs. The drag-and-drop functionality makes it intuitive to organize your dashboard exactly how you want it.</p>
 <ol>
@@ -1161,16 +1165,16 @@
 <p>Clicking the global <strong>Settings</strong> (cog) icon in the header bar opens a panel with several configuration tabs, giving you control over the entire application's behavior.</p>
 <ul>
 <li>
-<p><strong>Server Management:</strong> This tab lists all the API servers you configured with environment variables. Here, you can temporarily enable or disable polling for any server. This is useful if you need to take a server offline for maintenance and want to prevent connection errors from appearing on your dashboard, all without needing to restart the DashPad-Web container.</p>
+<p><strong>Server Management:</strong> This tab lists all the API servers you configured with environment variables. Here, you can temporarily enable or disable polling for any server. </p>
 </li>
 <li>
 <p><strong>Appearance Settings:</strong> Customize the look and feel of your charts. You can change the default colors used for "Normal," "Warning," and "Critical" statuses. These color settings apply to both the detailed expanded charts and the subtle background sparklines, allowing you to create a theme that matches your preferences.</p>
 </li>
 <li>
-<p><strong>Historical Data:</strong> Configure the time windows for your charts. You can set the global default duration for expanded charts (e.g., 30 minutes) and the duration for the background sparklines (e.g., 10 minutes). These settings help you balance between viewing long-term trends and focusing on recent activity.</p>
+<p><strong>Historical Data:</strong> Configure the time windows for your charts. You can set the global default duration for expanded charts (ex. 30 minutes) and the duration for the background sparklines (ex. 10 minutes). These settings help you balance between viewing long-term trends and focusing on recent activity.</p>
 </li>
 <li>
-<p><strong>Import/Export:</strong> This powerful feature allows you to back up your entire UI configuration—including the module layout, server visibility states, and all global and module-specific settings—to a single JSON file. You can then use the "Import" function to restore this configuration on a different browser or device, making it easy to replicate your setup.</p>
+<p><strong>Import/Export:</strong> This powerful feature allows you to back up your entire UI configuration—including the module layout, server visibility states, and all global and module-specific settings—to a single JSON file stored directly in your clipboard. You can then use the "Import" function to restore this configuration on a different browser or device, making it easy to replicate your setup.</p>
 </li>
 </ul>
 <h2 id="module-specific-settings">Module-Specific Settings<a class="headerlink" href="#module-specific-settings" title="Permanent link">&para;</a></h2>
@@ -1180,28 +1184,29 @@
 <p>There are two ways to access settings for a specific module:</p>
 <ol>
 <li><strong>General Method (Edit Mode):</strong> First, enter <strong>Edit Layout</strong> mode. A new <strong>cog icon</strong> will appear in the header of each module. Clicking this will open its specific settings panel.</li>
-<li><strong>Metric Modules (CPU/RAM):</strong> For modules that display charts, you can also click the <strong>duration chip</strong> (e.g., "30m") in the top-right corner of the expanded view to directly open the chart duration settings for that module.</li>
+<li><strong>Metric Modules (CPU/RAM):</strong> For modules that display charts, you can also click the <strong>duration chip</strong> (ex. "30m") in the top-right corner of the expanded view to directly open the chart duration settings for that module.</li>
 </ol>
 </div>
-<h3 id="log-module">Log Module<a class="headerlink" href="#log-module" title="Permanent link">&para;</a></h3>
+<h3 id="log-module-settings">Log Module Settings<a class="headerlink" href="#log-module-settings" title="Permanent link">&para;</a></h3>
 <ul>
-<li>
-<p><strong>Autoscroll:</strong> Toggle whether the log view automatically scrolls to the bottom as new lines arrive. This is useful for tailing live logs.</p>
-</li>
-<li>
-<p><strong>Highlight Rules:</strong> Define custom keywords (e.g., "error", "failed", "success") and assign specific colors to them. This makes it much easier to spot important events in a stream of log entries.</p>
-</li>
+<li><strong>Autoscroll:</strong> Toggles whether the log view automatically scrolls to the bottom as new lines arrive, which is ideal for tailing live logs. The toggle icon is a filled, green "play" button when autoscroll is active, and a gray, outlined button when it is disabled.</li>
 </ul>
-<h3 id="metric-modules-cpuram">Metric Modules (CPU/RAM)<a class="headerlink" href="#metric-modules-cpuram" title="Permanent link">&para;</a></h3>
+<div class="admonition success">
+<p class="admonition-title">To prevent you from losing your place while reviewing past events, autoscroll will automatically disengage if you manually scroll up within the log window. Just toggle it back on when you're ready!</p>
+</div>
+<ul>
+<li><strong>Highlight Rules:</strong> Define custom keywords (ex. "error", "failed", "success") and assign specific colors to them. This makes it much easier to spot important events in a stream of log entries.</li>
+</ul>
+<h3 id="metric-module-cpuram-settings">Metric Module (CPU/RAM) Settings<a class="headerlink" href="#metric-module-cpuram-settings" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Chart Duration:</strong> Override the global chart duration to show more or less historical data for a specific metric. For example, you might want to see a 60-minute view for RAM usage but only a 15-minute view for CPU to focus on recent spikes.</p>
 </li>
 <li>
-<p><strong>Autoscale:</strong> By default, metric charts have a fixed Y-axis (e.g., 0% to 100% for CPU). Enabling autoscale will cause the Y-axis to dynamically adjust to the minimum and maximum values currently visible in the chart.</p>
+<p><strong>Autoscale:</strong> By default, metric charts have a fixed Y-axis (ex. 0% to 100% for CPU). Enabling autoscale will cause the Y-axis to dynamically adjust to the minimum and maximum values currently visible in the chart.</p>
 </li>
 </ul>
-<h3 id="alerts-module">Alerts Module:<a class="headerlink" href="#alerts-module" title="Permanent link">&para;</a></h3>
+<h3 id="alerts-module-settings">Alerts Module Settings<a class="headerlink" href="#alerts-module-settings" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Show Past Alerts:</strong> Choose whether to display alerts that have already been resolved. This can be helpful for understanding recent system events.</p>
@@ -1230,7 +1235,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 4, 2025 18:58:01 UTC">July 4, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2025 03:12:46 UTC">July 8, 2025</span>
   </span>
 
     
