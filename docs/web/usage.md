@@ -1,8 +1,8 @@
 ---
-title: Usage Guide (DashPad-Web)
+title: Usage (DashPad-Web)
 ---
 
-# Usage Guide
+# Usage
 
 This guide covers day-to-day use of the DashPad-Web interface. Once you have successfully deployed and configured your container (perhaps using the [Quick Start](./quick-start.md) or [Configuration](./configuration.md) guides), this document will help you utilize DashPad to its full potential.
 

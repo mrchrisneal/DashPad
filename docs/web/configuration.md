@@ -1,8 +1,8 @@
 ---
-title: Configuration Guide (DashPad-Web)
+title: Configuration (DashPad-Web)
 ---
 
-# Configuration Guide
+# Configuration
 
 This guide provides a comprehensive reference for all the environment variables used to configure the DashPad-Web container. A proper configuration is key to tailoring the dashboard to your specific needs, from defining API servers to enhancing security.
 

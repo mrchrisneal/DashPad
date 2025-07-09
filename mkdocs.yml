@@ -25,6 +25,7 @@ nav:
     - Troubleshooting: web/troubleshooting.md
     - Deployment:
       - Google Cloud Run: web/deployment/cloud-run.md
+  - FAQ: faq.md
   - Devlog: devlog/index.md
 
 theme:
@@ -74,9 +75,17 @@ plugins:
       background: #1e2129
       shadow: false
       manual: false
-  - git-revision-date-localized:
-      type: date
-      fallback_to_build_date: true
+  - document-dates:
+      position: top            # Display position: top (after title)  bottom (end of document), default: bottom
+      type: timeago               # Date type: date  datetime  timeago, default: date
+      locale: en               # Localization: en zh zh_TW es fr de ar ja ko ru, default: en
+      date_format: '%Y-%m-%d'  # Date format strings, e.g., %Y-%m-%d, %b %d, %Y, etc
+      time_format: '%H:%M:%S'  # Time format strings (valid only if type=datetime)
+      exclude: # List of excluded files
+        - index.md              # Exclude specific file
+        - devlog/index.md
+        - private/*            # Exclude all files in private directory, including subdirectories
+      show_author: false        # Show author or not, default: true
 
 markdown_extensions:
   - codehilite
@@ -93,8 +102,17 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
+      clickable_checkbox: true
   - attr_list
   - md_in_html
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra:
   social:

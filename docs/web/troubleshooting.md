@@ -1,8 +1,8 @@
 ---
-title: Troubleshooting Guide (DashPad-Web)
+title: Troubleshooting (DashPad-Web)
 ---
 
-# Troubleshooting Guide
+# Troubleshooting
 
 This guide provides solutions to common issues you might encounter while setting up or using the DashPad-Web interface.
 
