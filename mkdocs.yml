@@ -78,6 +78,7 @@ plugins:
   - document-dates:
       position: top            # Display position: top (after title)  bottom (end of document), default: bottom
       type: timeago               # Date type: date  datetime  timeago, default: date
+      timezone: America/Los_Angeles
       locale: en               # Localization: en zh zh_TW es fr de ar ja ko ru, default: en
       date_format: '%Y-%m-%d'  # Date format strings, e.g., %Y-%m-%d, %b %d, %Y, etc
       time_format: '%H:%M:%S'  # Time format strings (valid only if type=datetime)
