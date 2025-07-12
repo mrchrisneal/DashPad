@@ -14,10 +14,6 @@ The main dashboard is composed of a header containing global controls, a bar ben
 
 At the top of the page are the main controls for the dashboard:
 
-- **Refresh:** Manually triggers a data fetch from all connected servers. This is useful for synchronizing the dashboard with the latest data cached by the API. 
-
-!!! note "Note that DashPad-API containers have their own update interval. This button just retrieves the most recent data available from the API; it does NOT force the API to gather new data."
-
 - **Columns (1, 2, 3, 4):** These buttons allow you to manually set the number of columns in the dashboard grid. This is particularly useful for forcing a dense, multi-column layout on a high-resolution tablet. Like other options, your selection is saved automatically and will persist across browser sessions.
 
 - **Edit Layout:** This toggle button activates "Edit Mode," which unlocks the dashboard grid, allowing you to customize the position and settings of your modules. When active, modules will become draggable, and additional controls will become visible.
