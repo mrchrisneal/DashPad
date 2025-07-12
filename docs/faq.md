@@ -44,7 +44,7 @@ This page answers commonly asked questions about the DashPad project, including 
 
 #### Browser Requirements
 
-- While very few devices have been tested, the oldest one so far is an iPad 5 from 2017 running iOS 16; it appears to be fairly responsive and displays the web dashboard without issue (at default update intervals). 
+- While very few devices have been tested, the oldest one so far is an iPad Air 2 from 2014 running iOS 15.8.4; it appears to be fairly responsive and displays the web dashboard without issue (at default update intervals). 
 
 !!! tip "Your performance may vary; try increasing the duration of your update intervals (ex. increase from four to eight or more seconds) if your tablet appears to fall behind or becomes unresponsive."
 
