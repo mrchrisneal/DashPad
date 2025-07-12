@@ -54,17 +54,17 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
-    
-      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
-    
       <link rel="stylesheet" href="../../assets/document_dates/tippy/tippy.css">
-    
-      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
     
       <link rel="stylesheet" href="../../assets/document_dates/tippy/shift-away.css">
     
       <link rel="stylesheet" href="../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../../assets/document_dates/core/core.css">
     
@@ -1186,19 +1186,13 @@
 
 
 <h1 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-01'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-01T23:25:17.255164' locale='en'>2025-07-01</time></span><span data-tippy-content='Last Update: 2025-07-09'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-09T21:48:59.361152' locale='en'>2025-07-09</time></span></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-01'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-01T23:25:17.255164' locale='en'>2025-07-01</time></span><span data-tippy-content='Last Update: 2025-07-12'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-12T22:06:35.096334' locale='en'>2025-07-12</time></span></div></div>
 
 <p>This guide covers day-to-day use of the DashPad-Web interface. Once you have successfully deployed and configured your container (perhaps using the <a href="../quick-start/">Quick Start</a> or <a href="../configuration/">Configuration</a> guides), this document will help you utilize DashPad to its full potential.</p>
 <h2 id="navigating-the-dashboard">Navigating the Dashboard<a class="headerlink" href="#navigating-the-dashboard" title="Permanent link">&para;</a></h2>
 <p>The main dashboard is composed of a header containing global controls, a bar beneath it that displays currently monitored servers (if multiple are configured), and of course, a grid of monitoring modules. The dashboard is designed to be left open on a dedicated display (like an older tablet!) providing you with an always-on, at-a-glance view of your systems' health.</p>
 <h3 id="header-bar-controls">Header Bar Controls<a class="headerlink" href="#header-bar-controls" title="Permanent link">&para;</a></h3>
 <p>At the top of the page are the main controls for the dashboard:</p>
-<ul>
-<li><strong>Refresh:</strong> Manually triggers a data fetch from all connected servers. This is useful for synchronizing the dashboard with the latest data cached by the API. </li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note that DashPad-API containers have their own update interval. This button just retrieves the most recent data available from the API; it does NOT force the API to gather new data.</p>
-</div>
 <ul>
 <li>
 <p><strong>Columns (1, 2, 3, 4):</strong> These buttons allow you to manually set the number of columns in the dashboard grid. This is particularly useful for forcing a dense, multi-column layout on a high-resolution tablet. Like other options, your selection is saved automatically and will persist across browser sessions.</p>
