@@ -10,26 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://dashpad.neal.media/devlog/2025/06/30/devlog-2-dashpad-report/">
+        <link rel="canonical" href="https://dashpad.neal.media/api/quick-start/">
       
       
-        <link rel="prev" href="../../29/devlog-1-hello-world/">
+        <link rel="prev" href="../">
       
       
+        <link rel="next" href="../configuration/">
       
-      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
     
     
       
-        <title>Devlog #2: DashPad Report - DashPad Documentation (WIP)</title>
+        <title>Quick Start (DashPad-API) - DashPad Documentation (WIP)</title>
       
     
     
-      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -48,27 +50,27 @@
       
     
     
-      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/tippy.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/shift-away.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/shift-away.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/backdrop.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/backdrop.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/material.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/scale.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/tippy/light.css">
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/core/core.css">
+      <link rel="stylesheet" href="../../assets/document_dates/core/core.css">
     
-      <link rel="stylesheet" href="../../../../../assets/document_dates/user.config.css">
+      <link rel="stylesheet" href="../../assets/document_dates/user.config.css">
     
-    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -85,7 +87,7 @@
     
     
     
-   <link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -98,7 +100,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -116,6 +118,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#quick-start" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -126,7 +133,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../../.." title="DashPad Documentation (WIP)" class="md-header__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation (WIP)" class="md-header__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -146,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Devlog #2: DashPad Report
+              Quick Start (DashPad-API)
             
           </span>
         </div>
@@ -257,7 +264,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -276,7 +283,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../architecture/" class="md-tabs__link">
+      <a href="../../architecture/" class="md-tabs__link">
         
   
   
@@ -293,11 +300,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../../../api/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -319,7 +328,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../../../web/" class="md-tabs__link">
+        <a href="../../web/" class="md-tabs__link">
           
   
   
@@ -339,7 +348,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../faq/" class="md-tabs__link">
+      <a href="../../faq/" class="md-tabs__link">
         
   
   
@@ -356,11 +365,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="../../../../" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../devlog/" class="md-tabs__link">
         
   
   
@@ -384,9 +391,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -397,7 +402,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../../.." title="DashPad Documentation (WIP)" class="md-nav__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
+    <a href="../.." title="DashPad Documentation (WIP)" class="md-nav__button md-logo" aria-label="DashPad Documentation (WIP)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -427,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -449,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../architecture/" class="md-nav__link">
+      <a href="../../architecture/" class="md-nav__link">
         
   
   
@@ -468,6 +473,8 @@
       
   
   
+    
+  
   
   
     
@@ -489,22 +496,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../api/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -517,13 +525,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             DashPad-API
@@ -536,10 +544,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../api/quick-start/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -550,6 +580,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-the-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the Docker Compose File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-launch-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Launch the Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-find-your-api-key-and-ssl-fingerprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Find Your API Key and SSL Fingerprint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-verify-the-api-is-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify the API is Running
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -562,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../api/configuration/" class="md-nav__link">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -585,7 +689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../api/endpoints/" class="md-nav__link">
+      <a href="../endpoints/" class="md-nav__link">
         
   
   
@@ -608,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../api/modules/" class="md-nav__link">
+      <a href="../modules/" class="md-nav__link">
         
   
   
@@ -673,7 +777,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../../../web/" class="md-nav__link ">
+            <a href="../../web/" class="md-nav__link ">
               
   
   
@@ -708,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../web/quick-start/" class="md-nav__link">
+      <a href="../../web/quick-start/" class="md-nav__link">
         
   
   
@@ -731,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../web/configuration/" class="md-nav__link">
+      <a href="../../web/configuration/" class="md-nav__link">
         
   
   
@@ -754,7 +858,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../web/usage/" class="md-nav__link">
+      <a href="../../web/usage/" class="md-nav__link">
         
   
   
@@ -777,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../web/troubleshooting/" class="md-nav__link">
+      <a href="../../web/troubleshooting/" class="md-nav__link">
         
   
   
@@ -849,7 +953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../web/deployment/cloud-run/" class="md-nav__link">
+      <a href="../../web/deployment/cloud-run/" class="md-nav__link">
         
   
   
@@ -887,7 +991,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../faq/" class="md-nav__link">
+      <a href="../../faq/" class="md-nav__link">
         
   
   
@@ -906,14 +1010,12 @@
       
   
   
-    
-  
   
     
   
   
-    <li class="md-nav__item md-nav__item--active">
-      <a href="../../../../" class="md-nav__link">
+    <li class="md-nav__item">
+      <a href="../../devlog/" class="md-nav__link">
         
   
   
@@ -936,8 +1038,6 @@
             
             
               
-                
-              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -947,6 +1047,70 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-the-docker-compose-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Create the Docker Compose File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-launch-the-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Launch the Container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-find-your-api-key-and-ssl-fingerprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Find Your API Key and SSL Fingerprint
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-verify-the-api-is-running" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Verify the API is Running
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -955,117 +1119,142 @@
             
           
           
-  <div class="md-content md-content--post" data-md-component="content">
-    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
-      <div class="md-sidebar__scrollwrap">
-        <div class="md-sidebar__inner md-post">
-          <nav class="md-nav md-nav--primary">
-            <div class="md-post__back">
-              <div class="md-nav__title md-nav__container">
-                <a href="../../../../" class="md-nav__link">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-                  <span class="md-ellipsis">
-                    Back to index
-                  </span>
-                </a>
-              </div>
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-10'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-10T15:03:33.119432' locale='en'>2025-07-10</time></span><span data-tippy-content='Last Update: 2025-07-12'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-12T22:07:04.634778' locale='en'>2025-07-12</time></span></div></div>
+
+<p>This guide provides the fastest way to get the DashPad-API container running on your Linux server using Docker Compose. This setup uses default settings and auto-generated credentials to get you started in minutes.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>A Linux Server:</strong> The DashPad-API container must run on the Linux-based machine you intend to monitor.</p>
+</li>
+<li>
+<p><strong>Docker</strong> &amp; Docker <strong>Compose:</strong> You must have a working installation of Docker and Docker Compose on the server.</p>
+</li>
+</ul>
+<h2 id="step-1-create-the-docker-compose-file">Step 1: Create the Docker Compose File<a class="headerlink" href="#step-1-create-the-docker-compose-file" title="Permanent link">&para;</a></h2>
+<p>On your Linux server, create a new directory for your DashPad configuration (e.g., <code>~/dashpad-api/</code>) and <code>cd</code> into it. Inside that directory, create a file named <code>docker-compose.yml</code> and paste the following content:</p>
+<div class="highlight"><pre><span></span><code>version: &#39;3.8&#39;
+
+services:
+  dashpad-api:
+    # Use the official image from GitHub Container Registry
+    image: ghcr.io/mrchrisneal/dashpad-api:latest
+    container_name: dashpad-api
+    restart: unless-stopped
+    # Use host networking for direct access to network interfaces
+    # This makes the container&#39;s localhost the same as the host&#39;s
+    network_mode: &quot;host&quot;
+    # Volumes are required for persistent data and system access
+    volumes:
+      # Mount for persistent data (settings, API key, SSL certs)
+      - ./data:/data
+      # Mount system directories for metric collection (read-only)
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc:/host/etc:ro
+      - /var/log:/host/var/log:ro
+    # Set your server&#39;s timezone
+    environment:
+      - TZ=America/New_York # IMPORTANT: Change to your server&#39;s timezone
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Timezone Setting</p>
+<p>Remember to change the <code>TZ</code> environment variable in the <code>docker-compose.yml</code> file to match your server's local timezone. You can find a list of valid timezone names <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" title="null">here</a>.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Why Host Networking?</p>
+<p>Using <code>network_mode: "host"</code> simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via <code>https://localhost:5241</code> from the host machine without needing to map ports.</p>
+</div>
+<h2 id="step-2-launch-the-container">Step 2: Launch the Container<a class="headerlink" href="#step-2-launch-the-container" title="Permanent link">&para;</a></h2>
+<p>From the directory containing your <code>docker-compose.yml</code> file, run the following command to start the container in the background:</p>
+<div class="highlight"><pre><span></span><code>docker compose up -d
+</code></pre></div>
+<p>Docker will now pull the latest <code>DashPad-API</code> image, create the container, and start the service. On the first run, the container will automatically:</p>
+<ol>
+<li>
+<p>Create a default <code>settings.json</code> file inside the <code>./data</code> directory.</p>
+</li>
+<li>
+<p>Generate a secure, 64-character API key.</p>
+</li>
+<li>
+<p>Generate a self-signed SSL certificate and its fingerprint.</p>
+</li>
+</ol>
+<h2 id="step-3-find-your-api-key-and-ssl-fingerprint">Step 3: Find Your API Key and SSL Fingerprint<a class="headerlink" href="#step-3-find-your-api-key-and-ssl-fingerprint" title="Permanent link">&para;</a></h2>
+<p>The API key and SSL fingerprint are required to connect from DashPad-Web or any other client. They are printed to the container logs on the first startup.</p>
+<p>View the logs to retrieve them:</p>
+<div class="highlight"><pre><span></span><code>docker logs dashpad-api
+</code></pre></div>
+<p>You will see output similar to this. Copy the <strong>API Key</strong> and the <strong>SSL Fingerprint</strong>.</p>
+<div class="highlight"><pre><span></span><code>============================================================
+SSL CERTIFICATE FINGERPRINT:
+A1:B2:C3:D4:E5:F6:A1:B2:C3:D4:E5:F6:A1:B2:C3:D4:E5:F6:A1:B2:C3:D4:E5:F6:A1:B2:C3:D4:E5:F6:A1:B2
+============================================================
+============================================================
+API KEY GENERATED:
+1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+Saved to: /data/.env
+============================================================
+</code></pre></div>
+<h2 id="step-4-verify-the-api-is-running">Step 4: Verify the API is Running<a class="headerlink" href="#step-4-verify-the-api-is-running" title="Permanent link">&para;</a></h2>
+<p>You can test that the API is running correctly by making a <code>curl</code> request from the server. Use the API key you just retrieved.</p>
+<div class="highlight"><pre><span></span><code># Replace YOUR_API_KEY with the key from the logs
+curl -k &quot;https://localhost:5241/health?apikey=YOUR_API_KEY&quot;
+</code></pre></div>
+<p>The <code>-k</code> flag is necessary to allow <code>curl</code> to accept the self-signed certificate. If successful, you should see a JSON response like this:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;server_identity&quot;: &quot;your-server-hostname&quot;,
+  &quot;timezone&quot;: { ... },
+  &quot;server_time&quot;: &quot;2025-07-10T21:30:00.123-07:00&quot;
+}
+</code></pre></div>
+<p>Congratulations! Your DashPad-API instance is now running and ready to serve data.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><a href="../configuration/"><strong>Configuration</strong></a><strong>:</strong> Learn how to customize data collection, enable/disable modules, and set alert thresholds by editing the <code>settings.json</code> file.</p>
+</li>
+<li>
+<p><a href="./api-reference.md"><strong>API Reference</strong></a><strong>:</strong> Explore all the available API endpoints in detail.</p>
+</li>
+<li>
+<p><strong>Connect DashPad-Web:</strong> Use your server's IP address (or <code>localhost</code> if on the same machine), the API key, and the SSL fingerprint to configure your <a href="../../web/configuration/">DashPad-Web</a> instance.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
             </div>
-            
-            <ul class="md-post__meta md-nav__list">
-              <li class="md-nav__item md-nav__item--section">
-                <div class="md-post__title">
-                  <span class="md-ellipsis">
-                    Metadata
-                  </span>
-                </div>
-                <nav class="md-nav">
-                  <ul class="md-nav__list">
-                    <li class="md-nav__item">
-                      <div class="md-nav__link">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-06-30 00:00:00+00:00" class="md-ellipsis">June 30, 2025</time>
-                      </div>
-                    </li>
-                    
-                    
-                      <li class="md-nav__item">
-                        <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"/></svg>
-                          <span class="md-ellipsis">
-                            in
-                            
-                              <a href="../../../../category/devlog/">devlog</a></span>
-                        </div>
-                      </li>
-                    
-                    
-                      
-                      <li class="md-nav__item">
-                        <div class="md-nav__link">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
-                          <span class="md-ellipsis">
-                            
-                              1 min read
-                            
-                          </span>
-                        </div>
-                      </li>
-                    
-                  </ul>
-                </nav>
-              </li>
-            </ul>
-            
-          </nav>
           
-        </div>
-      </div>
-    </div>
-    <article class="md-content__inner md-typeset">
-      
-        
-  
-
-
-
-  
-  
-
-
-  <h1>Devlog #2: DashPad Report</h1>
-
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-06-30'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-06-30T00:00:00' locale='en'>2025-06-30</time></span><span data-tippy-content='Last Update: 2025-07-12'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-12T22:07:04.645778' locale='en'>2025-07-12</time></span></div></div>
-<p>The official GitHub repositories for DashPad have been created, and we're one step closer to becoming a source-available project! While this is a big step forward, all builds and source code will remain private for a while longer as there are still many areas that need refining.</p>
-<!-- more -->
-
-<p><strong>What's happening now</strong>: The immediate focus is on squashing some final bugs, making a few needed optimizations, and (perhaps most importantly) developing comprehensive documentation to help future users get DashPad up and running on their own systems. Many parts of the module system need more refinement before new features can be added as well.</p>
-<p>In the meantime, for anyone curious about the project's journey, architecture, and performance, I invite you to check out a recently completed report on hosting this project in a hybrid environment (API container self-hosted, Web container on Google Cloud Platform). It covers everything from the microservices design and cloud deployment process to surprising cost-efficiency of running the application. </p>
-<p>Read the full report here: <a href="../../../../../assets/dashpad-report-public.pdf">DashPad Final Report</a></p>
-<p>To be continued! 😊</p>
-<p>~ Chris</p>
-
-
-
-
-
-
-
-  
-  
-
-
-
-  
-
-
-  
-
-
-
-      
-    </article>
-  </div>
-
           
   <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
 
@@ -1125,18 +1314,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.indexes", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../../../../../assets/document_dates/tippy/popper.min.js"></script>
+        <script src="../../assets/document_dates/tippy/popper.min.js"></script>
       
-        <script src="../../../../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+        <script src="../../assets/document_dates/tippy/tippy.umd.min.js"></script>
       
-        <script src="../../../../../assets/document_dates/core/core.js"></script>
+        <script src="../../assets/document_dates/core/core.js"></script>
       
-        <script src="../../../../../assets/document_dates/user.config.js"></script>
+        <script src="../../assets/document_dates/user.config.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
