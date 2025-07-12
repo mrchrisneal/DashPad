@@ -14,6 +14,7 @@ nav:
   - Architecture: architecture.md
   - DashPad-API:
     - Overview: api/index.md
+    - Quick Start: api/quick-start.md
     - Configuration: api/configuration.md
     - Endpoints: api/endpoints.md
     - Modules: api/modules.md
