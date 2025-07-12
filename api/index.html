@@ -970,102 +970,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interactive-api-documentation" class="md-nav__link">
+  <a href="#architecture-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      Interactive API Documentation
+      Architecture Summary
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
+  <a href="#accessing-the-interactive-api-docs" class="md-nav__link">
     <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Architecture">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#module-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      Module System
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data-sources" class="md-nav__link">
-    <span class="md-ellipsis">
-      Data Sources
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      Quick Start
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Start">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Locally
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Usage
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#security" class="md-nav__link">
-    <span class="md-ellipsis">
-      Security
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance
+      Accessing the Interactive API Docs
     </span>
   </a>
   
@@ -1100,100 +1016,131 @@
 
 
 <h1 id="dashpad-api-overview">DashPad-API Overview<a class="headerlink" href="#dashpad-api-overview" title="Permanent link">&para;</a></h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-06-19'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-06-19T13:54:27' locale='en'>2025-06-19</time></span><span data-tippy-content='Last Update: 2025-07-12'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-12T22:07:04.634778' locale='en'>2025-07-12</time></span></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-06-19'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-06-19T13:54:27' locale='en'>2025-06-19</time></span><span data-tippy-content='Last Update: 2025-07-12'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-12T22:28:14.641735' locale='en'>2025-07-12</time></span></div></div>
 
-<p>DashPad-API is a FastAPI-based backend service that collects system metrics directly from the Linux server it runs on.</p>
-<div class="admonition warning">
-<p class="admonition-title">DashPad-API Deployment</p>
-<p><strong>The DashPad-API container MUST run directly on the server being monitored.</strong> It cannot be deployed to cloud services like Google Cloud Run because it requires:</p>
+<p>The DashPad-API is a lightweight, secure, and efficient backend service built with Python and FastAPI. It serves as the data collection engine for the DashPad ecosystem, running directly on your Linux servers to gather system metrics, logs, and other vital information. It then exposes this data through a clean, RESTful API, ready to be consumed by the <a href="../web/">DashPad-Web</a> interface.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Important Concepts</p>
 <ul>
-<li>Direct access to <code>/proc</code> and <code>/sys</code> filesystems</li>
-<li>Local file system access for logs</li>
-<li>Host networking to gather network information (planned feature)</li>
+<li><strong>Purpose:</strong> DashPad-API is the backend data collector. It runs on a server, gathers metrics, and provides them to the web interface. </li>
+<li><strong>Deployment:</strong> The API container <strong>must</strong> run directly on the Linux server you want to monitor. It cannot be deployed to a separate machine or a cloud service. </li>
+<li><strong>Configuration:</strong> All configuration is managed through a single <code>settings.json</code> file, giving you granular control over every aspect of data collection. </li>
+<li><strong>Data Sources:</strong> It intelligently pulls data from multiple sources, including direct system files (<code>/proc</code>, <code>/sys</code>) and the Netdata API, with automatic fallback (assuming a valid Netdata instance is installed/running).</li>
+<li><strong>Security:</strong> Communication is secured with HTTPS and a mandatory 64-character API key, both of which are automatically generated on first run.</li>
 </ul>
-<p>Only deploy the API container on the actual Linux server you want to monitor.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">In a Hurry? Check out the <a href="quick-start/"><strong>Quick Start Guide</strong></a> for the fastest way to get up and running.</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Deployment Requirement</p>
+<p>The DashPad-API container <strong>must</strong> run directly on the server being monitored. This is not optional. It is designed to have low-level access to the system's filesystems to collect accurate data:</p>
+<ul>
+<li><strong>Direct Filesystem Access:</strong> It reads directly from <code>/proc</code> and <code>/sys</code> for core metrics like CPU, RAM, and system uptime.</li>
+<li><strong>Log File Access:</strong> It requires access to system log files located in directories like <code>/var/log</code>.</li>
+<li><strong>Future-Proofing:</strong> This design allows for future modules that may require deeper system integration.</li>
+</ul>
 </div>
 <h2 id="key-features">Key Features<a class="headerlink" href="#key-features" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>Multi-source data collection</strong> with automatic fallback</li>
-<li><strong>Modular architecture</strong> for easy metric addition</li>
-<li><strong>Real-time metrics</strong> with configurable update intervals</li>
-<li><strong>Built-in caching</strong> for efficient resource usage</li>
-<li><strong>RESTful API</strong> with automatic documentation</li>
-<li><strong>Optional authentication</strong> with API keys</li>
+<li>
+<p><strong>Multi-Source Data Collection:</strong> Automatically selects a data source in a customizable order (<code>direct</code> file access or <code>Netdata</code> API) for each metric, ensuring reliability and flexibility.</p>
+</li>
+<li>
+<p><strong>Efficient Caching:</strong> In-memory caching minimizes system load by reducing redundant data collection for frequent requests.</p>
+</li>
+<li>
+<p><strong>Modular Architecture:</strong> Each metric, log, or data type is a self-contained module, making the system easy to maintain and extend.</p>
+</li>
+<li>
+<p><strong>Secure by Default:</strong> Enforces HTTPS and requires API key authentication for all endpoints. SSL certificates and a strong API key are generated automatically on first launch.</p>
+</li>
+<li>
+<p><strong>Interactive API Docs:</strong> Leverages FastAPI to provide auto-generated, interactive API documentation, making it easy to explore and test endpoints directly from your browser.</p>
+</li>
+<li>
+<p><strong>Dynamic Configuration:</strong> All behavior is controlled via the <code>settings.json</code> file, allowing for detailed customization without rebuilding the container.</p>
+</li>
 </ul>
-<h2 id="interactive-api-documentation">Interactive API Documentation<a class="headerlink" href="#interactive-api-documentation" title="Permanent link">&para;</a></h2>
-<p>FastAPI automatically generates interactive API documentation. Access it at:</p>
-<div class="highlight"><pre><span></span><code>https://your-server:5241/docs
-</code></pre></div>
-<p>This provides a web interface to explore and test all endpoints.</p>
-<h2 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h2>
-<h3 id="module-system">Module System<a class="headerlink" href="#module-system" title="Permanent link">&para;</a></h3>
-<p>Each metric type is implemented as a module:</p>
-<div class="highlight"><pre><span></span><code>modules/
-├── cpu_usage/
-├── ram_usage/
-├── system_uptime/
-├── cron_tasks/
-├── logs/
-└── alerts/
-</code></pre></div>
-<h3 id="data-sources">Data Sources<a class="headerlink" href="#data-sources" title="Permanent link">&para;</a></h3>
-<p>The API tries to query one or more sources in the order they are specified within <code>settings.json</code>, including:</p>
+<h2 id="architecture-summary">Architecture Summary<a class="headerlink" href="#architecture-summary" title="Permanent link">&para;</a></h2>
+<p>The API is built around a few core components that work together to provide data efficiently and reliably.</p>
 <ul>
-<li><strong>Direct</strong> - Read from system files</li>
-<li><strong>Netdata</strong> - Query Netdata API if available</li>
+<li>
+<p><strong>Scheduler:</strong> A background process that periodically collects data for all enabled modules based on the intervals you define in <code>settings.json</code>. This ensures that data is always fresh without constantly polling system files.</p>
+</li>
+<li>
+<p><strong>Cache:</strong> Once collected, the processed data for each module is stored in a simple in-memory cache. When the web interface requests data, it is served directly from this fast cache, preventing high system load.</p>
+</li>
+<li>
+<p><strong>Module System:</strong> Each type of data (CPU, RAM, Logs, etc.) is handled by a dedicated module. Each module knows how to collect its specific data from different sources (currently either directly or from the Netdata API) and how to process it into a standard format.</p>
+</li>
+<li>
+<p><strong>API Endpoints:</strong> The FastAPI application exposes the cached data through a set of RESTful endpoints. It also handles incoming requests, authentication, and response formatting.</p>
+</li>
 </ul>
-<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<h3 id="running-locally">Running Locally<a class="headerlink" href="#running-locally" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># With Docker</span>
-docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--name<span class="w"> </span>dashpad-api<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-p<span class="w"> </span><span class="m">5241</span>:5241<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/settings.json:/app/settings.json:ro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span>/proc:/host/proc:ro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span>/sys:/host/sys:ro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-v<span class="w"> </span>/var/log:/host/var/log:ro<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>ghcr.io/mrchrisneal/dashpad-api:latest
-</code></pre></div>
-<h3 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h3>
-<p>By default, a valid API key MUST be passed to the API in either an HTTP header or as a URL parameter (?apikey=your-api-key). Both examples are included below:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Check health</span>
-curl<span class="w"> </span>-k<span class="w"> </span>https://localhost:5241/health?apikey<span class="o">=</span>your-api-key
-
-<span class="c1"># Get all metrics (with API key)</span>
-curl<span class="w"> </span>-k<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;X-API-Key: your-api-key&quot;</span><span class="w"> </span>https://localhost:5241/metrics
-
-<span class="c1"># View interactive docs</span>
-open<span class="w"> </span>https://localhost:5241/docs?apikey<span class="o">=</span>your-api-key
-</code></pre></div>
-<p>Note: The <code>-k</code> flag is used to accept self-signed certificates.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>The API is configured via <code>settings.json</code>. Key sections:</p>
-<ul>
-<li><strong>Metrics</strong>: Which modules to enable</li>
-<li><strong>Thresholds</strong>: Warning and critical limits</li>
-<li><strong>Update intervals</strong>: How often to collect data</li>
+<h2 id="accessing-the-interactive-api-docs">Accessing the Interactive API Docs<a class="headerlink" href="#accessing-the-interactive-api-docs" title="Permanent link">&para;</a></h2>
+<p>FastAPI automatically generates a user-friendly, interactive interface for the API. Once the container is running, you can access it in your browser to see all available endpoints, view their schemas, and test them live.</p>
+<p>Access the interactive documentation at:</p>
+<p><code>https://&lt;your_server_ip&gt;:5241/docs</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Authentication Notice</p>
+<p>At the top of the interactive docs page, you will see text stating that authentication is required. While the documentation page is public, interacting with the API (using interactive demos) requires authentication.</p>
+</div>
+<p>While the documentation page itself is visible to anyone, <strong>you must authenticate</strong> (with your API key) to use the "Try it out" feature for any of the endpoints.</p>
+<p>Listed below are three primary methods for authenticating with the interactive documentation.</p>
+<div class="admonition question">
+<p class="admonition-title">How Do I Authenticate With Interactive Documentation?</p>
+<div class="admonition tip">
+<p class="admonition-title">You should have your generated <a href="./quick-start/#step-3-find-your-api-key-and-ssl-fingerprint"><strong>DashPad-API key</strong></a> handy (perhaps even saved somewhere) before proceeding! This key is 64 characters long, and can be found in the DashPad-API container logs, printed as part of the startup process.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Method 1: Authorize Button</label><label for="__tabbed_1_2">Method 2: URL Parameter</label><label for="__tabbed_1_3">Method 3: Browser Extension</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><strong>Use the "Authorize" Button (Recommended)</strong></p>
+<p>This is the easiest and most convenient way to authenticate your session directly within the docs page.</p>
+<ol>
+<li>Click the <strong>Authorize</strong> button (with a lock icon) located at the top right of the page.</li>
+<li>An "Available authorizations" dialog will appear. You can use any of the defined schemes, but <code>BearerAuth</code> is often the simplest. In the <code>BearerAuth</code> section, paste your 64-character API key into the <strong>Value</strong> field.</li>
+<li>Click the <strong>Authorize</strong> button in the dialog, and then <strong>Close</strong>.</li>
+</ol>
+<p>The lock icon on the Authorize button will now appear "closed," indicating that you are authenticated. All "Try it out" requests you make from the page will now automatically include the correct <code>Authorization: Bearer &lt;your-api-key&gt;</code> header.</p>
+</div>
+<div class="tabbed-block">
+<p><strong>Use a URL Parameter (Quick Access)</strong></p>
+<p>For quick, one-off access, you can provide the API key as a URL parameter. This is useful for sharing a direct link to the docs.</p>
+<p>Simply append <code>?apikey=</code> followed by your key to the URL:<br />
+<code>https://&lt;your_server_ip&gt;:5241/docs?apikey=&lt;YOUR_API_KEY&gt;</code></p>
+<div class="admonition warning">
+<p class="admonition-title">While convenient, be mindful of sharing URLs that contain your API key.</p>
+</div>
+</div>
+<div class="tabbed-block">
+<p><strong>Use a Browser Extension (Advanced)</strong></p>
+<p>For developers who frequently interact with the API, using a browser extension to set the request header is a powerful option. This method allows you to set the API key once for the domain, and it will be automatically included in every request.</p>
+<ol>
+<li>Install a browser extension that can modify request headers (e.g., "ModHeader" for Chrome/Firefox).</li>
+<li>Configure the extension to add one of the following headers for all requests to your API's domain (<code>&lt;your_server_ip&gt;:5241</code>):<ul>
+<li><strong>Header Name:</strong>  <code>X-API-Key</code></li>
+<li><strong>Header Value:</strong>  <code>&lt;YOUR_API_KEY&gt;</code></li>
 </ul>
-<p>See <a href="configuration/">Configuration Reference</a> for details.</p>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Optional API key authentication</li>
-<li>No sensitive data storage</li>
-<li>Read-only system access</li>
-<li>Data redaction capabilities</li>
-</ul>
-<h2 id="performance">Performance<a class="headerlink" href="#performance" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Memory</strong>: ~50MB typical usage</li>
-<li><strong>CPU</strong>: Minimal impact</li>
-<li><strong>Network</strong>: RESTful JSON responses</li>
-</ul>
+</li>
+<li>With the extension active, the interactive docs will be automatically authenticated on every visit.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="configuration/">Configuration Reference</a> - Detailed settings</li>
-<li><a href="endpoints/">API Endpoints</a> - Endpoint documentation</li>
-<li><a href="modules/">Available Modules</a> - Module descriptions</li>
+<li>
+<p><a href="quick-start/"><strong>Quick Start</strong></a><strong>:</strong> Get the API container up and running in minutes.</p>
+</li>
+<li>
+<p><a href="configuration/"><strong>Configuration</strong></a><strong>:</strong> A deep dive into the <code>settings.json</code> file.</p>
+</li>
+<li>
+<p><a href="./api-reference.md"><strong>API Reference</strong></a><strong>:</strong> Detailed documentation for every API endpoint.</p>
+</li>
 </ul>
 
 
