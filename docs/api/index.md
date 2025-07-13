@@ -9,7 +9,7 @@ The DashPad-API is a lightweight, secure, and efficient backend service built wi
 !!! abstract "Important Concepts" 
 
     - **Purpose:** DashPad-API is the backend data collector. It runs on a server, gathers metrics, and provides them to the web interface. 
-    - **Deployment:** The API container **must** run directly on the Linux server you want to monitor. It cannot be deployed to a separate machine or a cloud service. 
+    - **Deployment:** The API container **must** run directly on the Linux-based server you want to monitor. It should never be deployed to a cloud service. 
     - **Configuration:** All configuration is managed through a single `settings.json` file, giving you granular control over every aspect of data collection. 
     - **Data Sources:** It intelligently pulls data from multiple sources, including direct system files (`/proc`, `/sys`) and the Netdata API, with automatic fallback (assuming a valid Netdata instance is installed/running).
     - **Security:** Communication is secured with HTTPS and a mandatory 64-character API key, both of which are automatically generated on first run.
@@ -60,7 +60,7 @@ Access the interactive documentation at:
 
 `https://<your_server_ip>:5241/docs`
 
-!!! warning "Authentication Notice"
+!!! info "Authentication Notice"
     At the top of the interactive docs page, you will see text stating that authentication is required. While the documentation page is public, interacting with the API (using interactive demos) requires authentication.
 
 While the documentation page itself is visible to anyone, **you must authenticate** (with your API key) to use the "Try it out" feature for any of the endpoints.
@@ -69,7 +69,12 @@ Listed below are three primary methods for authenticating with the interactive d
 
 !!! question "How Do I Authenticate With Interactive Documentation?"
 
-    !!! tip "You should have your generated [**DashPad-API key**](./quick-start/#step-3-find-your-api-key-and-ssl-fingerprint) handy (perhaps even saved somewhere) before proceeding! This key is 64 characters long, and can be found in the DashPad-API container logs, printed as part of the startup process."
+    ??? warning "Before You Proceed: Get Your API Key"
+        You should have your generated [**DashPad-API key**](./quick-start/#step-3-find-your-api-key-and-ssl-fingerprint) handy (perhaps even saved somewhere) before proceeding. This key is 64 hexacedimal characters long, and can be found in the DashPad-API container logs, printed as part of the startup process. 
+
+        Your API key should resemble the string of characters below:
+
+        `1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef`
 
     === "Method 1: Authorize Button"
     
@@ -78,8 +83,9 @@ Listed below are three primary methods for authenticating with the interactive d
         This is the easiest and most convenient way to authenticate your session directly within the docs page.
         
         1. Click the **Authorize** button (with a lock icon) located at the top right of the page.
-        2. An "Available authorizations" dialog will appear. You can use any of the defined schemes, but `BearerAuth` is often the simplest. In the `BearerAuth` section, paste your 64-character API key into the **Value** field.
-        3. Click the **Authorize** button in the dialog, and then **Close**.
+        2. An "Available authorizations" dialog will appear. 
+        3. In the `BearerAuth` section, paste your 64-character API key into the **Value** field. (You can use any of the defined schemes, though `BearerAuth` will be used as the example here.)
+        4. Click the **Authorize** button in the dialog, and then **Close**.
         
         The lock icon on the Authorize button will now appear "closed," indicating that you are authenticated. All "Try it out" requests you make from the page will now automatically include the correct `Authorization: Bearer <your-api-key>` header.
     
@@ -92,7 +98,7 @@ Listed below are three primary methods for authenticating with the interactive d
         Simply append `?apikey=` followed by your key to the URL:  
         `https://<your_server_ip>:5241/docs?apikey=<YOUR_API_KEY>`
         
-        !!! warning "While convenient, be mindful of sharing URLs that contain your API key."
+        !!! danger "While convenient, be mindful of who you share these URLs with (API keys are like passwords)."
     
     === "Method 3: Browser Extension"
     
