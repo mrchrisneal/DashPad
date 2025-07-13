@@ -8,9 +8,10 @@ This guide provides the fastest way to get the DashPad-API container running on 
 
 ## Prerequisites
 
--   **A Linux Server:** The DashPad-API container must run on the Linux-based machine you intend to monitor.
-
--   **Docker** & Docker **Compose:** You must have a working installation of Docker and Docker Compose on the server.
+- **A Linux Server:** The DashPad-API container must run on the Linux-based machine you intend to monitor.
+- **Docker** & Docker **Compose:** You must have a working installation of Docker and Docker Compose on the server.
+    - If you can execute `docker run hello-world` in a terminal without any issues, you've got Docker installed!
+    - If you can execute either `docker compose version` (or `docker-compose --version` on older installations) and get a version number (like `Docker Compose version v2.16.0`), you've got Docker Compose installed!
 
 ## Step 1: Create the Docker Compose File
 
@@ -43,10 +44,12 @@ services:
 ```
 
 !!! tip "Timezone Setting" 
-    Remember to change the `TZ` environment variable in the `docker-compose.yml` file to match your server's local timezone. You can find a list of valid timezone names [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "null").
+    Remember to change the `TZ` environment variable in the `docker-compose.yml` file to match your server's local timezone. You can find a list of valid timezone names [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 !!! info "Why Host Networking?" 
-    Using `network_mode: "host"` simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via `https://localhost:5241` from the host machine without needing to map ports.
+    Using `network_mode: "host"` simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via `https://localhost:5241` from the host machine without needing to map ports. This parameter also grants DashPad-API additional networking capabilities, mainly used to provide networking info to connected containers (like DashPad-Web).
+
+    Ports 5238 through 5241 are [unassigned](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=5241) as per IANA, so it should be available on your host by default. Regardless, this port can be changed in the `settings.json` file if needed.
 
 ## Step 2: Launch the Container
 
