@@ -1130,16 +1130,16 @@
 
 
 <h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-10'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-10T15:03:33.119432' locale='en'>2025-07-10</time></span><span data-tippy-content='Last Update: 2025-07-13'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-13T05:02:04.289860' locale='en'>2025-07-13</time></span></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-10'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-10T15:03:33.119432' locale='en'>2025-07-10</time></span><span data-tippy-content='Last Update: 2025-07-13'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-13T05:02:52.637526' locale='en'>2025-07-13</time></span></div></div>
 
 <p>This guide provides the fastest way to get the DashPad-API container running on your Linux server using Docker Compose. This setup uses default settings and auto-generated credentials to get you started in minutes.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>A Linux Server:</strong> The DashPad-API container must run on the Linux-based machine you intend to monitor.</p>
-</li>
-<li>
-<p><strong>Docker</strong> &amp; Docker <strong>Compose:</strong> You must have a working installation of Docker and Docker Compose on the server.</p>
+<li><strong>A Linux Server:</strong> The DashPad-API container must run on the Linux-based machine you intend to monitor.</li>
+<li><strong>Docker</strong> &amp; Docker <strong>Compose:</strong> You must have a working installation of Docker and Docker Compose on the server.<ul>
+<li>If you can execute <code>docker run hello-world</code> in a terminal without any issues, you've got Docker installed!</li>
+<li>If you can execute either <code>docker compose version</code> (or <code>docker-compose --version</code> on older installations) and get a version number (like <code>Docker Compose version v2.16.0</code>), you've got Docker Compose installed!</li>
+</ul>
 </li>
 </ul>
 <h2 id="step-1-create-the-docker-compose-file">Step 1: Create the Docker Compose File<a class="headerlink" href="#step-1-create-the-docker-compose-file" title="Permanent link">&para;</a></h2>
@@ -1170,11 +1170,12 @@ services:
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Timezone Setting</p>
-<p>Remember to change the <code>TZ</code> environment variable in the <code>docker-compose.yml</code> file to match your server's local timezone. You can find a list of valid timezone names <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" title="null">here</a>.</p>
+<p>Remember to change the <code>TZ</code> environment variable in the <code>docker-compose.yml</code> file to match your server's local timezone. You can find a list of valid timezone names <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Why Host Networking?</p>
-<p>Using <code>network_mode: "host"</code> simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via <code>https://localhost:5241</code> from the host machine without needing to map ports.</p>
+<p>Using <code>network_mode: "host"</code> simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via <code>https://localhost:5241</code> from the host machine without needing to map ports. This parameter also grants DashPad-API additional networking capabilities, mainly used to provide networking info to connected containers (like DashPad-Web).</p>
+<p>Ports 5238 through 5241 are <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=5241">unassigned</a> as per IANA, so it should be available on your host by default. Regardless, this port can be changed in the <code>settings.json</code> file if needed.</p>
 </div>
 <h2 id="step-2-launch-the-container">Step 2: Launch the Container<a class="headerlink" href="#step-2-launch-the-container" title="Permanent link">&para;</a></h2>
 <p>From the directory containing your <code>docker-compose.yml</code> file, run the following command to start the container in the background:</p>
