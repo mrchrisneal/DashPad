@@ -8,8 +8,6 @@ This guide provides the fastest way to get the DashPad-API container running on 
 
 ## Step 0: Satisfy Prerequisites
 
-!!! success "NOTE: Checkboxes on this page can be toggled to keep track of your progress!"
-
 Before continuing, ensure you have the following:
 
 - [ ] **A Linux Server:** The DashPad-API container must run on the Linux-based machine you intend to monitor.
@@ -52,31 +50,27 @@ Depending on your Linux distribution, pick one of the following options.
         image: ghcr.io/mrchrisneal/dashpad-api:latest
         container_name: dashpad-api
         restart: unless-stopped
-        # Use host networking for direct access to network interfaces
-        # This makes the container's localhost the same as the host's
         network_mode: "host"
-        # Volumes are required for persistent data and system access
         volumes:
           # Mount for persistent data (settings, API key, SSL certs)
           - ./data:/data
-          # Mount system directories for metric collection (read-only)
+          # Mount system directories for metric/log collection (read-only)
           - /proc:/host/proc:ro
           - /sys:/host/sys:ro
           - /etc:/host/etc:ro
           - /var/log:/host/var/log:ro
-        # Set your server's timezone
         environment:
           - TZ=America/New_York # IMPORTANT: Change to your server's timezone
     ```
 
-    Hit ++ctrl+x++ then type ++y++, then hit ++enter++ to save the file.
+    To save and exit, hit ++ctrl+x++ then type ++y++ and hit ++enter++.
 
 === "unRAID"
     
     !!! tip "This configuration uses the standard unRAID `appdata` path."
 
-    !!! warning "Docker Compose Plugin Required" 
-        For unRAID users, it is highly recommended to use the (free) **Compose Manager** plugin by **dcflachs** to manage your Docker Compose stacks. You can search for "Compose Manager" in the unRAID Community Applications Store, and find more information on the [unRAID forums](https://forums.unraid.net/topic/114415-plugin-docker-compose-manager/). Continue with the instructions below after installing this plugin.
+    !!! warning "Docker Compose Plugin Recommended" 
+        For unRAID users, it is highly recommended to use the **Compose Manager** plugin by **dcflachs** to manage your Docker Compose stacks. You can search for "Compose Manager" in the unRAID Community Applications Store, or find more information on the [unRAID forums](https://forums.unraid.net/topic/114415-plugin-docker-compose-manager/). The instructions listed below are specific to this plugin.
 
     1. Visit `https://<your-server>/Settings/compose.manager` or `https://<your-server>/Compose` (via the unRAID Web Interface). 
 
@@ -97,26 +91,32 @@ Depending on your Linux distribution, pick one of the following options.
         image: ghcr.io/mrchrisneal/dashpad-api:latest
         container_name: dashpad-api
         restart: unless-stopped
-        # Use host networking for direct access to network interfaces
-        # This makes the container's localhost the same as the host's
         network_mode: "host"
-        # Volumes are required for persistent data and system access
         volumes:
-          # Mount for persistent data using the standard unRAID appdata path
+          # Mount for API data (settings, API key, certs) using unRAID appdata path
           - /mnt/user/appdata/dashpad-api:/data
-          # Mount system directories for metric collection (read-only)
+          # Mount system directories for metric/log collection (read-only)
           - /proc:/host/proc:ro
           - /sys:/host/sys:ro
           - /etc:/host/etc:ro
           - /var/log:/host/var/log:ro
-        # Set your server's timezone
         environment:
           - TZ=America/New_York # IMPORTANT: Change to your server's timezone
     ```
 
+    Finally, hit the "Save Changes" button at the top of the page, then hit the "OK" button.
 
-??? tip "Change Your Timezone Setting" 
-    Remember to change the `TZ` environment variable in the `docker-compose.yml` file to match your server's local timezone. You can find a list of valid timezone names [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Here are some common timezones to get you started:
+    You can bring up a Docker Compose stack by clicking "Compose Up", or bring it down by clicking "Compose Down". You may want to switch on "auto start" for this stack (furthest column to the right). 
+
+    !!! info "If the Docker Compose stack (containing the DashPad-API container) is running, you'll see a green ▶️ icon after the stack name." 
+
+    View container logs by clicking the cog (settings) icon, then clicking the "Logs" button. These logs are also viewable per-container via the Docker page in the unRAID web interface.
+
+
+??? tip "Important: Change Your Timezone Setting" 
+    Remember to change the `TZ` environment variable in the `docker-compose.yml` file to match your server's local timezone. You can find a list of valid timezone names [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). 
+
+    Your timezone string should resemble the examples below:
     
     - `America/Los_Angeles` (Pacific Time)
     - `America/New_York` (Eastern Time)
@@ -127,7 +127,7 @@ Depending on your Linux distribution, pick one of the following options.
     - `Asia/Kolkata` (India)
     - `America/Sao_Paulo` (Brazil)
 
-!!! info "Why Host Networking?" 
+??? question "Why Does DashPad-API Use Host Networking?" 
     Using `network_mode: "host"` simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via `https://localhost:5241` from the host machine without needing to map ports. This parameter also grants DashPad-API additional networking capabilities, mainly used to provide networking info to connected containers (like DashPad-Web).
 
     Ports 5238 through 5241 are [unassigned](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml?search=5241) as per IANA, so it should be available on your host by default. Regardless, this port can be changed in the `settings.json` file if needed.
@@ -193,7 +193,7 @@ The `-k` flag is necessary to allow `curl` to accept the self-signed certificate
 }
 ```
 
-Congratulations! Your DashPad-API instance is now running and ready to serve data.
+!!! success "Congratulations! Your DashPad-API instance is now running and ready to serve data."
 
 ## Next Steps
 
