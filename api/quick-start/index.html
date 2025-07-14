@@ -597,9 +597,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#step-0-satisfy-prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Step 0: Satisfy Prerequisites
     </span>
   </a>
   
@@ -1057,9 +1057,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#step-0-satisfy-prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
-      Prerequisites
+      Step 0: Satisfy Prerequisites
     </span>
   </a>
   
@@ -1130,48 +1130,136 @@
 
 
 <h1 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-10'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-10T15:03:33.119432' locale='en'>2025-07-10</time></span><span data-tippy-content='Last Update: 2025-07-13'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-13T05:02:52.637526' locale='en'>2025-07-13</time></span></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin'><span data-tippy-content='Created: 2025-07-10'><span class='material-icons' data-icon='doc_created'></span><time datetime='2025-07-10T15:03:33.119432' locale='en'>2025-07-10</time></span><span data-tippy-content='Last Update: 2025-07-14'><span class='material-icons' data-icon='doc_modified'></span><time datetime='2025-07-14T09:45:54.507222' locale='en'>2025-07-14</time></span></div></div>
 
 <p>This guide provides the fastest way to get the DashPad-API container running on your Linux server using Docker Compose. This setup uses default settings and auto-generated credentials to get you started in minutes.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>A Linux Server:</strong> The DashPad-API container must run on the Linux-based machine you intend to monitor.</li>
-<li><strong>Docker</strong> &amp; Docker <strong>Compose:</strong> You must have a working installation of Docker and Docker Compose on the server.<ul>
-<li>If you can execute <code>docker run hello-world</code> in a terminal without any issues, you've got Docker installed!</li>
-<li>If you can execute either <code>docker compose version</code> (or <code>docker-compose --version</code> on older installations) and get a version number (like <code>Docker Compose version v2.16.0</code>), you've got Docker Compose installed!</li>
+<h2 id="step-0-satisfy-prerequisites">Step 0: Satisfy Prerequisites<a class="headerlink" href="#step-0-satisfy-prerequisites" title="Permanent link">&para;</a></h2>
+<div class="admonition success">
+<p class="admonition-title">NOTE: Checkboxes on this page can be toggled to keep track of your progress!</p>
+</div>
+<p>Before continuing, ensure you have the following:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>A Linux Server:</strong> The DashPad-API container must run on the Linux-based machine you intend to monitor.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> <strong>Docker</strong> &amp; Docker <strong>Compose:</strong> You must have a working installation of Docker and Docker Compose on the server.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> If you can execute <code>docker run hello-world</code> in a terminal without any issues, you've got Docker installed!</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox"/><span class="task-list-indicator"></span></label> If you can execute either <code>docker compose version</code> (or <code>docker-compose --version</code> on older installations) and get a version number (like <code>Docker Compose version v2.16.0</code>), you've got Docker Compose installed!</p>
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="step-1-create-the-docker-compose-file">Step 1: Create the Docker Compose File<a class="headerlink" href="#step-1-create-the-docker-compose-file" title="Permanent link">&para;</a></h2>
-<p>On your Linux server, create a new directory for your DashPad configuration (e.g., <code>~/dashpad-api/</code>) and <code>cd</code> into it. Inside that directory, create a file named <code>docker-compose.yml</code> and paste the following content:</p>
-<div class="highlight"><pre><span></span><code>version: &#39;3.8&#39;
-
-services:
-  dashpad-api:
-    # Use the official image from GitHub Container Registry
-    image: ghcr.io/mrchrisneal/dashpad-api:latest
-    container_name: dashpad-api
-    restart: unless-stopped
-    # Use host networking for direct access to network interfaces
-    # This makes the container&#39;s localhost the same as the host&#39;s
-    network_mode: &quot;host&quot;
-    # Volumes are required for persistent data and system access
-    volumes:
-      # Mount for persistent data (settings, API key, SSL certs)
-      - ./data:/data
-      # Mount system directories for metric collection (read-only)
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /etc:/host/etc:ro
-      - /var/log:/host/var/log:ro
-    # Set your server&#39;s timezone
-    environment:
-      - TZ=America/New_York # IMPORTANT: Change to your server&#39;s timezone
+<p>Depending on your Linux distribution, pick one of the following options.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux (Generic)</label><label for="__tabbed_1_2">unRAID</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>On your Linux server, create a new directory for your DashPad configuration (e.g., <code>~/dashpad-api/</code>) and <code>cd</code> into it:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>~/dashpad-api/
+<span class="nb">cd</span><span class="w"> </span>~/dashpad-api/
 </code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Timezone Setting</p>
-<p>Remember to change the <code>TZ</code> environment variable in the <code>docker-compose.yml</code> file to match your server's local timezone. You can find a list of valid timezone names <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>.</p>
+<p>Inside that directory, create a file named <code>docker-compose.yml</code> and paste the content in the code block below. This configuration is suitable for most standard Linux distributions like Debian, Ubuntu, or CentOS. </p>
+<p>The command below opens up the <code>nano</code> text editor with "docker-compose.yml" as the filename (you can use another editor if you'd like):</p>
+<div class="highlight"><pre><span></span><code>nano<span class="w"> </span>docker-compose.yml
+</code></pre></div>
+<p>Paste the following content into the terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dashpad-api</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Use the official image from GitHub Container Registry</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mrchrisneal/dashpad-api:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-api</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="c1"># Use host networking for direct access to network interfaces</span>
+<span class="w">    </span><span class="c1"># This makes the container&#39;s localhost the same as the host&#39;s</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;host&quot;</span>
+<span class="w">    </span><span class="c1"># Volumes are required for persistent data and system access</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Mount for persistent data (settings, API key, SSL certs)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./data:/data</span>
+<span class="w">      </span><span class="c1"># Mount system directories for metric collection (read-only)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/proc:/host/proc:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sys:/host/sys:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc:/host/etc:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log:/host/var/log:ro</span>
+<span class="w">    </span><span class="c1"># Set your server&#39;s timezone</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=America/New_York</span><span class="w"> </span><span class="c1"># IMPORTANT: Change to your server&#39;s timezone</span>
+</code></pre></div>
+<p>Hit <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-x">X</kbd></span> then type <span class="keys"><kbd class="key-y">Y</kbd></span>, then hit <span class="keys"><kbd class="key-enter">Enter</kbd></span> to save the file.</p>
 </div>
+<div class="tabbed-block">
+<div class="admonition tip">
+<p class="admonition-title">This configuration uses the standard unRAID <code>appdata</code> path.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Docker Compose Plugin Required</p>
+<p>For unRAID users, it is highly recommended to use the (free) <strong>Compose Manager</strong> plugin by <strong>dcflachs</strong> to manage your Docker Compose stacks. You can search for "Compose Manager" in the unRAID Community Applications Store, and find more information on the <a href="https://forums.unraid.net/topic/114415-plugin-docker-compose-manager/">unRAID forums</a>. Continue with the instructions below after installing this plugin.</p>
+</div>
+<ol>
+<li>
+<p>Visit <code>https://&lt;your-server&gt;/Settings/compose.manager</code> or <code>https://&lt;your-server&gt;/Compose</code> (via the unRAID Web Interface). </p>
+</li>
+<li>
+<p>Click the "Add New Stack" button. A modal will appear. Input the desired name of the stack (ex. <code>DashPad-Web</code>), then hit the "OK" button.</p>
+</li>
+<li>
+<p>The stack should now appear on this page. Click the cog (settings) icon to the left of the stack's title, then click "Edit Stack" button. </p>
+</li>
+<li>
+<p>When prompted to select a file to edit, click the "Compose File" button. You will be given a blank textarea. </p>
+</li>
+<li>
+<p>Copy and paste the contents of the file below:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dashpad-api</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># Use the official image from GitHub Container Registry</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mrchrisneal/dashpad-api:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dashpad-api</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="c1"># Use host networking for direct access to network interfaces</span>
+<span class="w">    </span><span class="c1"># This makes the container&#39;s localhost the same as the host&#39;s</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;host&quot;</span>
+<span class="w">    </span><span class="c1"># Volumes are required for persistent data and system access</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Mount for persistent data using the standard unRAID appdata path</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mnt/user/appdata/dashpad-api:/data</span>
+<span class="w">      </span><span class="c1"># Mount system directories for metric collection (read-only)</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/proc:/host/proc:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/sys:/host/sys:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc:/host/etc:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/log:/host/var/log:ro</span>
+<span class="w">    </span><span class="c1"># Set your server&#39;s timezone</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TZ=America/New_York</span><span class="w"> </span><span class="c1"># IMPORTANT: Change to your server&#39;s timezone</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<details class="tip">
+<summary>Change Your Timezone Setting</summary>
+<p>Remember to change the <code>TZ</code> environment variable in the <code>docker-compose.yml</code> file to match your server's local timezone. You can find a list of valid timezone names <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">here</a>. Here are some common timezones to get you started:</p>
+<ul>
+<li><code>America/Los_Angeles</code> (Pacific Time)</li>
+<li><code>America/New_York</code> (Eastern Time)</li>
+<li><code>Europe/London</code> (United Kingdom)</li>
+<li><code>Europe/Paris</code> (France)</li>
+<li><code>Asia/Tokyo</code> (Japan)</li>
+<li><code>Australia/Sydney</code> (Australia)</li>
+<li><code>Asia/Kolkata</code> (India)</li>
+<li><code>America/Sao_Paulo</code> (Brazil)</li>
+</ul>
+</details>
 <div class="admonition info">
 <p class="admonition-title">Why Host Networking?</p>
 <p>Using <code>network_mode: "host"</code> simplifies setup by allowing the container to share the host's network stack. This means you can access the API directly via <code>https://localhost:5241</code> from the host machine without needing to map ports. This parameter also grants DashPad-API additional networking capabilities, mainly used to provide networking info to connected containers (like DashPad-Web).</p>
