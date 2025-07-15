@@ -1,5 +1,8 @@
 # DashPad
 
+!!! example "NOTE: As of July 14th, this documentation is still a work in progress. Many pages are frequently updated and will continue to change until official release. Thank you for your patience! -Chris"
+
+
 A modular system monitoring solution designed to repurpose old tablets as dedicated system metrics displays.
 
 Or, if you prefer something with a bit more flair: 
