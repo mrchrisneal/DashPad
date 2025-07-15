@@ -9,9 +9,9 @@ Or, if you prefer something with a bit more flair:
 ![Screenshot of DashPad-Web: Monitoring two servers, with a three-column layout selected and CPU/Cron/Log modules expanded. The log module at bottom right has automatic scrolling enabled.](assets/screenshot-web-1.png)
 
 !!! abstract "IMPORTANT NOTE"
-    As of July 14th, 2025, DashPad is in active, pre-release development. Since the project is created and managed by a solo developer, the primary goal is to establish a stable and coherent codebase that aligns with long-term architectural goals.
+    As of July 14th, 2025, DashPad is in active, pre-release development. Since the project is created and managed by a solo developer, the primary goal is to establish a stable and coherent codebase that aligns with long-term architectural goals. 
 
-    Consequently, pull requests will not be reviewed or accepted at this time. The codebase is likely to undergo significant changes, and this documentation should also be considered a living document. Your interest and patience as the project matures is appreciated!
+    Consequently, pull requests will not be reviewed or accepted at this time. The codebase is likely to undergo significant changes, and this documentation should also be considered a living document. Your interest and patience as the project matures is appreciated! 
 
 ## What is DashPad?
 

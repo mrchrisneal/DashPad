@@ -92,7 +92,7 @@ As of July 14th, 2025, DashPad is in active, pre-release development. Since the 
 
 Consequently, pull requests will not be reviewed or accepted at this time. The codebase is likely to undergo significant changes, and this documentation should also be considered a living document. 
 
-Your interest and patience as the project matures is appreciated!
+Your interest and patience as the project matures is appreciated! 
 
 
 ### Can I contribute to the project?

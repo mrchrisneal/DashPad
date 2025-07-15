@@ -6,7 +6,7 @@ title: Quick Start (DashPad-API)
 
 This guide provides the fastest way to get the DashPad-API container running on your Linux server using Docker Compose. This setup uses default settings and auto-generated credentials to get you started in minutes.
 
-## Step 0: Satisfy Prerequisites
+## Prerequisites
 
 Before continuing, ensure you have the following:
 
